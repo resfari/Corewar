@@ -6,12 +6,35 @@
 /*   By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/05 19:18:36 by lgeorgia          #+#    #+#             */
-/*   Updated: 2019/11/06 16:11:00 by lgeorgia         ###   ########.fr       */
+/*   Updated: 2019/11/11 20:18:22 by lgeorgia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./libft/libft.h"
 #include "corewar.h"
+
+void	ft_init_first_cycle(t_war *war)
+{
+	t_crg *help;
+	int opp;
+
+	help = war->top;
+	while (help)
+	{
+		opp = (int)war->arena[help->pos].code & 255;
+		if (opp > 0 && opp < 17)
+		{
+			help->to_do = war->opp[opp].cycle;
+			help->op = opp;
+		}
+		else
+		{
+			help->to_do = 0;
+			help->op = -1;
+		}
+		help = help->next;
+	}
+}
 
 int	ft_check_live_crg(t_war *war)
 {
@@ -21,14 +44,17 @@ int	ft_check_live_crg(t_war *war)
 	war->numb_crg = 0;
 	while (help)
 	{
-		if (help->cycle_of_live >= CYCLE_TO_DIE || help->cycle_to_die <= 0)
+		if (help->live == 0)
 		{
 			help->die = 1;
 		}
-		if (help->die == 0)
+		else if (help->die == 0)
 		{
+			help->live = 0;
 			war->numb_crg++;
 		}
+		if (help->next == war->top)
+			return (war->numb_crg);
 		help = help->next;
 	}
 	return (war->numb_crg);
@@ -39,19 +65,34 @@ void	ft_play_game(t_war *war)
 	t_crg *help;
 
 	//init first round, to_do count operation etc
+	ft_init_first_cycle(war);
 	while (1)
 	{
 		help = war->top;
-		if (ft_check_live_crg(war) == 0)
+		// printf("\ncycles = %d\n", war->cycle);
+		if (war->cycle == war->to_die)
 		{
-			ft_putstr("Winner is ???\n");
-			exit(1);
+			if (ft_check_live_crg(war) == 0) // someone alive and kill no life crg
+			{
+			
+				ft_putstr("\nWinner is player number ");
+				ft_putnbr(war->winner);
+				write(1, "\n", 1);
+				exit(1);
+			}
+			war->check_num++;
+			if (war->check_num == 10 || war->live >= NBR_LIVE)
+			{
+
+				war->to_die -= CYCLE_DELTA;
+				war->check_num = 0;
+			}
+			war->cycle = 0;
 		}
 		else
 		{
 			ft_check_status_of_crg(war, help);
+			war->cycle++;
 		}
-		war->cycle++;
-		war->cycle_to_die--;
 	}
 }

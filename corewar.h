@@ -6,7 +6,7 @@
 /*   By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/19 17:02:21 by lgeorgia          #+#    #+#             */
-/*   Updated: 2019/11/06 20:20:42 by lgeorgia         ###   ########.fr       */
+/*   Updated: 2019/11/11 18:49:35 by lgeorgia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # define DIR 5
 # define IND 7
 
-# define TRANS(X)
+# define WP(x) x > 4095 ? x % 4096 : x
 
 
 
@@ -60,12 +60,16 @@ typedef struct			s_crg
 	int					uniq_num;
 	int					carry;
 	int					cycle_of_live; //last time execute live
-	int					cycle_to_die;
-	int					cycle_to_do; //amount of cycles for execute operation
+	int					to_die;
+	int					to_do; //amount of cycles for execute operation
 	int					bytes_to_go; //amount of bytes need to jump for next operation
 	int					reg[REG_NUMBER]; //wtf is this?
 	int					die;
-	
+	int					moved;
+	char				*code; // delete?
+	int					op;
+	int					args[3];
+	int					live;
 }						t_crg;
 
 typedef struct			s_war
@@ -82,11 +86,12 @@ typedef struct			s_war
 	t_crg				*bot;
 	int					winner; //parametr is responsible for player who live last time
 	int					cycle;
-	int					cycle_to_die;
+	int					to_die;
 	int					live;
 	int					check_num;
 	int					uniq; //last uniq number for crg
 	t_opp				opp[17];
+	char				field[MEM_SIZE];
 
 }						t_war;
 
@@ -117,8 +122,7 @@ void	ft_detect_operation(int op, t_war *war, t_crg *crg);
 void	ft_live(t_war *war, t_crg *crg);
 void	ft_check_status_of_crg(t_war *war, t_crg *crg);
 int		ft_check_argument(t_war *war, t_crg *crg, int oper);
-
-
+void	ft_move_crg(t_war *war, t_crg *crg, int move);
 
 
 //test functions (prints, etc)
@@ -127,7 +131,7 @@ void	ft_print_code_for_each_player(t_war *war); //print code for each player
 void	ft_print_arena(t_war *war);
 void	ft_print_text(t_war *war);
 void	ft_test_bytes(t_war *war, int num);
-
+void	ft_test_4bytes(t_war *war, int num);
 
 
 #endif

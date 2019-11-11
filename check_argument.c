@@ -6,7 +6,7 @@
 /*   By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/06 16:07:01 by lgeorgia          #+#    #+#             */
-/*   Updated: 2019/11/06 21:00:07 by lgeorgia         ###   ########.fr       */
+/*   Updated: 2019/11/11 19:02:40 by lgeorgia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,22 +30,21 @@ int		ft_calc_bytes_to_skip(int *mass, int dir_size, int len)
 			bytes += 2;
 		i++;
 	}
-	return (bytes);
+	return (bytes + 2);
 }
 
-int	*ft_read_one_byte_for_arg(t_war *war, int num)
+void	ft_read_one_byte_for_arg(t_war *war, t_crg *crg, int num)
 {
 	char *str;
 	unsigned char *ptr;
 	int d;
-	int res[3];
 	int byte;
 	int correct;
 	int i;
 	
-	res[0] = 0;
-	res[1] = 0;
-	res[2] = 0;
+	crg->args[0] = 0;
+	crg->args[1] = 0;
+	crg->args[2] = 0;
 	d = 0;
 	str = war->player[num].code;
 	ptr = (unsigned char*)&(str[1]);
@@ -56,36 +55,34 @@ int	*ft_read_one_byte_for_arg(t_war *war, int num)
 		correct = 1;
 		if (ptr[d] & 1 << byte)
 		{
-			res[i] = 5;
+			crg->args[i] = 5;
 			correct = 0;
 		}
 		byte--;
 		if (ptr[d] & 1 << byte)
 		{
-			res[i] += 2 + correct;
+			crg->args[i] += 2 + correct;
 		}
 		i++;
 		byte--;
 	}
-	return (res);
 }
 
 int		ft_check_argument(t_war *war, t_crg *crg, int oper)
 {
 	int i;
-	int *res;
 
 	i = 0;
-	res = ft_read_one_byte_for_arg(war, crg->player);
+	ft_read_one_byte_for_arg(war, crg, crg->player); //create massive where 3 args
 	while (i < war->opp[oper].arg_len)
 	{
-		if (res[i] == 0 || war->opp[oper].types[i] % res[i] != 0)
+		if (crg->args[i] == 0 || war->opp[oper].types[i] % crg->args[i] != 0)
 		{
-			crg->bytes_to_go = ft_calc_bytes_to_skip(res, war->opp[oper].dir_size, war->opp[oper].arg_len);
+			crg->bytes_to_go = ft_calc_bytes_to_skip(crg->args, war->opp[oper].dir_size, war->opp[oper].arg_len);
 			return (0);
 		}
 		i++;
 	}
-	crg->bytes_to_go = ft_calc_bytes_to_skip(res, war->opp[oper].dir_size, war->opp[oper].arg_len);
+	crg->bytes_to_go = ft_calc_bytes_to_skip(crg->args, war->opp[oper].dir_size, war->opp[oper].arg_len);
 	return (1);
 }

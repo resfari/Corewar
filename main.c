@@ -6,7 +6,7 @@
 /*   By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/02 22:09:53 by lgeorgia          #+#    #+#             */
-/*   Updated: 2019/11/06 19:21:15 by lgeorgia         ###   ########.fr       */
+/*   Updated: 2019/11/11 18:43:42 by lgeorgia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,17 +27,19 @@ int		main(int argc, char **argv)
 	ft_fill_crg(war);
 	ft_greatings(war);
 
+	// ft_print_arena(war);
 
-
-	// ft_play_game(war);
+	ft_play_game(war);
 
 
 
 	//Tests:
-	ft_test_bytes(war, 1);
+	// ft_test_bytes(war, 1);
+	// ft_test_4bytes(war, 1);
 	// ft_print_crg_list(war);
 	// ft_print_code_for_each_player(war);
 	// ft_print_text(war);
 	// ft_print_arena(war);
+	
 	return (0);
 }

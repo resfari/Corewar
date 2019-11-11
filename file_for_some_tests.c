@@ -2,6 +2,76 @@
 #include "corewar.h"
 
 
+// void	ft_test_reverse(t_war *war, int num)
+// {
+// 	unsigned int res_uns;
+// 	unsigned char *ptr;
+
+// 	ptr = (unsigned char*)&(war->player[num].code);
+	
+
+// }
+
+void	ft_test_4bytes(t_war *war, int num)
+{
+	unsigned short res_short;
+	int res_int;
+	int i;
+	char *ptr;
+	res_short = 2342;
+	// ptr = (char*)&(res_int);
+	(void)war;
+	// printf("short = %lu, unsig = %lu\n", sizeof(res_short), sizeof(res_int));
+
+	ptr = (char*)&(war->field[1]);
+	int byte = 0;
+	(void)num;
+	while (byte < 4)
+	{
+		i = 7;
+		while (i >= 0)
+		{
+			if (ptr[byte] & 1 << i)
+				printf("1");
+			else
+			{
+				printf("0");
+			}
+			i--;
+		}
+		byte++;
+	}
+	printf("\n");
+
+	// ptr = (char*)&(war->player[num].code[1]);
+	// int byte = 0;
+	// while (byte < 4)
+	// {
+	// 	i = 7;
+	// 	while (i >= 0)
+	// 	{
+	// 		if (ptr[byte] & 1 << i)
+	// 			printf("1");
+	// 		else
+	// 		{
+	// 			printf("0");
+	// 		}
+	// 		i--;
+	// 	}
+	// 	byte++;
+	// }
+	// printf("\n");
+
+
+	// i = 0;
+	// res_short = ((255 & war->player[num].code[3]) | (255 & war->player[num].code[2]) << 8 |
+	// (255 & war->player[num].code[1]) << 16 | (255 & war->player[num].code[0]) << 24);
+	res_int = ((255 & ptr[0]) << 24 | (255 & ptr[1]) << 16 |
+	(255 & ptr[2]) << 8 | (255 & ptr[3]));
+	printf("\n%d\n", res_int);
+	// printf("\nshort = %hu, unsigned = %u", res_short, res_int);
+}
+
 void	ft_test_bytes(t_war *war, int num)
 {
 	char *str;
@@ -62,9 +132,14 @@ void	ft_print_arena(t_war *war)
 	{
 		if (a % 64 == 0)
 			write(1, "\n", 1);
-		ft_putnbr(war->arena[a].code);
+		// ft_putnbr(war->arena[a].code);
+		if (a == 1532)
+			
+		ft_putnbr(war->field[a]);
+		write(1, " ", 1);
 		a++;
 	}
+	write(1, "\n", 1);
 }
 
 void	ft_print_code_for_each_player(t_war *war)
