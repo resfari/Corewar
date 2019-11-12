@@ -132,9 +132,7 @@ void	ft_print_arena(t_war *war)
 	{
 		if (a % 64 == 0)
 			write(1, "\n", 1);
-		// ft_putnbr(war->arena[a].code);
-		if (a == 1532)
-			
+		// ft_putnbr(war->arena[a].code);	
 		ft_putnbr(war->field[a]);
 		write(1, " ", 1);
 		a++;
@@ -171,9 +169,10 @@ void	ft_print_crg_list(t_war *war)
 	help = war->top;
 	while (help)
 	{
-		printf("player = %d, position = %d\n", help->player, help->pos);
+		printf("player = %d, position = %d ", help->player, help->pos);
+		printf("die = %d live = %d\n", help->die, help->live);
 		help = help->next;
 	}
-	printf("Check Top  player = %d pos = %d\n", war->top->player, war->top->pos);
-	printf("Check Bot  player = %d pos = %d\n", war->bot->player, war->bot->pos);
+	// printf("Check Top  player = %d pos = %d\n", war->top->player, war->top->pos);
+	// printf("Check Bot  player = %d pos = %d\n", war->bot->player, war->bot->pos);
 }

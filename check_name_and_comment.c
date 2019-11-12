@@ -5,7 +5,7 @@ int		ft_check_chars(int is_valid)
 {
 	if ((is_valid >= 65 && is_valid <= 90) ||
 	(is_valid >= 97 && is_valid <= 122) ||
-	(is_valid >= 42 && is_valid <= 47) ||
+	(is_valid >= 42 && is_valid <= 57) ||
 	is_valid == 32 || is_valid == 39 || is_valid == 61 || is_valid == 33 || is_valid == 0)
 	{
 		return (1);

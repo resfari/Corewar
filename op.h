@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   op.h                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zaz <marvin@42.fr>                         +#+  +:+       +#+        */
+/*   By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/04 11:33:27 by zaz               #+#    #+#             */
-/*   Updated: 2013/11/06 14:21:46 by zaz              ###   ########.fr       */
+/*   Updated: 2019/11/12 16:16:45 by lgeorgia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,8 @@
 #define DIRECT_CHAR				'%'
 #define SEPARATOR_CHAR			','
 
-#define LABEL_CHARS				"abcdefghijklmnopqrstuvwxyz_0123456789"
+# define LABEL_CHARS			"abcdefghijklmnopqrstuvwxyz_0123456789'+-*/=.,ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+# define CMD_CHARS				" abcdefghijklmnopqrstuvwxyz_0123456789'+-*/=.,ABCDEFGHIJKLMNOPQRSTUVWXYZ!"
 
 #define NAME_CMD_STRING			".name"
 #define COMMENT_CMD_STRING		".comment"

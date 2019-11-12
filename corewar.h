@@ -6,7 +6,7 @@
 /*   By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/19 17:02:21 by lgeorgia          #+#    #+#             */
-/*   Updated: 2019/11/11 18:49:35 by lgeorgia         ###   ########.fr       */
+/*   Updated: 2019/11/12 18:49:10 by lgeorgia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@
 # define DIR 5
 # define IND 7
 
-# define WP(x) x > 4095 ? x % 4096 : x
+# define WP(x) (x > 4095 ? x % 4096 : x)
+# define GG(x) (x % MEM_SIZE < 0 ? x % MEM_SIZE + MEM_SIZE : x % MEM_SIZE)
 
 
 
@@ -92,6 +93,7 @@ typedef struct			s_war
 	int					uniq; //last uniq number for crg
 	t_opp				opp[17];
 	char				field[MEM_SIZE];
+	int					all_cycle;
 
 }						t_war;
 
