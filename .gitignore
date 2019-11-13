@@ -3,7 +3,6 @@
 *.a
 *.out*
 .vscode
-.clion lol
-lol lol lol
 corewar
 .clion
+CmakeList.txt
