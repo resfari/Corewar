@@ -1,6 +1,4 @@
-#include "../ft_printf/include/ft_printf.h"
 #include "../include/corewar.h"
-
 
 // void	ft_test_reverse(t_war *war, int num)
 // {

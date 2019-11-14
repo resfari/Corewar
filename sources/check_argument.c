@@ -10,7 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf/include/ft_printf.h"
 #include "../include/corewar.h"
 
 int		ft_calc_bytes_to_skip(int *mass, int dir_size, int len)

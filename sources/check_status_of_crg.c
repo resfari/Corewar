@@ -10,7 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf/include/ft_printf.h"
 #include "../include/corewar.h"
 
 void	ft_check_one_crg(t_war *war, t_crg *crg)
@@ -22,7 +21,7 @@ void	ft_check_one_crg(t_war *war, t_crg *crg)
 	}
 	else
 	{
-		crg->op = (int)war->field[WP(crg->pos)] & 255;
+		crg->op = (int)war->field[GG(crg->pos)] & 255;
 		if (crg->moved == 1)
 		{
 			if (crg->op >= 1 && crg->op <= 16) // valid operation

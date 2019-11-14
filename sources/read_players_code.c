@@ -10,7 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf/include/ft_printf.h"
 #include "../include/corewar.h"
 
 int		ft_copy_code_in_player(t_war *war, int num)

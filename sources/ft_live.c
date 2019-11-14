@@ -10,7 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf/include/ft_printf.h"
 #include "../include/corewar.h"
 
 int		ft_whos_number(t_war *war, int num)

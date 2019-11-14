@@ -10,7 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf/include/ft_printf.h"
 #include "../include/corewar.h"
 
 int     ft_add_player_wo_number(t_war *war, int i)

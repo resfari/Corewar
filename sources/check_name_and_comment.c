@@ -1,4 +1,3 @@
-#include "../ft_printf/include/ft_printf.h"
 #include "../include/corewar.h"
 
 int		ft_check_chars(int is_valid)

@@ -10,7 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf/include/ft_printf.h"
 #include "../include/corewar.h"
 
 //mb need to add check size of code by reading CHAMPION NAME SIZE + 8 --4bytes
