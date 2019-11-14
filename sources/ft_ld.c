@@ -6,7 +6,7 @@
 /*   By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/14 16:36:34 by lgeorgia          #+#    #+#             */
-/*   Updated: 2019/11/14 17:13:22 by lgeorgia         ###   ########.fr       */
+/*   Updated: 2019/11/14 18:33:12 by lgeorgia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	ft_ld_dir(t_war *war, t_crg *crg)
 
 	arg = ((255 & war->arena[GG(pos)].code) << 24 | (255 & war->arena[GG(pos + 1)].code) << 16 |
 	(255 & war->arena[GG(pos + 2)].code) << 8 | (255 & war->arena[GG(pos + 3)].code));
-	reg = war->arena[GG(pos + 4)].code;
+	reg = war->arena[GG(pos + 3)].code;
 	printf("\nregistr = %d\n", reg);
 	exit(1);
 }
