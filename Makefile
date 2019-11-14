@@ -47,6 +47,7 @@ SOURCES = main.c \
 		  move_crg.c \
 		  ft_live.c \
 		  ft_ld.c \
+		  ft_zjmp.c \
 
 
 

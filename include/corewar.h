@@ -66,7 +66,7 @@ typedef struct			s_crg
 	int					to_die;
 	int					to_do; //amount of cycles for execute operation
 	int					bytes_to_go; //amount of bytes need to jump for next operation
-	int					reg[REG_NUMBER]; //wtf is this?
+	int					reg[REG_NUMBER + 1]; //wtf is this?
 	int					die;
 	int					moved;
 	char				*code; // delete?

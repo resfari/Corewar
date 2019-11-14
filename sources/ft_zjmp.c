@@ -14,5 +14,6 @@
 
 void    ft_zjmp(t_war *war, t_crg *crg)
 {
-
+    (void)war;
+    (void)crg;
 }
