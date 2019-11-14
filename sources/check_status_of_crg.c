@@ -6,7 +6,7 @@
 /*   By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/06 15:30:51 by lgeorgia          #+#    #+#             */
-/*   Updated: 2019/11/12 20:13:45 by lgeorgia         ###   ########.fr       */
+/*   Updated: 2019/11/14 17:24:04 by lgeorgia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ void	ft_check_one_crg(t_war *war, t_crg *crg)
 			if (crg->op == 1 || crg->op == 9 || crg->op == 12 || crg->op == 15 ||
 			ft_check_argument(war, crg, crg->op) == 1) // assign bytes to skip
 			{
+				printf("\ndetected opp = %d\n", crg->op);
 				ft_detect_operation(crg->op, war, crg); // detect and do it
 			}
 			else

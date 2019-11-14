@@ -20,11 +20,11 @@ void	ft_test_4bytes(t_war *war, int num)
 	// ptr = (char*)&(res_int);
 	(void)war;
 	// printf("short = %lu, unsig = %lu\n", sizeof(res_short), sizeof(res_int));
-
-	ptr = (char*)&(war->field[1]);
+	ptr = (char*)&(war->arena[1].code);
+	// ptr = (char*)&(war->field[1]);
 	int byte = 0;
 	(void)num;
-	while (byte < 4)
+	while (byte < 1)
 	{
 		i = 7;
 		while (i >= 0)

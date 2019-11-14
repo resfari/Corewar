@@ -6,7 +6,7 @@
 /*   By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/06 16:07:01 by lgeorgia          #+#    #+#             */
-/*   Updated: 2019/11/11 19:02:40 by lgeorgia         ###   ########.fr       */
+/*   Updated: 2019/11/14 18:32:57 by lgeorgia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,19 +34,19 @@ int		ft_calc_bytes_to_skip(int *mass, int dir_size, int len)
 
 void	ft_read_one_byte_for_arg(t_war *war, t_crg *crg, int num)
 {
-	char *str;
-	unsigned char *ptr;
+	char *ptr;
 	int d;
 	int byte;
 	int correct;
 	int i;
 	
+	(void)num;
 	crg->args[0] = 0;
 	crg->args[1] = 0;
 	crg->args[2] = 0;
+	
 	d = 0;
-	str = war->player[num].code;
-	ptr = (unsigned char*)&(str[1]);
+	ptr = (char*)&(war->arena[1].code);
 	byte = 7;
 	i = 0;
 	while (byte > 1)
@@ -65,6 +65,7 @@ void	ft_read_one_byte_for_arg(t_war *war, t_crg *crg, int num)
 		i++;
 		byte--;
 	}
+	// printf("\n pos = %d\narg 1 = %d arg 2 = %d arg 3 = %d\n", crg->pos ,crg->args[0], crg->args[1], crg->args[2]);
 }
 
 int		ft_check_argument(t_war *war, t_crg *crg, int oper)
