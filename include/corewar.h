@@ -51,6 +51,7 @@ typedef struct			s_player
 typedef struct			s_arena
 {
 	char				code;
+	int					busy;
 }						t_arena;
 
 typedef struct			s_crg
@@ -135,6 +136,6 @@ void	ft_print_arena(t_war *war);
 void	ft_print_text(t_war *war);
 void	ft_test_bytes(t_war *war, int num);
 void	ft_test_4bytes(t_war *war, int num);
-
+void	ft_ld(t_war *war, t_crg *crg);
 
 #endif

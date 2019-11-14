@@ -6,7 +6,7 @@
 #    By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/04/10 14:44:36 by lgeorgia          #+#    #+#              #
-#    Updated: 2019/11/11 15:00:02 by lgeorgia         ###   ########.fr        #
+#    Updated: 2019/11/14 17:04:40 by lgeorgia         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,6 +46,7 @@ SOURCES = main.c \
 		  detect_operation.c \
 		  move_crg.c \
 		  ft_live.c \
+		  ft_ld.c \
 
 
 
