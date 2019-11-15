@@ -47,8 +47,13 @@ SOURCES = main.c \
 		  move_crg.c \
 		  ft_live.c \
 		  ft_ld.c \
+		  ft_st.c \
+		  ft_add.c \
+		  ft_sub.c \
+		  ft_and.c \
+		  ft_or.c \
+		  ft_xor.c \
 		  ft_zjmp.c \
-
 
 
 SRCS = $(addprefix $(DIR_S)/,$(SOURCES))

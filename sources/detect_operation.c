@@ -20,10 +20,36 @@ void	ft_detect_operation(int op_num, t_war *war, t_crg *crg)
 		// printf("pos = %d\n",crg->pos);
 		ft_live(war, crg);
 	}
-	if (op_num == 9)
-		ft_zjmp(war, crg);
-	if (op_num == 2)
+	else if (op_num == 2)
 	{
 		ft_ld(war, crg);
+	}
+	else if (op_num == 3)
+	{
+		ft_st(war, crg);
+	}
+	else if (op_num == 4)
+	{
+		ft_add(war, crg);
+	}
+	else if (op_num == 5)
+	{
+		ft_sub(war, crg);
+	}
+	else if (op_num == 6)
+	{
+		ft_and(war, crg);
+	}
+	else if (op_num == 7)
+	{
+		ft_or(war, crg);
+	}
+	else if (op_num == 8)
+	{
+		ft_xor(war, crg);
+	}
+	else if (op_num == 9)
+	{
+		ft_zjmp(war, crg);
 	}
 }

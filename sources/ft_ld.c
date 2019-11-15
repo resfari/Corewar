@@ -10,7 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf/include/ft_printf.h"
 #include "../include/corewar.h"
 
 void	ft_ld_ind(t_war *war, t_crg *crg)
@@ -32,6 +31,7 @@ void	ft_ld_ind(t_war *war, t_crg *crg)
 	printf("\n POS = %d NEW_POS = %d REG = %d\n", pos, new_pos, reg);
 	if (reg >= 1 && reg <= 16)
 	{
+		crg->reg[reg] = new_arg;
 		if (new_arg == 0)
 		{
 			crg->carry = 1;
@@ -40,9 +40,7 @@ void	ft_ld_ind(t_war *war, t_crg *crg)
 		{
 			crg->carry = 0;
 		}
-		crg->reg[reg] = arg;
 	}
-
 	printf("\nIND ARG = %d NEW ARG = %d\n", arg, new_arg);
 	printf("\n carry = %d\n", crg->carry);
 }

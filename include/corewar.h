@@ -136,7 +136,13 @@ void	ft_print_arena(t_war *war);
 void	ft_print_text(t_war *war);
 void	ft_test_bytes(t_war *war, int num);
 void	ft_test_4bytes(t_war *war, int num);
-void    ft_zjmp(t_war *war, t_crg *crg);
 void	ft_ld(t_war *war, t_crg *crg);
+void	ft_st(t_war *war, t_crg *crg);
+void	ft_add(t_war *war, t_crg *crg);
+void	ft_sub(t_war *war, t_crg *crg);
+void	ft_and(t_war *war, t_crg *crg);
+void	ft_or(t_war *war, t_crg *crg);
+void	ft_xor(t_war *war, t_crg *crg);
+void    ft_zjmp(t_war *war, t_crg *crg);
 
 #endif
