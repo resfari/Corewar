@@ -14,59 +14,59 @@
 
 void	ft_sti(t_war *war, t_crg *crg)
 {
-    int pos;
-    int reg;
-    int arg2;
-    int arg3;
+	int pos;
+	int reg;
+	int arg2;
+	int arg3;
 
-    pos = crg->pos + 2;
-    reg = get_arg_reg(war, pos);
-    if (reg >= 1 && reg <= 16)
-    {
-        pos += 1;
-        // arg2
-        if (crg->args[1] == 3)
-        {
-            arg2 = get_arg_reg(war, pos);
-            if (arg2 >= 1 && arg2 <= 16)
-            {
-                arg2 = crg->reg[arg2];
-            }
-            pos += 1;
-        }
-        else if (crg->args[1] == 5)
-        {
-            arg2 = get_arg_dir(war, pos, 2);
-            pos += 2;
-        }
-        else
-        {
-            arg2 = get_arg_ind(war, pos);
-            arg2 = get_arg_dir(war, pos + arg2 % IDX_MOD, 4);
-            pos += 2;
-        }
-        // arg3
-        if (crg->args[1] == 3)
-        {
-            arg3 = get_arg_reg(war, pos);
-            if (arg3 >= 1 && arg3 <= 16)
-            {
-                arg3 = crg->reg[arg3];
-            }
-            pos += 1;
-        }
-        else if (crg->args[1] == 5)
-        {
-            arg3 = get_arg_dir(war, pos, 2);
-            pos += 2;
-        }
-        else
-        {
-            arg3 = get_arg_ind(war, pos);
-            arg3 = get_arg_dir(war, pos + arg3 % IDX_MOD, 4);
-            pos += 2;
-        }
-    }
-    war->arena[crg->pos + (arg2 + arg3) % IDX_MOD].code = crg->reg[reg];
-    ft_andor_calc_move(war, crg);
+	pos = crg->pos + 2;
+	reg = get_arg_reg(war, pos);
+	if (reg >= 1 && reg <= 16)
+	{
+		pos += 1;
+		// arg2
+		if (crg->args[1] == 3)
+		{
+			arg2 = get_arg_reg(war, pos);
+			if (arg2 >= 1 && arg2 <= 16)
+			{
+				arg2 = crg->reg[arg2];
+			}
+			pos += 1;
+		}
+		else if (crg->args[1] == 5)
+		{
+			arg2 = get_arg_dir(war, pos, 2);
+			pos += 2;
+		}
+		else
+		{
+			arg2 = get_arg_ind(war, pos);
+			arg2 = get_arg_dir(war, pos + arg2 % IDX_MOD, 4);
+			pos += 2;
+		}
+		// arg3
+		if (crg->args[1] == 3)
+		{
+			arg3 = get_arg_reg(war, pos);
+			if (arg3 >= 1 && arg3 <= 16)
+			{
+				arg3 = crg->reg[arg3];
+			}
+			pos += 1;
+		}
+		else if (crg->args[1] == 5)
+		{
+			arg3 = get_arg_dir(war, pos, 2);
+			pos += 2;
+		}
+		else
+		{
+			arg3 = get_arg_ind(war, pos);
+			arg3 = get_arg_dir(war, pos + arg3 % IDX_MOD, 4);
+			pos += 2;
+		}
+		war->arena[crg->pos + (arg2 + arg3) % IDX_MOD].code = crg->reg[reg];
+		ft_andor_calc_move(war, crg);
+	}
 }
