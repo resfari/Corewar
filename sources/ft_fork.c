@@ -6,7 +6,7 @@
 /*   By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/16 18:37:43 by lgeorgia          #+#    #+#             */
-/*   Updated: 2019/11/16 19:35:58 by lgeorgia         ###   ########.fr       */
+/*   Updated: 2019/11/16 20:31:27 by lgeorgia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ void	ft_add_new_crg_busy(t_war *war, t_crg *crg, int pos)
 	ft_add_in_list_crg(war, new);
 }
 
-void	ft_fork(t_war *war, t_crg *crg)
+void	ft_fork(t_war *war, t_crg *crg, int cases)
 {
 	unsigned int arg;
 	int pos;
@@ -69,7 +69,12 @@ void	ft_fork(t_war *war, t_crg *crg)
 
 	pos = crg->pos + 1;
 	arg = ((war->arena[GG(pos)].code) << 8 | (war->arena[GG(pos + 1)].code));
-	new_pos = GG((int)arg % IDX_MOD);
+	if (cases == 0) // fork
+		new_pos = GG((int)arg % IDX_MOD);
+	else // lfork
+	{
+		new_pos = GG(crg->pos + arg);
+	}
 	if (war->arena[new_pos].busy == 0)
 	{
 		ft_add_new_crg(war, crg, new_pos);

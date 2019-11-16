@@ -151,7 +151,7 @@ void	ft_xor(t_war *war, t_crg *crg);
 void    ft_zjmp(t_war *war, t_crg *crg);
 void	ft_andor_calc_move(t_war *war, t_crg *crg);
 void	ft_ldi(t_war *war, t_crg *crg);
-void	ft_fork(t_war *war, t_crg *crg);
+void	ft_fork(t_war *war, t_crg *crg, int cases);
 void	ft_sti(t_war *war, t_crg *crg);
 
 #endif
