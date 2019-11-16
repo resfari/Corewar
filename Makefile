@@ -45,6 +45,7 @@ SOURCES = main.c \
 		  check_argument.c \
 		  detect_operation.c \
 		  move_crg.c \
+		  get_arg.c \
 		  ft_live.c \
 		  ft_ld.c \
 		  ft_st.c \
@@ -55,6 +56,7 @@ SOURCES = main.c \
 		  ft_xor.c \
 		  ft_zjmp.c \
 		  ft_ldi.c \
+		  ft_sti.c \
 		  ft_fork.c \
 
 

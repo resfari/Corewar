@@ -63,7 +63,7 @@ void	ft_play_game(t_war *war)
 	t_crg *help;
 
 	//init first round, to_do count operation etc
-	ft_init_first_cycle(war);
+	ft_init_first_cycle(war); // add free or busy because of crg
 	while (1)
 	{
 		help = war->top;

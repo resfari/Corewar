@@ -40,7 +40,7 @@ void	ft_or(t_war *war, t_crg *crg)
     else
     {
         tmp_arg = ((war->arena[GG(pos)].code) << 8 | (war->arena[GG(pos + 1)].code));
-        new_pos = pos + tmp_arg % IDX_MOD;
+        new_pos = crg->pos + tmp_arg % IDX_MOD;
         tmp_arg = ((war->arena[GG(new_pos)].code) << 24 | (war->arena[GG(new_pos + 1)].code) << 16 |
 	        (war->arena[GG(new_pos + 2)].code) << 8 | (war->arena[GG(new_pos + 3)].code));
         bit_or_arg1_2 = tmp_arg;
@@ -66,7 +66,7 @@ void	ft_or(t_war *war, t_crg *crg)
     else
     {
         tmp_arg = ((war->arena[GG(pos)].code) << 8 | (war->arena[GG(pos + 1)].code));
-        new_pos = pos + tmp_arg % IDX_MOD;
+        new_pos = crg->pos + tmp_arg % IDX_MOD;
         tmp_arg = ((war->arena[GG(new_pos)].code) << 24 | (war->arena[GG(new_pos + 1)].code) << 16 |
 	        (war->arena[GG(new_pos + 2)].code) << 8 | (war->arena[GG(new_pos + 3)].code));
         bit_or_arg1_2 = bit_or_arg1_2 | tmp_arg;

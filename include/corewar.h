@@ -125,7 +125,6 @@ t_crg	*ft_create_crg(t_war *war, int num);
 
 void	ft_play_game(t_war *war);
 void	ft_detect_operation(int op, t_war *war, t_crg *crg);
-void	ft_live(t_war *war, t_crg *crg);
 void	ft_check_status_of_crg(t_war *war, t_crg *crg);
 int		ft_check_argument(t_war *war, t_crg *crg, int oper);
 void	ft_move_crg(t_war *war, t_crg *crg, int move);
@@ -138,6 +137,10 @@ void	ft_print_arena(t_war *war);
 void	ft_print_text(t_war *war);
 void	ft_test_bytes(t_war *war, int num);
 void	ft_test_4bytes(t_war *war, int num);
+int 	get_arg_reg(t_war *war, int pos);
+int 	get_arg_dir(t_war *war, int pos, int size);
+int 	get_arg_ind(t_war *war, int pos);
+void	ft_live(t_war *war, t_crg *crg);
 void	ft_ld(t_war *war, t_crg *crg);
 void	ft_st(t_war *war, t_crg *crg);
 void	ft_add(t_war *war, t_crg *crg);
@@ -149,5 +152,6 @@ void    ft_zjmp(t_war *war, t_crg *crg);
 void	ft_andor_calc_move(t_war *war, t_crg *crg);
 void	ft_ldi(t_war *war, t_crg *crg);
 void	ft_fork(t_war *war, t_crg *crg);
+void	ft_sti(t_war *war, t_crg *crg);
 
 #endif
