@@ -41,28 +41,25 @@ void	ft_ld_dir(t_war *war, t_crg *crg)
 
 void	ft_ld_ind(t_war *war, t_crg *crg, int cases)
 {
-	int arg;
-	int new_arg;
+	int arg1;
+	int arg2;
 	int pos;
-	int new_pos;
 	int reg;
 
 	pos = crg->pos + 2;
-	arg = ((war->arena[GG(pos)].code) << 8 | (war->arena[GG(pos + 1)].code));
+	arg1 = ((war->arena[GG(pos)].code) << 8 | (war->arena[GG(pos + 1)].code));
 	reg = war->arena[GG(pos + 2)].code;
 	
 	if (cases == 0) // if its ld
-		new_pos = crg->pos + arg % IDX_MOD;
+		pos = crg->pos + arg1 % IDX_MOD;
 	else //if its LLD
-		new_pos = crg->pos + arg; 
-	
-	new_arg = ((war->arena[GG(new_pos)].code) << 24 | (war->arena[GG(new_pos + 1)].code) << 16 |
-	(war->arena[GG(new_pos + 2)].code) << 8 | (war->arena[GG(new_pos + 3)].code));
-	printf("\n POS = %d NEW_POS = %d REG = %d\n", pos, new_pos, reg);
+		pos = crg->pos + arg1; 
+	arg2 = get_arg_dir(war, pos, 4);
+	printf("\n POS = %d NEW_POS = %d REG = %d\n", pos, pos, reg);
 	if (reg >= 1 && reg <= 16)
 	{
-		crg->reg[reg] = new_arg;
-		if (new_arg == 0)
+		crg->reg[reg] = arg2;
+		if (arg2 == 0)
 		{
 			crg->carry = 1;
 		}
@@ -71,7 +68,7 @@ void	ft_ld_ind(t_war *war, t_crg *crg, int cases)
 			crg->carry = 0;
 		}
 	}
-	printf("\nIND ARG = %d NEW ARG = %d\n", arg, new_arg);
+	printf("\nIND ARG = %d NEW ARG = %d\n", arg1, arg2);
 	printf("\n carry = %d\n", crg->carry);
 }
 

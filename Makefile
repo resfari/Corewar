@@ -58,7 +58,6 @@ SOURCES = main.c \
 		  ft_ldi.c \
 		  ft_sti.c \
 		  ft_fork.c \
-		  ft_lld.c \
 
 
 SRCS = $(addprefix $(DIR_S)/,$(SOURCES))
