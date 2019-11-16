@@ -67,4 +67,6 @@ void	ft_sti(t_war *war, t_crg *crg)
             pos += 2;
         }
     }
+    war->arena[crg->pos + (arg2 + arg3) % IDX_MOD].code = crg->reg[reg];
+    ft_andor_calc_move(war, crg);
 }
