@@ -6,7 +6,7 @@
 #    By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/04/10 14:44:36 by lgeorgia          #+#    #+#              #
-#    Updated: 2019/11/16 17:28:34 by lgeorgia         ###   ########.fr        #
+#    Updated: 2019/11/16 18:36:55 by lgeorgia         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,6 +45,7 @@ SOURCES = main.c \
 		  check_argument.c \
 		  detect_operation.c \
 		  move_crg.c \
+		  get_arg.c \
 		  ft_live.c \
 		  ft_ld.c \
 		  ft_st.c \
@@ -55,6 +56,8 @@ SOURCES = main.c \
 		  ft_xor.c \
 		  ft_zjmp.c \
 		  ft_ldi.c \
+		  ft_sti.c \
+		  ft_fork.c \
 
 
 SRCS = $(addprefix $(DIR_S)/,$(SOURCES))

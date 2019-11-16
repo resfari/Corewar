@@ -1,32 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   move_crg.c                                         :+:      :+:    :+:   */
+/*   ft_fork.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/08 20:22:51 by lgeorgia          #+#    #+#             */
-/*   Updated: 2019/11/16 19:02:47 by lgeorgia         ###   ########.fr       */
+/*   Created: 2019/11/16 18:37:43 by lgeorgia          #+#    #+#             */
+/*   Updated: 2019/11/16 18:54:00 by lgeorgia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/corewar.h"
 
-void	ft_move_crg(t_war *war, t_crg *crg, int move)
-{
-	(void)war;
-	int new_pos;
 
-	new_pos = crg->pos + move;
-	if (war->arena[GG(new_pos)].busy == 0)
-	{
-		war->arena[GG(crg->pos)].busy = 0;
-		crg->pos = GG(new_pos);
-		war->arena[GG(crg->pos)].busy = 1;
-	}
-	else
-	{
-		crg->in_queue = 1;
-		crg->queue_skip = new_pos;
-	}
+int		ft_arg_fork(war, crg, pos)
+{
+
+}
+
+void	ft_fork(t_war *war, t_crg *crg)
+{
+	int arg;
+	int pos;
+
+	pos = crg->pos + 1;
+	arg = ((war->arena[GG(pos)].code) << 24 | (war->arena[GG(pos + 1)].code) << 16 |
+	(war->arena[GG(pos + 2)].code) << 8 | (war->arena[GG(pos + 3)].code));
+	
+
+
 }

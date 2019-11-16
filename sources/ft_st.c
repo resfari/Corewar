@@ -42,7 +42,7 @@ void	ft_st_ind(t_war *war, t_crg *crg)
 	if (reg >= 1 && reg <= 16)
 	{
 		ind = ((war->arena[GG(pos)].code) << 8 | (war->arena[GG(pos + 1)].code));
-		pos += ind % IDX_MOD;
+		pos = crg->pos + ind % IDX_MOD;
 		war->arena[GG(pos)].code = crg->reg[reg];
 	}
 }

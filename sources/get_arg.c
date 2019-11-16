@@ -12,12 +12,12 @@
 
 #include "../include/corewar.h"
 
-int get_reg(t_war *war, int pos)
+int get_arg_reg(t_war *war, int pos)
 {
 	return war->arena[GG(pos)].code;
 }
 
-int get_dir(t_war *war, int pos, int size)
+int get_arg_dir(t_war *war, int pos, int size)
 {
 	if (size == 4)
 	{
@@ -30,7 +30,7 @@ int get_dir(t_war *war, int pos, int size)
 	}
 }
 
-int get_ind(t_war *war, int pos)
+int get_arg_ind(t_war *war, int pos)
 {
 	return ((war->arena[GG(pos)].code) << 8 | (war->arena[GG(pos + 1)].code));
 }
