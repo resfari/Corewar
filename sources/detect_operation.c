@@ -6,7 +6,7 @@
 /*   By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/06 21:39:09 by lgeorgia          #+#    #+#             */
-/*   Updated: 2019/11/16 17:28:09 by lgeorgia         ###   ########.fr       */
+/*   Updated: 2019/11/16 18:36:48 by lgeorgia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,5 +55,9 @@ void	ft_detect_operation(int op_num, t_war *war, t_crg *crg)
 	else if (op_num == 10)
 	{
 		ft_ldi(war, crg);
+	}
+	else if (op_num == 12)
+	{
+		ft_fork(war, crg);
 	}
 }
