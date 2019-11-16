@@ -56,4 +56,8 @@ void	ft_detect_operation(int op_num, t_war *war, t_crg *crg)
 	{
 		ft_ldi(war, crg);
 	}
+	else if (op_num == 11)
+	{
+		ft_sti(war, crg);
+	}
 }
