@@ -9,6 +9,7 @@ int		ft_check_chars(int is_valid)
 	{
 		return (1);
 	}
+	printf("ERROR");
 	return (0);
 }
 
