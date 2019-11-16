@@ -121,7 +121,7 @@ void	ft_greatings(t_war *war);
 t_crg	*ft_init_reg_in_crg(t_crg *crg, int num);
 void	ft_check_status_of_crg(t_war *war, t_crg *crg);
 void	ft_init_opp(t_war *war);
-
+t_crg	*ft_create_crg(t_war *war, int num);
 
 void	ft_play_game(t_war *war);
 void	ft_detect_operation(int op, t_war *war, t_crg *crg);
@@ -148,5 +148,6 @@ void	ft_xor(t_war *war, t_crg *crg);
 void    ft_zjmp(t_war *war, t_crg *crg);
 void	ft_andor_calc_move(t_war *war, t_crg *crg);
 void	ft_ldi(t_war *war, t_crg *crg);
+void	ft_fork(t_war *war, t_crg *crg);
 
 #endif

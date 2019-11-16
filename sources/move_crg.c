@@ -6,7 +6,7 @@
 /*   By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/08 20:22:51 by lgeorgia          #+#    #+#             */
-/*   Updated: 2019/11/16 19:02:47 by lgeorgia         ###   ########.fr       */
+/*   Updated: 2019/11/16 19:05:38 by lgeorgia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,6 @@ void	ft_move_crg(t_war *war, t_crg *crg, int move)
 	else
 	{
 		crg->in_queue = 1;
-		crg->queue_skip = new_pos;
+		crg->queue_skip = GG(new_pos);
 	}
 }
