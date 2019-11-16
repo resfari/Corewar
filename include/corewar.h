@@ -144,5 +144,6 @@ void	ft_and(t_war *war, t_crg *crg);
 void	ft_or(t_war *war, t_crg *crg);
 void	ft_xor(t_war *war, t_crg *crg);
 void    ft_zjmp(t_war *war, t_crg *crg);
+void	ft_andor_calc_move(t_war *war, t_crg *crg);
 
 #endif

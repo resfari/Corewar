@@ -3,14 +3,34 @@
 /*                                                        :::      ::::::::   */
 /*   ft_and.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pnita <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/15 21:17:12 by pnita             #+#    #+#             */
-/*   Updated: 2019/11/15 21:17:13 by pnita            ###   ########.fr       */
+/*   Updated: 2019/11/16 16:07:17 by lgeorgia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/corewar.h"
+
+void	ft_andor_calc_move(t_war *war, t_crg *crg)
+{
+	int res;
+
+	res = 3; // code, types of args, #3 arg T_REG
+	if (crg->args[0] == 3)
+		res += 1;
+	else if (crg->args[0] == 5)
+		res += 4;
+	else
+		res += 2;
+	if (crg->args[1] == 3)
+		res += 1;
+	else if (crg->args[1] == 5)
+		res += 4;
+	else
+		res += 2;
+	ft_move_crg(war, crg, res);
+}
 
 void	ft_and(t_war *war, t_crg *crg)
 {
@@ -86,4 +106,5 @@ void	ft_and(t_war *war, t_crg *crg)
 			crg->carry = 0;
 		}
     }
+	ft_andor_calc_move(war, crg);
 }

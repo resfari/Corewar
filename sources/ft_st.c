@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_st.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pnita <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/15 20:26:20 by pnita             #+#    #+#             */
-/*   Updated: 2019/11/15 20:26:22 by pnita            ###   ########.fr       */
+/*   Updated: 2019/11/16 15:55:38 by lgeorgia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,9 +52,11 @@ void	ft_st(t_war *war, t_crg *crg)
 	if (crg->args[1] == 3)
 	{
 		ft_st_reg(war, crg);
+		ft_move_crg(war, crg, 4);
 	}
 	else
 	{
 		ft_st_ind(war, crg);
+		ft_move_crg(war, crg, 5);
 	}
 }
