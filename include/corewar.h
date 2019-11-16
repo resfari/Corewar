@@ -73,6 +73,8 @@ typedef struct			s_crg
 	int					op;
 	int					args[3];
 	int					live;
+	int					in_queue; // = 0 empty   = 1 busy
+	int					queue_skip; // new place after queue
 }						t_crg;
 
 typedef struct			s_war
