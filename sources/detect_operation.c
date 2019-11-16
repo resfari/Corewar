@@ -6,7 +6,7 @@
 /*   By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/06 21:39:09 by lgeorgia          #+#    #+#             */
-/*   Updated: 2019/11/16 20:27:30 by lgeorgia         ###   ########.fr       */
+/*   Updated: 2019/11/16 20:53:58 by lgeorgia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void	ft_detect_operation(int op_num, t_war *war, t_crg *crg)
 	}
 	else if (op_num == 10)
 	{
-		ft_ldi(war, crg);
+		ft_ldi(war, crg, 0);
 	}
 	else if (op_num == 11)
 	{
@@ -67,6 +67,10 @@ void	ft_detect_operation(int op_num, t_war *war, t_crg *crg)
 	else if (op_num == 13)
 	{
 		ft_ld(war, crg, 1); // case == 1 cause its same opperation
+	}
+	else if (op_num == 14)
+	{
+		ft_ldi(war, crg, 1);
 	}
 	else if (op_num == 15)
 	{
