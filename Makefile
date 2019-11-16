@@ -6,7 +6,7 @@
 #    By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/04/10 14:44:36 by lgeorgia          #+#    #+#              #
-#    Updated: 2019/11/14 17:04:40 by lgeorgia         ###   ########.fr        #
+#    Updated: 2019/11/16 17:28:34 by lgeorgia         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -54,6 +54,7 @@ SOURCES = main.c \
 		  ft_or.c \
 		  ft_xor.c \
 		  ft_zjmp.c \
+		  ft_ldi.c \
 
 
 SRCS = $(addprefix $(DIR_S)/,$(SOURCES))
