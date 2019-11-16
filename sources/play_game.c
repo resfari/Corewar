@@ -6,7 +6,7 @@
 /*   By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/05 19:18:36 by lgeorgia          #+#    #+#             */
-/*   Updated: 2019/11/14 17:18:04 by lgeorgia         ###   ########.fr       */
+/*   Updated: 2019/11/16 22:03:50 by lgeorgia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ void	ft_init_first_cycle(t_war *war)
 			help->to_do = 0;
 			help->op = -1;
 		}
+		war->test_numb++;
 		help = help->next;
 	}
 }
@@ -51,6 +52,7 @@ int	ft_check_live_crg(t_war *war)
 		if (help->die == 0)
 		{
 			help->live = 0;
+			war->test_numb++;
 			war->numb_crg++;
 		}
 		help = help->next;

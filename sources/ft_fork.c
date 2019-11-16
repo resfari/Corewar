@@ -6,7 +6,7 @@
 /*   By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/16 18:37:43 by lgeorgia          #+#    #+#             */
-/*   Updated: 2019/11/16 20:31:27 by lgeorgia         ###   ########.fr       */
+/*   Updated: 2019/11/16 21:57:54 by lgeorgia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,7 @@ void	ft_fork(t_war *war, t_crg *crg, int cases)
 	int pos;
 	int	new_pos;
 
+	war->test_numb++; //delete this shit
 	pos = crg->pos + 1;
 	arg = ((war->arena[GG(pos)].code) << 8 | (war->arena[GG(pos + 1)].code));
 	if (cases == 0) // fork

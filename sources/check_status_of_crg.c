@@ -6,7 +6,7 @@
 /*   By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/06 15:30:51 by lgeorgia          #+#    #+#             */
-/*   Updated: 2019/11/16 21:14:05 by lgeorgia         ###   ########.fr       */
+/*   Updated: 2019/11/16 21:57:47 by lgeorgia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,7 @@ void	ft_check_status_of_crg(t_war *war, t_crg *crg)
 	numb_crg = 0;
 	(void)crg;
 	help = war->top;
+	printf("numb = %d\n", war->test_numb);
 	while (help)
 	{
 		numb_crg++;
@@ -67,8 +68,6 @@ void	ft_check_status_of_crg(t_war *war, t_crg *crg)
 		{
 			ft_check_one_crg(war, help); // need to add check of busy status
 		}
-		if (help->next == war->top)
-			return ;
 		help = help->next;
 	}
 }

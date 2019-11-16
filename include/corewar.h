@@ -87,6 +87,7 @@ typedef struct			s_war
     int                 reserved_wo_n[5];
     int                 numb_players;
 	int					numb_crg; //how many crg alive
+	int					test_numb;
 	t_crg				*top;
 	t_crg				*bot;
 	int					winner; //parametr is responsible for player who live last time
