@@ -6,7 +6,7 @@
 /*   By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/14 16:36:34 by lgeorgia          #+#    #+#             */
-/*   Updated: 2019/11/16 15:56:44 by lgeorgia         ###   ########.fr       */
+/*   Updated: 2019/11/16 20:13:53 by lgeorgia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	ft_ld_dir(t_war *war, t_crg *crg)
 	printf("\nregistr = %d\n", reg);
 }
 
-void	ft_ld_ind(t_war *war, t_crg *crg)
+void	ft_ld_ind(t_war *war, t_crg *crg, int cases)
 {
 	int arg;
 	int new_arg;
@@ -51,7 +51,10 @@ void	ft_ld_ind(t_war *war, t_crg *crg)
 	arg = ((war->arena[GG(pos)].code) << 8 | (war->arena[GG(pos + 1)].code));
 	reg = war->arena[GG(pos + 2)].code;
 	
-	new_pos = crg->pos + arg % IDX_MOD;
+	if (cases == 0) // if its ld
+		new_pos = crg->pos + arg % IDX_MOD;
+	else //if its LLD
+		new_pos = crg->pos + arg; 
 	
 	new_arg = ((war->arena[GG(new_pos)].code) << 24 | (war->arena[GG(new_pos + 1)].code) << 16 |
 	(war->arena[GG(new_pos + 2)].code) << 8 | (war->arena[GG(new_pos + 3)].code));
@@ -72,7 +75,7 @@ void	ft_ld_ind(t_war *war, t_crg *crg)
 	printf("\n carry = %d\n", crg->carry);
 }
 
-void	ft_ld(t_war *war, t_crg *crg)
+void	ft_ld(t_war *war, t_crg *crg, int cases)
 {
 	// printf("\narg = %d\n", crg->args[0]);
 	if (crg->args[0] == 5) // first arg == T_DIR
@@ -82,8 +85,7 @@ void	ft_ld(t_war *war, t_crg *crg)
 	}
 	else
 	{
-		ft_ld_ind(war, crg);
+		ft_ld_ind(war, crg, cases);
 		ft_move_crg(war, crg, 5);
 	}
-	exit(1);
 }

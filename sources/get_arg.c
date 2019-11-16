@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_arg.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pnita <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/16 19:00:07 by pnita             #+#    #+#             */
-/*   Updated: 2019/11/16 19:00:09 by pnita            ###   ########.fr       */
+/*   Updated: 2019/11/16 20:01:49 by lgeorgia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ int get_arg_dir(t_war *war, int pos, int size)
 	{
 		return ((war->arena[GG(pos)].code) << 8 | (war->arena[GG(pos + 1)].code));
 	}
+	return (0);
 }
 
 int get_arg_ind(t_war *war, int pos)

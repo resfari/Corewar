@@ -141,7 +141,7 @@ int 	get_arg_reg(t_war *war, int pos);
 int 	get_arg_dir(t_war *war, int pos, int size);
 int 	get_arg_ind(t_war *war, int pos);
 void	ft_live(t_war *war, t_crg *crg);
-void	ft_ld(t_war *war, t_crg *crg);
+void	ft_ld(t_war *war, t_crg *crg, int cases);
 void	ft_st(t_war *war, t_crg *crg);
 void	ft_add(t_war *war, t_crg *crg);
 void	ft_sub(t_war *war, t_crg *crg);
