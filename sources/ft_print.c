@@ -6,7 +6,7 @@
 /*   By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/18 15:18:24 by lgeorgia          #+#    #+#             */
-/*   Updated: 2019/11/18 17:39:42 by lgeorgia         ###   ########.fr       */
+/*   Updated: 2019/11/18 19:44:02 by lgeorgia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ void	ft_init_ncurses(void)
 
 void	ft_print_1(t_war *war)
 {
-	ft_init_ncurses();
 	int i;
 
 	i = 0;

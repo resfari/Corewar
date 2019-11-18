@@ -6,7 +6,7 @@
 /*   By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/16 18:38:07 by pnita             #+#    #+#             */
-/*   Updated: 2019/11/18 18:14:27 by lgeorgia         ###   ########.fr       */
+/*   Updated: 2019/11/18 18:55:29 by lgeorgia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,8 +67,6 @@ void	ft_sti(t_war *war, t_crg *crg)
 			arg3 = get_arg_dir(war, pos + arg3 % IDX_MOD, 4);
 			pos += 2;
 		}
-
-
 		i = 0;
 		while (i < 4)
 		{

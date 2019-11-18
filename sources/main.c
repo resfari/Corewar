@@ -6,7 +6,7 @@
 /*   By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/02 22:09:53 by lgeorgia          #+#    #+#             */
-/*   Updated: 2019/11/18 15:26:34 by lgeorgia         ###   ########.fr       */
+/*   Updated: 2019/11/18 19:45:30 by lgeorgia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ int		main(int argc, char **argv)
 
 	// ft_print_arena(war);
 
+	// ft_init_ncurses();
 	ft_play_game(war);
 	
 
