@@ -6,7 +6,7 @@
 /*   By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/05 19:18:36 by lgeorgia          #+#    #+#             */
-/*   Updated: 2019/11/18 17:54:05 by lgeorgia         ###   ########.fr       */
+/*   Updated: 2019/11/18 18:18:28 by lgeorgia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,8 @@ int	ft_check_live_crg(t_war *war)
 	{
 		if (help->live == 0)
 		{
+			war->arena[GG(help->pos)].busy = 0;
+			war->arena[GG(help->pos)].crg_clr = 0;
 			help->die = 1;
 		}
 		if (help->die == 0)
