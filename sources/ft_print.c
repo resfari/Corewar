@@ -6,25 +6,58 @@
 /*   By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/18 15:18:24 by lgeorgia          #+#    #+#             */
-/*   Updated: 2019/11/18 16:23:02 by lgeorgia         ###   ########.fr       */
+/*   Updated: 2019/11/18 17:34:43 by lgeorgia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/corewar.h"
 
 
-
-void	ft_print(t_war *war)
+void	ft_init_ncurses(void)
 {
+	initscr();
+	noecho();
+	start_color();
+	init_color(COLOR_WHITE, 220, 220, 220);
+	init_pair(0, COLOR_YELLOW, COLOR_BLACK);
+	init_pair(1, COLOR_BLUE, COLOR_BLACK);
+	init_pair(2, COLOR_MAGENTA, COLOR_BLACK);
+	init_pair(3, COLOR_CYAN, COLOR_BLACK);
+	init_pair(4, COLOR_RED, COLOR_BLACK);
+	init_pair(5, COLOR_GREEN, COLOR_BLACK);
+	init_pair(6, COLOR_YELLOW, COLOR_BLACK);
+	init_pair(7, COLOR_BLACK, COLOR_BLUE);
+	init_pair(8, COLOR_BLACK, COLOR_MAGENTA);
+	init_pair(9, COLOR_BLACK, COLOR_CYAN);
+	init_pair(10, COLOR_BLACK, COLOR_RED);
+	init_pair(11, COLOR_BLACK, COLOR_GREEN);
+	init_pair(12, COLOR_WHITE, COLOR_BLACK);
+	init_pair(13, COLOR_BLACK, COLOR_GREEN);
+	init_pair(14, COLOR_GREEN, COLOR_BLACK);
+	curs_set(FALSE);
+}
+
+void	ft_print_1(t_war *war)
+{
+	ft_init_ncurses();
 	int i;
 
 	i = 0;
 	erase();
 	while (i < MEM_SIZE)
 	{
-		attron(COLOR_PAIR(war->arena[i].color));
-		printw("02x", 255 & war->arena[i].code);
-		attroff(COLOR_PAIR(war->arena[i].color));
+		if (war->arena[i].busy > 0)
+		{
+			attron(COLOR_PAIR(8));
+			printw("%02x", 255 & war->arena[i].code);
+			attroff(COLOR_PAIR(8));
+		}
+		else
+		{
+			attron(COLOR_PAIR(war->arena[i].color));
+			printw("%02x", 255 & war->arena[i].code);
+			attroff(COLOR_PAIR(war->arena[i].color));
+		}
 		printw(" ");
 		if ((i + 1) % (64) == 0)
 			printw("\n");

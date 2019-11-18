@@ -16,6 +16,10 @@
 # include "../ft_printf/include/ft_printf.h"
 # include "op.h"
 # include "curses.h"
+# include <stdarg.h>
+# include <limits.h>
+
+
 
 # define REG 3
 # define DIR 5
@@ -159,6 +163,7 @@ void	ft_sti(t_war *war, t_crg *crg);
 void	ft_aff(t_war *war, t_crg *crg);
 
 //print arena
-void	ft_print(t_war *war);
+void	ft_print_1(t_war *war);
+void	ft_init_ncurses(void);
 
 #endif

@@ -6,7 +6,7 @@
 #    By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/04/10 14:44:36 by lgeorgia          #+#    #+#              #
-#    Updated: 2019/11/18 15:29:21 by lgeorgia         ###   ########.fr        #
+#    Updated: 2019/11/18 17:26:39 by lgeorgia         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -70,7 +70,7 @@ all: $(NAME)
 
 $(NAME): $(OBJS)
 	@make -C ft_printf
-	gcc -o $(NAME) $(FLAG) $(SRCS) ft_printf/libftprintf.a 
+	gcc -o $(NAME) $(FLAG) $(SRCS) ft_printf/libftprintf.a -lcurses
 
 $(DIR_O)/%.o: $(DIR_S)/%.c
 	@mkdir -p temporary

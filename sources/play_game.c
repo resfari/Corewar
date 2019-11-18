@@ -6,7 +6,7 @@
 /*   By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/05 19:18:36 by lgeorgia          #+#    #+#             */
-/*   Updated: 2019/11/18 16:12:28 by lgeorgia         ###   ########.fr       */
+/*   Updated: 2019/11/18 17:05:52 by lgeorgia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,6 @@ void	ft_play_game(t_war *war)
 		}
 		if (war->cycle == war->to_die)
 		{
-			ft_print(war);
 			war->check_num++;
 			if (ft_check_live_crg(war) == 0) // someone alive and kill no life crg
 			{
@@ -102,6 +101,7 @@ void	ft_play_game(t_war *war)
 			war->live = 0;
 		}
 		ft_check_status_of_crg(war, help);
+		ft_print_1(war);
 		war->cycle++;
 		war->all_cycle++;
 		// printf("MAX CYCLE = %d CYCLE_TO_DIE = %d\n", war->all_cycle, war->to_die);
