@@ -6,7 +6,7 @@
 /*   By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/05 19:18:36 by lgeorgia          #+#    #+#             */
-/*   Updated: 2019/11/16 22:03:50 by lgeorgia         ###   ########.fr       */
+/*   Updated: 2019/11/18 16:12:28 by lgeorgia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	ft_init_first_cycle(t_war *war)
 	while (help)
 	{
 		opp = (int)war->arena[help->pos].code & 255;
-		printf("\ninit opp in start = %d\n", opp);
+		// printf("\ninit opp in start = %d\n", opp);
 		if (opp > 0 && opp < 17)
 		{
 			help->to_do = war->opp[opp].cycle;
@@ -32,6 +32,8 @@ void	ft_init_first_cycle(t_war *war)
 			help->to_do = 0;
 			help->op = -1;
 		}
+		war->arena[help->pos].crg_clr = help->player;
+		war->arena[help->pos].busy = 1;
 		war->test_numb++;
 		help = help->next;
 	}
@@ -80,6 +82,7 @@ void	ft_play_game(t_war *war)
 		}
 		if (war->cycle == war->to_die)
 		{
+			ft_print(war);
 			war->check_num++;
 			if (ft_check_live_crg(war) == 0) // someone alive and kill no life crg
 			{

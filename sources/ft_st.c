@@ -6,7 +6,7 @@
 /*   By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/15 20:26:20 by pnita             #+#    #+#             */
-/*   Updated: 2019/11/16 15:55:38 by lgeorgia         ###   ########.fr       */
+/*   Updated: 2019/11/18 16:02:00 by lgeorgia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ void	ft_st_ind(t_war *war, t_crg *crg)
 		ind = ((war->arena[GG(pos)].code) << 8 | (war->arena[GG(pos + 1)].code));
 		pos = crg->pos + ind % IDX_MOD;
 		war->arena[GG(pos)].code = crg->reg[reg];
+		war->arena[GG(pos)].color = crg->player;
 	}
 }
 

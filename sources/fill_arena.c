@@ -6,7 +6,7 @@
 /*   By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/04 16:25:27 by lgeorgia          #+#    #+#             */
-/*   Updated: 2019/11/11 18:12:23 by lgeorgia         ###   ########.fr       */
+/*   Updated: 2019/11/18 16:13:45 by lgeorgia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,9 @@ void	ft_add_code_to_arena(t_war *war, int num, int pos)
 	while (i < war->player[num].code_len)
 	{
 		war->arena[pos].code = war->player[num].code[i] & 255;
+		war->arena[pos].color = num;
+		war->arena[pos].busy = 0;
+		war->arena[pos].crg_clr = 0;
 		war->field[pos] = war->player[num].code[i] & 255;
 		i++;
 		pos++;

@@ -15,6 +15,7 @@
 # include <stdio.h>
 # include "../ft_printf/include/ft_printf.h"
 # include "op.h"
+# include "curses.h"
 
 # define REG 3
 # define DIR 5
@@ -51,7 +52,10 @@ typedef struct			s_player
 typedef struct			s_arena
 {
 	char				code;
-	int					busy;
+	int					busy; //crg here if == 1, so clr = crg_clr
+	int					color; // color for code
+	int					crg_clr; // color for crg
+
 }						t_arena;
 
 typedef struct			s_crg
@@ -73,8 +77,6 @@ typedef struct			s_crg
 	int					op;
 	int					args[3];
 	int					live;
-	int					in_queue; // = 0 empty   = 1 busy
-	int					queue_skip; // new place after queue
 }						t_crg;
 
 typedef struct			s_war
@@ -156,5 +158,7 @@ void	ft_fork(t_war *war, t_crg *crg, int cases);
 void	ft_sti(t_war *war, t_crg *crg);
 void	ft_aff(t_war *war, t_crg *crg);
 
+//print arena
+void	ft_print(t_war *war);
 
 #endif

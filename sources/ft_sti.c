@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_sti.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pnita <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/16 18:38:07 by pnita             #+#    #+#             */
-/*   Updated: 2019/11/16 18:38:09 by pnita            ###   ########.fr       */
+/*   Updated: 2019/11/18 16:03:49 by lgeorgia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,7 @@ void	ft_sti(t_war *war, t_crg *crg)
 			pos += 2;
 		}
 		war->arena[crg->pos + (arg2 + arg3) % IDX_MOD].code = crg->reg[reg];
+		war->arena[crg->pos + (arg2 + arg3) % IDX_MOD].color = crg->player;
 		ft_andor_calc_move(war, crg);
 	}
 }
