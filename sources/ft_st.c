@@ -6,7 +6,7 @@
 /*   By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/15 20:26:20 by pnita             #+#    #+#             */
-/*   Updated: 2019/11/18 16:02:00 by lgeorgia         ###   ########.fr       */
+/*   Updated: 2019/11/18 18:10:50 by lgeorgia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,15 +36,23 @@ void	ft_st_ind(t_war *war, t_crg *crg)
 	int pos;
 	int reg;
 	int	ind;
+	int i;
 
 	pos = crg->pos + 2;
 	reg = war->arena[GG(pos)].code;
+	// if (reg >= 1 && reg <= 16)
+	// {
+	ind = ((war->arena[GG(pos)].code) << 8 | (war->arena[GG(pos + 1)].code));
+	pos = crg->pos + ind % IDX_MOD;
 	if (reg >= 1 && reg <= 16)
 	{
-		ind = ((war->arena[GG(pos)].code) << 8 | (war->arena[GG(pos + 1)].code));
-		pos = crg->pos + ind % IDX_MOD;
-		war->arena[GG(pos)].code = crg->reg[reg];
-		war->arena[GG(pos)].color = crg->player;
+		i = 0;
+		while (i < 4)
+		{
+			war->arena[GG(pos + i)].code = (crg->reg[reg] >> (8 * (3 - i))) & 255;
+			war->arena[GG(pos + i)].color = crg->player;
+			i++;
+		}
 	}
 }
 

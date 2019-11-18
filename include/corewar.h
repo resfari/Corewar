@@ -134,7 +134,7 @@ void	ft_play_game(t_war *war);
 void	ft_detect_operation(int op, t_war *war, t_crg *crg);
 void	ft_check_status_of_crg(t_war *war, t_crg *crg);
 int		ft_check_argument(t_war *war, t_crg *crg, int oper);
-void	ft_move_crg(t_war *war, t_crg *crg, int move);
+void	ft_move_crg(t_war *war, t_crg *crg, int move_to);
 
 
 //test functions (prints, etc)

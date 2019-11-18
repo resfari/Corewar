@@ -6,7 +6,7 @@
 /*   By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/18 15:18:24 by lgeorgia          #+#    #+#             */
-/*   Updated: 2019/11/18 17:34:43 by lgeorgia         ###   ########.fr       */
+/*   Updated: 2019/11/18 17:39:42 by lgeorgia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,9 +48,9 @@ void	ft_print_1(t_war *war)
 	{
 		if (war->arena[i].busy > 0)
 		{
-			attron(COLOR_PAIR(8));
+			attron(COLOR_PAIR(war->arena[i].crg_clr));
 			printw("%02x", 255 & war->arena[i].code);
-			attroff(COLOR_PAIR(8));
+			attroff(COLOR_PAIR(war->arena[i].crg_clr));
 		}
 		else
 		{
