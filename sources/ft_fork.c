@@ -6,7 +6,7 @@
 /*   By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/16 18:37:43 by lgeorgia          #+#    #+#             */
-/*   Updated: 2019/11/18 16:57:04 by lgeorgia         ###   ########.fr       */
+/*   Updated: 2019/11/18 20:32:07 by lgeorgia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,19 +55,18 @@ void	ft_add_new_crg(t_war *war, t_crg *crg, int pos)
 
 void	ft_fork(t_war *war, t_crg *crg, int cases)
 {
-	unsigned int arg;
+	int arg;
 	int pos;
 	int	new_pos;
 
-	war->test_numb++; //delete this shit
 	pos = crg->pos + 1;
-	arg = ((war->arena[GG(pos)].code) << 8 | (war->arena[GG(pos + 1)].code));
+	arg = get_arg_dir(war, pos, 2);
 	if (cases == 0) // fork
 		new_pos = GG((int)arg % IDX_MOD);
 	else // lfork
 	{
-		new_pos = GG(crg->pos + arg);
+		new_pos = GG(crg->pos + (int)arg);
 	}
 	ft_add_new_crg(war, crg, new_pos);
-	ft_move_crg(war, crg, 5);
+	ft_move_crg(war, crg, 3);
 }

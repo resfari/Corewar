@@ -6,7 +6,7 @@
 /*   By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/06 21:42:11 by lgeorgia          #+#    #+#             */
-/*   Updated: 2019/11/16 18:51:30 by lgeorgia         ###   ########.fr       */
+/*   Updated: 2019/11/18 21:49:29 by lgeorgia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,14 +26,15 @@ void	ft_live(t_war *war, t_crg *crg)
 	int pos;
 	
 	pos = crg->pos + 1;
-	war->live++;
-	crg->live++;
-	arg = ((255 & war->arena[GG(pos)].code) << 24 | (255 & war->arena[GG(pos + 1)].code) << 16 |
-	(war->arena[GG(pos + 2)].code) << 8 | (255 & war->arena[GG(pos + 3)].code));
+	arg = get_arg_dir(war, pos, 4);
+	// printf("\nDIR ARG = %d\n", arg);
 	// printf("Args %d", arg * -1);
-	if (ft_whos_number(war, arg * -1) == 1) // mb normal int need to use
+	if (ft_whos_number(war, arg) == 1) // mb normal int need to use
 	{
-		war->winner = arg * - 1;
+		// printf("\nDIR ARG = %d\n", arg);
+		war->winner = arg;
+		war->live++;
+		crg->live = 1;
 		ft_move_crg(war, crg, 5);
 		// printf("arg = %dpos = %d\n", arg, crg->pos);
 	}

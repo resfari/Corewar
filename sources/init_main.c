@@ -6,7 +6,7 @@
 /*   By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/02 22:09:29 by lgeorgia          #+#    #+#             */
-/*   Updated: 2019/11/16 21:57:21 by lgeorgia         ###   ########.fr       */
+/*   Updated: 2019/11/18 20:46:47 by lgeorgia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ void	ft_init_arena(t_war *war)
 	while (i < MEM_SIZE)
 	{
 		war->arena[i].code = 0;
-		war->field[i] = '\0';
 		i++;
 	}
 }

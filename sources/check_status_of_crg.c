@@ -6,7 +6,7 @@
 /*   By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/06 15:30:51 by lgeorgia          #+#    #+#             */
-/*   Updated: 2019/11/18 15:42:05 by lgeorgia         ###   ########.fr       */
+/*   Updated: 2019/11/18 20:46:26 by lgeorgia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	ft_check_one_crg(t_war *war, t_crg *crg)
 	}
 	else
 	{
-		crg->op = (int)war->field[GG(crg->pos)] & 255;
+		crg->op = war->arena[GG(crg->pos)].code & 255;
 		if (crg->moved == 1)
 		{
 			if (crg->op >= 1 && crg->op <= 16) // valid operation

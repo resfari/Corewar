@@ -130,8 +130,7 @@ void	ft_print_arena(t_war *war)
 	{
 		if (a % 64 == 0)
 			write(1, "\n", 1);
-		// ft_putnbr(war->arena[a].code);	
-		ft_putnbr(war->field[a]);
+		ft_putnbr(war->arena[a].code);	
 		write(1, " ", 1);
 		a++;
 	}

@@ -6,7 +6,7 @@
 /*   By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/04 16:25:27 by lgeorgia          #+#    #+#             */
-/*   Updated: 2019/11/18 16:13:45 by lgeorgia         ###   ########.fr       */
+/*   Updated: 2019/11/18 21:16:29 by lgeorgia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ void	ft_add_code_to_arena(t_war *war, int num, int pos)
 		war->arena[pos].color = num;
 		war->arena[pos].busy = 0;
 		war->arena[pos].crg_clr = 0;
-		war->field[pos] = war->player[num].code[i] & 255;
 		i++;
 		pos++;
 	}
@@ -36,8 +35,17 @@ void	ft_fill_arena(t_war *war)
 	int j; // cause i begin from 1 (we need 0 here(pos for 1st player = 0))
 	int pos;
 
-	i = 1;
+	i = 0;
 	j = 0;
+	while (i < MEM_SIZE)
+	{
+		war->arena[i].code = '\0';
+		war->arena[i].color = 0;
+		war->arena[i].busy = 0;
+		war->arena[i].crg_clr = 0;
+		i++;
+	}
+	i = 1;
 	while (i <= war->numb_players)
 	{
 		pos = (MEM_SIZE / war->numb_players) * j;

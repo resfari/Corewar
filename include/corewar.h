@@ -103,7 +103,7 @@ typedef struct			s_war
 	int					check_num;
 	int					uniq; //last uniq number for crg
 	t_opp				opp[17];
-	char				field[MEM_SIZE];
+	// char				field[MEM_SIZE];
 	int					all_cycle;
 
 }						t_war;

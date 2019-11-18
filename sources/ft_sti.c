@@ -6,7 +6,7 @@
 /*   By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/16 18:38:07 by pnita             #+#    #+#             */
-/*   Updated: 2019/11/18 18:55:29 by lgeorgia         ###   ########.fr       */
+/*   Updated: 2019/11/18 22:06:35 by lgeorgia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void	ft_sti(t_war *war, t_crg *crg)
 			pos += 2;
 		}
 		// arg3
-		if (crg->args[1] == 3)
+		if (crg->args[2] == 3)
 		{
 			arg3 = get_arg_reg(war, pos);
 			if (arg3 >= 1 && arg3 <= 16)
@@ -56,15 +56,9 @@ void	ft_sti(t_war *war, t_crg *crg)
 			}
 			pos += 1;
 		}
-		else if (crg->args[1] == 5)
-		{
-			arg3 = get_arg_dir(war, pos, 2);
-			pos += 2;
-		}
 		else
 		{
-			arg3 = get_arg_ind(war, pos);
-			arg3 = get_arg_dir(war, pos + arg3 % IDX_MOD, 4);
+			arg3 = get_arg_dir(war, pos, 2);
 			pos += 2;
 		}
 		i = 0;
