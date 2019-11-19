@@ -6,7 +6,7 @@
 /*   By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/14 16:36:34 by lgeorgia          #+#    #+#             */
-/*   Updated: 2019/11/19 17:15:32 by lgeorgia         ###   ########.fr       */
+/*   Updated: 2019/11/19 18:16:41 by lgeorgia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ void	ft_ld_ind(t_war *war, t_crg *crg, int cases)
 	else //if its LLD
 		pos = crg->pos + arg1; 
 	arg2 = get_arg_dir(war, pos, 4);
-	printf("\n POS = %d NEW_POS = %d REG = %d\n", pos, pos, reg);
+	// printf("\n POS = %d NEW_POS = %d REG = %d\n", pos, pos, reg);
 	if (reg >= 1 && reg <= 16)
 	{
 		crg->reg[reg] = arg2;
@@ -69,8 +69,8 @@ void	ft_ld_ind(t_war *war, t_crg *crg, int cases)
 			crg->carry = 0;
 		}
 	}
-	printf("\nIND ARG = %d NEW ARG = %d\n", arg1, arg2);
-	printf("\n carry = %d\n", crg->carry);
+	// printf("\nIND ARG = %d NEW ARG = %d\n", arg1, arg2);
+	// printf("\n carry = %d\n", crg->carry);
 }
 
 void	ft_ld(t_war *war, t_crg *crg, int cases)

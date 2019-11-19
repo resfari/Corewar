@@ -6,7 +6,7 @@
 /*   By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/05 19:18:36 by lgeorgia          #+#    #+#             */
-/*   Updated: 2019/11/19 15:14:03 by lgeorgia         ###   ########.fr       */
+/*   Updated: 2019/11/19 18:20:30 by lgeorgia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ void	ft_play_game(t_war *war)
 		if (war->cycle == war->to_die)
 		{
 			war->check_num++;
-			printf("\nnumb of crg = %d\n", war->numb_crg);
+			// printf("\nnumb of crg = %d\n", war->numb_crg);
 			if (ft_check_live_crg(war) == 0) // someone alive and kill no life crg
 			{
 				ft_putstr("\nWinner is player number ");

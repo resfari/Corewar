@@ -6,7 +6,7 @@
 /*   By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/16 18:37:43 by lgeorgia          #+#    #+#             */
-/*   Updated: 2019/11/18 20:32:07 by lgeorgia         ###   ########.fr       */
+/*   Updated: 2019/11/19 17:45:43 by lgeorgia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,10 +62,14 @@ void	ft_fork(t_war *war, t_crg *crg, int cases)
 	pos = crg->pos + 1;
 	arg = get_arg_dir(war, pos, 2);
 	if (cases == 0) // fork
-		new_pos = GG((int)arg % IDX_MOD);
+	{
+		new_pos = GG(arg % IDX_MOD);
+		// printf("\n Fork new pos = %d\n", new_pos);
+		// exit(1);
+	}
 	else // lfork
 	{
-		new_pos = GG(crg->pos + (int)arg);
+		new_pos = GG(crg->pos + arg);
 	}
 	ft_add_new_crg(war, crg, new_pos);
 	ft_move_crg(war, crg, 3);

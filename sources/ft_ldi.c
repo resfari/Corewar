@@ -6,7 +6,7 @@
 /*   By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/16 16:37:22 by lgeorgia          #+#    #+#             */
-/*   Updated: 2019/11/16 20:57:08 by lgeorgia         ###   ########.fr       */
+/*   Updated: 2019/11/19 18:16:32 by lgeorgia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,24 +64,24 @@ void	ft_ldi(t_war *war, t_crg *crg, int cases)
 
 	pos = crg->pos + 2;
 	arg1 = ft_ldi_take_arg(war, crg, pos);
-	printf("\n arg1 = %d\n", arg1);
+	// printf("\n arg1 = %d\n", arg1);
 	if (crg->args[0] == 3)
 		pos += 1;
 	else
 		pos += 2;
 	arg2 = ft_ldi_take_arg(war, crg, pos);
-	printf("\n arg2 = %d\n", arg2);
+	// printf("\n arg2 = %d\n", arg2);
 	if (crg->args[0] == 3)
 		pos += 1;
 	else
 		pos += 2;
 	arg3 = war->arena[GG(pos)].code;
-	printf("\n arg3 = %d\n", arg3);
+	// printf("\n arg3 = %d\n", arg3);
 	if (arg3 >= 1 && arg3 <= 16)
 	{
 		crg->reg[arg3] = ft_ldi_find_bytes(war, crg, arg1, arg2, cases);
-		printf("\ncrg reg = %d\n", crg->reg[arg3]);
+		// printf("\ncrg reg = %d\n", crg->reg[arg3]);
 	}
-	printf("\npos = %d\n", pos - crg->pos + 1);
+	// printf("\npos = %d\n", pos - crg->pos + 1);
 	ft_move_crg(war, crg, pos - crg->pos + 1); // +1 cause need skip last arg == T_REG
 }
