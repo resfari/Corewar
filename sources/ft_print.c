@@ -6,7 +6,7 @@
 /*   By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/18 15:18:24 by lgeorgia          #+#    #+#             */
-/*   Updated: 2019/11/19 18:59:45 by lgeorgia         ###   ########.fr       */
+/*   Updated: 2019/11/19 21:15:11 by lgeorgia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,9 +48,9 @@ void	ft_print_1(t_war *war)
 	{
 		if (war->arena[i].busy > 0)
 		{
-			attron(COLOR_PAIR(war->arena[i].crg_clr));
+			attron(COLOR_PAIR(war->arena[i].crg_clr + 6));
 			printw("%02x", 255 & war->arena[i].code);
-			attroff(COLOR_PAIR(war->arena[i].crg_clr));
+			attroff(COLOR_PAIR(war->arena[i].crg_clr + 6));
 		}
 		else
 		{
@@ -63,6 +63,9 @@ void	ft_print_1(t_war *war)
 			printw("\n");
 		i++;
 	}
+	attron(COLOR_PAIR(3));
+	printw("Lives = %d  Cycle = %d  All-Cycles = %d Cycle-to-Dye = %d Numb crg = %d", war->live, war->cycle, war->all_cycle, war->to_die, war->numb_crg);
+	attroff(COLOR_PAIR(3));
 	refresh();
 }
 
