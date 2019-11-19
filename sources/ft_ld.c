@@ -6,7 +6,7 @@
 /*   By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/14 16:36:34 by lgeorgia          #+#    #+#             */
-/*   Updated: 2019/11/16 20:13:53 by lgeorgia         ###   ########.fr       */
+/*   Updated: 2019/11/19 17:15:32 by lgeorgia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,9 @@ void	ft_ld_dir(t_war *war, t_crg *crg)
 
 	pos = crg->pos + 2;
 
-	arg = ((war->arena[GG(pos)].code) << 24 | (war->arena[GG(pos + 1)].code) << 16 |
-	(war->arena[GG(pos + 2)].code) << 8 | (war->arena[GG(pos + 3)].code));
+	arg = get_arg_dir(war, pos, 4);
+	// arg = ((255 & war->arena[GG(pos)].code) << 24 | (255  &war->arena[GG(pos + 1)].code) << 16 |
+	// (255 & war->arena[GG(pos + 2)].code) << 8 | (255 & war->arena[GG(pos + 3)].code));
 	reg = war->arena[GG(pos + 4)].code;
 	if (reg >= 1 && reg <= 16)
 	{
@@ -35,8 +36,8 @@ void	ft_ld_dir(t_war *war, t_crg *crg)
 		}
 		crg->reg[reg] = arg;
 	}
-	printf("\n arg = %d\n", arg);
-	printf("\nregistr = %d\n", reg);
+	// printf("\n value = %d\n", arg);
+	// printf("\nregistr = %d\n", reg);
 }
 
 void	ft_ld_ind(t_war *war, t_crg *crg, int cases)

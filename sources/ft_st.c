@@ -6,7 +6,7 @@
 /*   By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/15 20:26:20 by pnita             #+#    #+#             */
-/*   Updated: 2019/11/18 22:00:32 by lgeorgia         ###   ########.fr       */
+/*   Updated: 2019/11/19 17:04:06 by lgeorgia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,13 +47,15 @@ void	ft_st_ind(t_war *war, t_crg *crg)
 	int i;
 
 	pos = crg->pos + 2;
-	reg = war->arena[GG(pos)].code;
 
+	reg = war->arena[GG(pos)].code;
+	printf("\nreg = %d\n", reg);
 	ind = ft_st_ind_arg(war, pos + 1);
 	pos = crg->pos + ind % IDX_MOD;
 	if (reg >= 1 && reg <= 16)
 	{
 		i = 0;
+		printf("\npos = %d\n", GG(pos + i));
 		while (i < 4)
 		{
 			war->arena[GG(pos + i)].code = (crg->reg[reg] >> (8 * (3 - i))) & 255;

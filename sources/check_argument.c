@@ -6,7 +6,7 @@
 /*   By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/06 16:07:01 by lgeorgia          #+#    #+#             */
-/*   Updated: 2019/11/14 18:32:57 by lgeorgia         ###   ########.fr       */
+/*   Updated: 2019/11/19 17:01:40 by lgeorgia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	ft_read_one_byte_for_arg(t_war *war, t_crg *crg, int num)
 	crg->args[2] = 0;
 	
 	d = 0;
-	ptr = (char*)&(war->arena[1].code);
+	ptr = (char*)&(war->arena[GG(crg->pos + 1)].code);
 	byte = 7;
 	i = 0;
 	while (byte > 1)

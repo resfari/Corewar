@@ -6,7 +6,7 @@
 /*   By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/16 18:38:07 by pnita             #+#    #+#             */
-/*   Updated: 2019/11/19 15:42:07 by lgeorgia         ###   ########.fr       */
+/*   Updated: 2019/11/19 16:48:35 by lgeorgia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@ void	ft_sti(t_war *war, t_crg *crg)
 	int arg3;
 	int i;
 
-	printf("\n%d %d %d\n", crg->args[0], crg->args[1], crg->args[2]);
+	// printf("\n%d %d %d\n", crg->args[0], crg->args[1], crg->args[2]);
 	pos = crg->pos + 2;
 	reg = get_arg_reg(war, pos);
-	printf("reg = %d\n", reg);
+	// printf("reg = %d\n", reg);
 	if (reg >= 1 && reg <= 16)
 	{
 		pos += 1;
@@ -63,8 +63,9 @@ void	ft_sti(t_war *war, t_crg *crg)
 			arg3 = get_arg_dir(war, pos, 2);
 			pos += 2;
 		}
-		printf("arg2 = %d  arg 3 = %d\n", arg2, arg3);
+		// printf("arg2 = %d  arg 3 = %d\n", arg2, arg3);
 		i = 0;
+		// printf("pos = %d\n", GG(crg->pos + (arg2 + arg3) % IDX_MOD + i));
 		while (i < 4)
 		{
 			war->arena[GG(crg->pos + (arg2 + arg3) % IDX_MOD + i)].code = (crg->reg[reg] >> (8 * (3 - i))) & 255;
@@ -72,6 +73,5 @@ void	ft_sti(t_war *war, t_crg *crg)
 			i++;
 		}
 		ft_move_crg(war, crg, pos - crg->pos);
-		// ft_andor_calc_move(war, crg);
 	}
 }

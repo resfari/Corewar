@@ -6,7 +6,7 @@
 /*   By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/06 21:39:09 by lgeorgia          #+#    #+#             */
-/*   Updated: 2019/11/18 20:34:25 by lgeorgia         ###   ########.fr       */
+/*   Updated: 2019/11/19 16:54:05 by lgeorgia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,12 @@ void	ft_detect_operation(int op_num, t_war *war, t_crg *crg)
 	}
 	else if (op_num == 2)
 	{
-		// printf("LD\n");
+		printf("LD\n");
 		ft_ld(war, crg, 0);
 	}
 	else if (op_num == 3)
 	{
-		// printf("ST\n");
+		printf("ST\n");
 		ft_st(war, crg);
 	}
 	else if (op_num == 4)
@@ -66,12 +66,12 @@ void	ft_detect_operation(int op_num, t_war *war, t_crg *crg)
 	}
 	else if (op_num == 11)
 	{
-		// printf("STI\n");
+		printf("STI\n");
 		ft_sti(war, crg);
 	}
 	else if (op_num == 12)
 	{
-		// printf("FORK\n");
+		printf("FORK\n");
 		ft_fork(war, crg, 0);
 	}
 	else if (op_num == 13)
