@@ -6,7 +6,7 @@
 /*   By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/05 19:18:36 by lgeorgia          #+#    #+#             */
-/*   Updated: 2019/11/18 22:17:01 by lgeorgia         ###   ########.fr       */
+/*   Updated: 2019/11/19 15:14:03 by lgeorgia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,7 +103,7 @@ void	ft_play_game(t_war *war)
 			war->live = 0;
 		}
 		ft_check_status_of_crg(war, help);
-		ft_print_1(war);
+		// ft_print_1(war);
 		war->cycle++;
 		war->all_cycle++;
 		// printf("MAX CYCLE = %d CYCLE_TO_DIE = %d\n", war->all_cycle, war->to_die);
