@@ -6,7 +6,7 @@
 /*   By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/18 15:18:24 by lgeorgia          #+#    #+#             */
-/*   Updated: 2019/11/18 19:44:02 by lgeorgia         ###   ########.fr       */
+/*   Updated: 2019/11/19 18:59:45 by lgeorgia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ void	ft_print_1(t_war *war)
 	int i;
 
 	i = 0;
+	ft_init_ncurses();
 	erase();
 	while (i < MEM_SIZE)
 	{

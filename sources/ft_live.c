@@ -6,7 +6,7 @@
 /*   By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/06 21:42:11 by lgeorgia          #+#    #+#             */
-/*   Updated: 2019/11/19 18:19:59 by lgeorgia         ###   ########.fr       */
+/*   Updated: 2019/11/19 19:12:23 by lgeorgia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,14 @@ void	ft_live(t_war *war, t_crg *crg)
 	
 	pos = crg->pos + 1;
 	arg = get_arg_dir(war, pos, 4);
-	printf("\nLIVE ARG = %d\n", arg);
-	exit(1);
+	// printf("\nLIVE ARG = %d\n", arg);
+	// exit(1);
 	// printf("Args %d", arg * -1);
 	if (ft_whos_number(war, arg) == 1) // mb normal int need to use
 	{
 		// printf("\nDIR ARG = %d\n", arg);
 		war->winner = arg;
+		printf("HERE\n");
 		war->live++;
 		crg->live = 1;
 		ft_move_crg(war, crg, 5);
