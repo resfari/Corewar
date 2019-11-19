@@ -6,7 +6,7 @@
 /*   By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/06 15:30:51 by lgeorgia          #+#    #+#             */
-/*   Updated: 2019/11/19 21:27:09 by lgeorgia         ###   ########.fr       */
+/*   Updated: 2019/11/19 21:28:25 by lgeorgia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,5 +74,5 @@ void	ft_check_status_of_crg(t_war *war, t_crg *crg)
 		}
 		help = help->next;
 	}
-	printf("NUMB= %d ", numb_crg);
+	// printf("NUMB= %d ", numb_crg);
 }
