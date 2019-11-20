@@ -6,7 +6,7 @@
 /*   By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/18 15:18:24 by lgeorgia          #+#    #+#             */
-/*   Updated: 2019/11/20 18:49:43 by lgeorgia         ###   ########.fr       */
+/*   Updated: 2019/11/20 19:08:43 by lgeorgia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ void	ft_print_1(t_war *war)
 	attron(COLOR_PAIR(3));
 	printw("Lives = %d  Cycle = %d  All-Cycles = %d Cycle-to-Dye = %d Numb crg = %d", war->live, war->cycle, war->all_cycle, war->to_die, war->numb_crg);
 	attroff(COLOR_PAIR(3));
-	sleep(1);
+	usleep(100000);
 	refresh();
 }
 
