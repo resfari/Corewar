@@ -6,7 +6,7 @@
 /*   By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/20 20:11:09 by lgeorgia          #+#    #+#             */
-/*   Updated: 2019/11/20 20:21:34 by lgeorgia         ###   ########.fr       */
+/*   Updated: 2019/11/20 21:29:08 by lgeorgia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,10 @@ int main(void)
 {
 	int i;
 	initscr();
-	// keypad(stdscr, true);
-	while (1)
+	keypad(stdscr, true);
+	while ((i = getch()) != 27)
 	{
-		i = getch();
-		if (i == 32)
-			printf("32");
-		if (i == 27)
-			printf("1");
+		printf("DNIWE");
 	}
 	return (0);
 }

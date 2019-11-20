@@ -6,7 +6,7 @@
 /*   By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/05 19:18:36 by lgeorgia          #+#    #+#             */
-/*   Updated: 2019/11/20 20:41:13 by lgeorgia         ###   ########.fr       */
+/*   Updated: 2019/11/20 21:27:21 by lgeorgia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,17 +71,9 @@ void	ft_play_game(t_war *war)
 	//init first round, to_do count operation etc
 	ft_init_first_cycle(war); // add free or busy because of crg
 	ft_init_ncurses();
-	while (1)
+	while ((key = getch()) != 27)
 	{
 		help = war->top;
-		key = getch();
-		if (key == 32)
-			printf("\n\nDNIWE DNIWE DNIWE\n\n");
-		else
-		{
-			printf("%d", key);
-		}
-		
 		// printf("\ncycles = %d\n", war->cycle);
 		if (war->to_die <= 0)
 		{
@@ -119,4 +111,7 @@ void	ft_play_game(t_war *war)
 		// printf("MAX CYCLE = %d CYCLE_TO_DIE = %d\n", war->all_cycle, war->to_die);
 		// printf("pos 1 pl = %d pos 2 pl = %d\n", war->bot->pos, war->top->pos);
 	}
+	endwin();
+	printf("END");
+	exit(1);
 }
