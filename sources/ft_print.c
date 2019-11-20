@@ -6,7 +6,7 @@
 /*   By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/18 15:18:24 by lgeorgia          #+#    #+#             */
-/*   Updated: 2019/11/20 19:08:43 by lgeorgia         ###   ########.fr       */
+/*   Updated: 2019/11/20 20:01:30 by lgeorgia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,10 @@
 void	ft_init_ncurses(void)
 {
 	initscr();
+	keypad(stdscr, true);
+	nodelay(stdscr, true);
+	curs_set(false);
+	cbreak();
 	noecho();
 	start_color();
 	init_color(COLOR_WHITE, 220, 220, 220);
@@ -34,7 +38,6 @@ void	ft_init_ncurses(void)
 	init_pair(12, COLOR_WHITE, COLOR_BLACK);
 	init_pair(13, COLOR_BLACK, COLOR_GREEN);
 	init_pair(14, COLOR_GREEN, COLOR_BLACK);
-	curs_set(FALSE);
 }
 
 void	ft_print_1(t_war *war)
@@ -42,7 +45,6 @@ void	ft_print_1(t_war *war)
 	int i;
 
 	i = 0;
-	ft_init_ncurses();
 	erase();
 	while (i < MEM_SIZE)
 	{
@@ -66,7 +68,7 @@ void	ft_print_1(t_war *war)
 	attron(COLOR_PAIR(3));
 	printw("Lives = %d  Cycle = %d  All-Cycles = %d Cycle-to-Dye = %d Numb crg = %d", war->live, war->cycle, war->all_cycle, war->to_die, war->numb_crg);
 	attroff(COLOR_PAIR(3));
-	usleep(100000);
+	// usleep(0);
 	refresh();
 }
 
