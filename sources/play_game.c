@@ -6,7 +6,7 @@
 /*   By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/05 19:18:36 by lgeorgia          #+#    #+#             */
-/*   Updated: 2019/11/21 18:53:59 by lgeorgia         ###   ########.fr       */
+/*   Updated: 2019/11/21 19:00:36 by lgeorgia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,8 @@ void	ft_play_game(t_war *war)
 				ft_putstr("\nWinner is player number ");
 				ft_putnbr(war->winner);
 				write(1, "\n", 1);
-				printf("To_die < 0: CYCLE MAX = %d war_to_die = %d numb crg = %d\n", war->all_cycle, war->to_die, war->numb_crg + 1);
+				printf("To_die < 0: CYCLE MAX = %d war_to_die = %d numb crg = %d fork = %d\n",
+				war->all_cycle, war->to_die, war->numb_crg + war->numb_players, war->fork_count);
 				exit(1);
 		}
 		if (war->cycle == war->to_die)
@@ -92,7 +93,8 @@ void	ft_play_game(t_war *war)
 				ft_putstr("\nWinner is player number ");
 				ft_putnbr(war->winner);
 				write(1, "\n", 1);
-				printf("CYCLE MAX = %d war_to_die = %d numb crg = %d\n", war->all_cycle, war->to_die, war->numb_crg + 1);
+				printf("CYCLE MAX = %d war_to_die = %d numb crg = %d fork = %d\n",
+				war->all_cycle, war->to_die, war->numb_crg + war->numb_players, war->fork_count);
 				exit(1);
 			}
 			if (war->check_num == 9 || war->live >= NBR_LIVE)
