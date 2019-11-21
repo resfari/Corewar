@@ -6,7 +6,7 @@
 /*   By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/16 18:38:07 by pnita             #+#    #+#             */
-/*   Updated: 2019/11/19 19:05:03 by lgeorgia         ###   ########.fr       */
+/*   Updated: 2019/11/21 19:57:46 by lgeorgia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,14 @@ void	ft_sti(t_war *war, t_crg *crg)
 		}
 		// ft_print_1(war);
 		// exit(1);
+
+
+		
+		// if (war->sti_count < 60)
+		// {
+		// 	printf("\n%d\n", pos - crg->pos);
+		// 	war->sti_count++;
+		// }
 		ft_move_crg(war, crg, pos - crg->pos);
 	}
 }

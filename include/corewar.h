@@ -110,6 +110,8 @@ typedef struct			s_war
 	//test params
 	int					zjmp_count;
 	int					fork_count;
+	int					sti_count;
+	int					st_count;
 
 }						t_war;
 
