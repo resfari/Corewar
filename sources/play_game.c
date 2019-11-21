@@ -6,7 +6,7 @@
 /*   By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/05 19:18:36 by lgeorgia          #+#    #+#             */
-/*   Updated: 2019/11/21 16:16:23 by lgeorgia         ###   ########.fr       */
+/*   Updated: 2019/11/21 18:53:59 by lgeorgia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int	ft_check_live_crg(t_war *war)
 	t_crg *help;
 
 	help = war->top;
-	war->numb_crg = 0;
+	// war->numb_crg = 0;
 	while (help)
 	{
 		if (help->live == 0)
@@ -56,7 +56,7 @@ int	ft_check_live_crg(t_war *war)
 		{
 			help->live = 0;
 			war->test_numb++;
-			war->numb_crg++;
+			// war->numb_crg++;
 		}
 		help = help->next;
 	}
@@ -80,7 +80,7 @@ void	ft_play_game(t_war *war)
 				ft_putstr("\nWinner is player number ");
 				ft_putnbr(war->winner);
 				write(1, "\n", 1);
-				printf("CYCLE MAX = %d DIE<<<<<= 0\n", war->all_cycle);
+				printf("To_die < 0: CYCLE MAX = %d war_to_die = %d numb crg = %d\n", war->all_cycle, war->to_die, war->numb_crg + 1);
 				exit(1);
 		}
 		if (war->cycle == war->to_die)
@@ -92,10 +92,10 @@ void	ft_play_game(t_war *war)
 				ft_putstr("\nWinner is player number ");
 				ft_putnbr(war->winner);
 				write(1, "\n", 1);
-				printf("CYCLE MAX = %d war_to_die = %d\n", war->all_cycle, war->to_die);
+				printf("CYCLE MAX = %d war_to_die = %d numb crg = %d\n", war->all_cycle, war->to_die, war->numb_crg + 1);
 				exit(1);
 			}
-			if (war->check_num == 10 || war->live >= NBR_LIVE)
+			if (war->check_num == 9 || war->live >= NBR_LIVE)
 			{
 
 				war->to_die -= CYCLE_DELTA;
@@ -108,7 +108,7 @@ void	ft_play_game(t_war *war)
 		if (war->need_to_draw == 1)
 		{
 			ft_print_1(war);
-			// usleep(10000);
+			// usleep(25000);
 		}
 		war->cycle++;
 		war->all_cycle++;
