@@ -6,7 +6,7 @@
 /*   By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/05 19:18:36 by lgeorgia          #+#    #+#             */
-/*   Updated: 2019/11/20 21:27:21 by lgeorgia         ###   ########.fr       */
+/*   Updated: 2019/11/21 15:13:05 by lgeorgia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,12 +66,12 @@ int	ft_check_live_crg(t_war *war)
 void	ft_play_game(t_war *war)
 {
 	t_crg *help;
-	int key;
 
 	//init first round, to_do count operation etc
 	ft_init_first_cycle(war); // add free or busy because of crg
-	ft_init_ncurses();
-	while ((key = getch()) != 27)
+	if (war->need_to_draw == 1)
+		ft_init_ncurses();
+	while (1)
 	{
 		help = war->top;
 		// printf("\ncycles = %d\n", war->cycle);
@@ -105,13 +105,14 @@ void	ft_play_game(t_war *war)
 			war->live = 0;
 		}
 		ft_check_status_of_crg(war, help);
-		ft_print_1(war);
+		if (war->need_to_draw == 1)
+		{
+			ft_print_1(war);
+			usleep(100000);
+		}
 		war->cycle++;
 		war->all_cycle++;
 		// printf("MAX CYCLE = %d CYCLE_TO_DIE = %d\n", war->all_cycle, war->to_die);
 		// printf("pos 1 pl = %d pos 2 pl = %d\n", war->bot->pos, war->top->pos);
 	}
-	endwin();
-	printf("END");
-	exit(1);
 }

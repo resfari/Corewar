@@ -6,7 +6,7 @@
 /*   By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/02 22:09:29 by lgeorgia          #+#    #+#             */
-/*   Updated: 2019/11/18 20:46:47 by lgeorgia         ###   ########.fr       */
+/*   Updated: 2019/11/21 14:54:42 by lgeorgia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ void	ft_init_main(t_war *war, char **argv, int argc)
 	war->cycle = 0;
 	war->live = 0;
 	war->uniq = 0;
+	war->need_to_draw = 0;
 	war->all_cycle = 0;
 	war->to_die = CYCLE_TO_DIE;
 	war->numb_players = 0;
@@ -54,4 +55,9 @@ void	ft_init_main(t_war *war, char **argv, int argc)
 	ft_reserve_num_for_players(war);
 	ft_init_arena(war);
 	ft_init_opp(war);
+
+
+	//test params
+	war->zjmp_count = 0;
+	war->fork_count = 0;
 }

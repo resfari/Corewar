@@ -6,7 +6,7 @@
 /*   By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/02 22:09:32 by lgeorgia          #+#    #+#             */
-/*   Updated: 2019/11/03 18:13:47 by lgeorgia         ###   ########.fr       */
+/*   Updated: 2019/11/21 14:37:01 by lgeorgia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,18 +63,28 @@ void    ft_read_flags_players(t_war *war)
 {
 	int i;
 	int file;
+	int count;
 
 	file = 0;
+	count = 0; // чтобы по сто раз в цикле в -v не заходить(очевидно)
 	i = 1;
 	while (i < war->argc)
 	{
-		if (ft_strequ(war->argv[i], "-n"))
+		if (i == 1 && ft_strequ(war->argv[1], "-v"))
 		{
-			i = ft_add_player_with_number(war, i + 1);
+			war->need_to_draw = 1;
+			count++;
 		}
 		else
 		{
-			i = ft_add_player_wo_number(war, i);
+			if (ft_strequ(war->argv[i], "-n"))
+			{
+				i = ft_add_player_with_number(war, i + 1);
+			}
+			else
+			{
+				i = ft_add_player_wo_number(war, i);
+			}
 		}
 		i++;
 	}

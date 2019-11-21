@@ -105,6 +105,11 @@ typedef struct			s_war
 	t_opp				opp[17];
 	// char				field[MEM_SIZE];
 	int					all_cycle;
+	int					need_to_draw;
+
+	//test params
+	int					zjmp_count;
+	int					fork_count;
 
 }						t_war;
 
