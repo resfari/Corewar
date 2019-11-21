@@ -6,7 +6,7 @@
 /*   By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/16 18:37:43 by lgeorgia          #+#    #+#             */
-/*   Updated: 2019/11/21 15:08:21 by lgeorgia         ###   ########.fr       */
+/*   Updated: 2019/11/21 16:05:27 by lgeorgia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,13 +44,14 @@ void	ft_add_new_crg(t_war *war, t_crg *crg, int pos)
 	{
 		war->arena[pos].busy += 1;
 	}
-	new->pos = pos;
+	new->pos = crg->pos;
 	new->live = crg->live;
 	new->carry = crg->carry;
 	new->moved = 1;
 	new->to_do = 0;
 	ft_copy_reg(new, crg);
 	ft_add_in_list_crg(war, new);
+	ft_move_crg(war, new, pos);
 }
 
 void	ft_fork(t_war *war, t_crg *crg, int cases)
