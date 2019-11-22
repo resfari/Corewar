@@ -128,10 +128,10 @@ void	ft_print_arena(t_war *war)
 	a = 0;
 	while (a < MEM_SIZE)
 	{
-		if (a % 64 == 0)
-			printf("\n");
-		printw("%02x", 255 & war->arena[a].code);	
-		printf(" ");
+		if (a % 32 == 0)
+			write(1, "\n", 1);
+		ft_printf("%02x", 255 & war->arena[a].code);	
+		write(1, " ", 1);
 		a++;
 	}
 }

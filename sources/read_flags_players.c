@@ -6,7 +6,7 @@
 /*   By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/02 22:09:32 by lgeorgia          #+#    #+#             */
-/*   Updated: 2019/11/22 17:55:28 by lgeorgia         ###   ########.fr       */
+/*   Updated: 2019/11/22 18:47:04 by lgeorgia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,17 +91,14 @@ void    ft_read_flags_players(t_war *war)
 {
 	int i;
 	int file;
-	int count;
 
 	file = 0;
-	count = 0; // чтобы по сто раз в цикле в -v не заходить(очевидно)
 	i = 1;
 	while (i < war->argc)
 	{
 		if (i == 1 && ft_strequ(war->argv[1], "-v"))
 		{
 			war->need_to_draw = 1;
-			count++;
 		}
 		else if (i == 1 && ft_strequ(war->argv[1], "-dump"))
 		{
@@ -119,6 +116,7 @@ void    ft_read_flags_players(t_war *war)
 		}
 		else
 		{
+			ft_putnbr(i);
 			if (ft_strequ(war->argv[i], "-n"))
 			{
 				i = ft_add_player_with_number(war, i + 1);
@@ -130,10 +128,12 @@ void    ft_read_flags_players(t_war *war)
 		}
 		i++;
 	}
+	write(1, "\nERROR\n", 7);
 	close(file);
 	if (ft_check_order_amount_players(war) == 0)
 	{
 		ft_putstr("Check players order");
 		exit(1);
 	}
+	printf("players = %d dump flag = %d\n", war->numb_players, war->dump);
 }
