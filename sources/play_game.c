@@ -6,7 +6,7 @@
 /*   By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/05 19:18:36 by lgeorgia          #+#    #+#             */
-/*   Updated: 2019/11/21 20:10:25 by lgeorgia         ###   ########.fr       */
+/*   Updated: 2019/11/22 14:19:10 by lgeorgia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,7 +110,7 @@ void	ft_play_game(t_war *war)
 		if (war->need_to_draw == 1)
 		{
 			ft_print_1(war);
-			usleep(500000);
+			usleep(5000);
 		}
 		war->cycle++;
 		war->all_cycle++;

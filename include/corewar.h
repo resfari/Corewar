@@ -112,6 +112,7 @@ typedef struct			s_war
 	int					fork_count;
 	int					sti_count;
 	int					st_count;
+	int					ld_count;
 
 }						t_war;
 

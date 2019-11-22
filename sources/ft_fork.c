@@ -6,7 +6,7 @@
 /*   By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/16 18:37:43 by lgeorgia          #+#    #+#             */
-/*   Updated: 2019/11/21 19:51:16 by lgeorgia         ###   ########.fr       */
+/*   Updated: 2019/11/22 14:21:40 by lgeorgia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,15 +35,15 @@ void	ft_add_new_crg(t_war *war, t_crg *crg, int pos)
 	t_crg *new;
 
 	new = ft_create_crg(war, crg->player);
-	if (war->arena[pos].busy == 0)
-	{
-		war->arena[pos].busy = 1;
-		war->arena[pos].crg_clr = crg->player;
-	}
-	else
-	{
-		war->arena[pos].busy += 1;
-	}
+	// if (war->arena[pos].busy == 0)
+	// {
+	// 	war->arena[pos].busy = 1;
+	// 	war->arena[pos].crg_clr = crg->player;
+	// }
+	// else
+	// {
+	// 	war->arena[pos].busy += 1;
+	// }
 	new->pos = crg->pos;
 	new->live = crg->live;
 	new->carry = crg->carry;

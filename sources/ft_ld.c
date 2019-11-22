@@ -6,7 +6,7 @@
 /*   By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/14 16:36:34 by lgeorgia          #+#    #+#             */
-/*   Updated: 2019/11/19 18:16:41 by lgeorgia         ###   ########.fr       */
+/*   Updated: 2019/11/22 14:52:34 by lgeorgia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,10 @@ void	ft_ld_dir(t_war *war, t_crg *crg)
 	// arg = ((255 & war->arena[GG(pos)].code) << 24 | (255  &war->arena[GG(pos + 1)].code) << 16 |
 	// (255 & war->arena[GG(pos + 2)].code) << 8 | (255 & war->arena[GG(pos + 3)].code));
 	reg = war->arena[GG(pos + 4)].code;
+
+	if (war->ld_count < 30)
+		printf("\nLD IND: value = %d reg = %d crg->pos = %d\n", arg, reg, crg->pos);
+	war->ld_count++;
 	if (reg >= 1 && reg <= 16)
 	{
 		if (arg == 0)
@@ -56,7 +60,11 @@ void	ft_ld_ind(t_war *war, t_crg *crg, int cases)
 	else //if its LLD
 		pos = crg->pos + arg1; 
 	arg2 = get_arg_dir(war, pos, 4);
-	// printf("\n POS = %d NEW_POS = %d REG = %d\n", pos, pos, reg);
+
+	if (war->ld_count < 100)
+		printf("\nLD DIR: value = %d reg = %d crg->pos = %d\n", arg2, reg, crg->pos);
+	war->ld_count++;
+	
 	if (reg >= 1 && reg <= 16)
 	{
 		crg->reg[reg] = arg2;
@@ -69,13 +77,11 @@ void	ft_ld_ind(t_war *war, t_crg *crg, int cases)
 			crg->carry = 0;
 		}
 	}
-	// printf("\nIND ARG = %d NEW ARG = %d\n", arg1, arg2);
-	// printf("\n carry = %d\n", crg->carry);
+
 }
 
 void	ft_ld(t_war *war, t_crg *crg, int cases)
 {
-	// printf("\narg = %d\n", crg->args[0]);
 	if (crg->args[0] == 5) // first arg == T_DIR
 	{
 		ft_ld_dir(war, crg);
