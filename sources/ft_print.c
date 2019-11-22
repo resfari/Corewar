@@ -6,7 +6,7 @@
 /*   By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/18 15:18:24 by lgeorgia          #+#    #+#             */
-/*   Updated: 2019/11/22 19:16:06 by lgeorgia         ###   ########.fr       */
+/*   Updated: 2019/11/22 20:00:07 by lgeorgia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,15 +78,16 @@ void	ft_print_arena(t_war *war)
 
 	begin = 0;
 	a = 0;
-	ft_printf("0x%04x : ", begin);
+	// ft_printf("0x%04x : ", begin);
 	while (a < MEM_SIZE)
 	{
-		if (a % 32 == 0)
+		if (a % 64 == 0)
 		{
-			write(1, "\n", 1);
+			if (a != 0)
+				write(1, "\n", 1);
 			if (a < MEM_SIZE - 1)
 				ft_printf("0x%04x : ", begin);
-			begin += 32;
+			begin += 64;
 		}
 		ft_printf("%02x", 255 & war->arena[a].code);	
 		write(1, " ", 1);

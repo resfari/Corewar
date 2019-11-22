@@ -6,7 +6,7 @@
 /*   By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/06 21:42:11 by lgeorgia          #+#    #+#             */
-/*   Updated: 2019/11/22 15:25:37 by lgeorgia         ###   ########.fr       */
+/*   Updated: 2019/11/22 19:57:08 by lgeorgia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,9 @@ void	ft_live(t_war *war, t_crg *crg)
 	// }
 	// war->live_count++;
 
-	if (ft_whos_number(war, arg) == 1) // mb normal int need to use
+	if (ft_whos_number(war, arg * -1) == 1) // mb normal int need to use
 	{
-		war->winner = arg;
+		war->winner = arg * - 1;
 		war->live++;
 		crg->live = 1;
 		ft_move_crg(war, crg, 5);
