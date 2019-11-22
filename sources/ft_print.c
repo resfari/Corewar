@@ -6,7 +6,7 @@
 /*   By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/18 15:18:24 by lgeorgia          #+#    #+#             */
-/*   Updated: 2019/11/21 15:13:11 by lgeorgia         ###   ########.fr       */
+/*   Updated: 2019/11/22 19:16:06 by lgeorgia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,30 @@ void	ft_print_1(t_war *war)
 	printw("Lives = %d  Cycle = %d  All-Cycles = %d Cycle-to-Dye = %d Numb crg = %d", war->live, war->cycle, war->all_cycle, war->to_die, war->numb_crg);
 	attroff(COLOR_PAIR(3));
 	refresh();
+}
+
+void	ft_print_arena(t_war *war)
+{
+	int a;
+	int begin;
+
+	begin = 0;
+	a = 0;
+	ft_printf("0x%04x : ", begin);
+	while (a < MEM_SIZE)
+	{
+		if (a % 32 == 0)
+		{
+			write(1, "\n", 1);
+			if (a < MEM_SIZE - 1)
+				ft_printf("0x%04x : ", begin);
+			begin += 32;
+		}
+		ft_printf("%02x", 255 & war->arena[a].code);	
+		write(1, " ", 1);
+		a++;
+	}
+	write(1, "\n", 1);
 }
 
 // void	ft_print(t_war *war)

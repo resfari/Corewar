@@ -6,7 +6,7 @@
 /*   By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/05 17:05:26 by lgeorgia          #+#    #+#             */
-/*   Updated: 2019/11/05 17:14:34 by lgeorgia         ###   ########.fr       */
+/*   Updated: 2019/11/22 18:58:34 by lgeorgia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ void	ft_greatings(t_war *war)
 	int i;
 
 	i = 1;
+	ft_putstr("Introducing contestants...\n");
 	while (i <= war->numb_players)
 	{
 		ft_putstr("* Player ");
