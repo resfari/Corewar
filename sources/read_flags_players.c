@@ -6,11 +6,39 @@
 /*   By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/02 22:09:32 by lgeorgia          #+#    #+#             */
-/*   Updated: 2019/11/21 14:37:01 by lgeorgia         ###   ########.fr       */
+/*   Updated: 2019/11/22 17:55:28 by lgeorgia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/corewar.h"
+
+void	ft_take_dump(t_war *war, int index)
+{
+	unsigned int res;
+	int i;
+	char *line;
+
+	i = 0;
+	res = 0;
+	line = war->argv[index];
+	while (line[i] != '\0')
+	{
+		if (line[i] >= 48 && line[i] <= 57)
+		{
+			res = res * 10 + line[i] - 48;
+		}
+		else
+		{
+			ft_free_exit(war, 10);
+		}
+		i++;
+	}
+	if (i > 10 || res > 2147483647)
+	{
+		ft_free_exit(war, 10);
+	}
+	war->dump_cycle = (int)res;
+}
 
 int     ft_add_player_wo_number(t_war *war, int i)
 {
@@ -74,6 +102,20 @@ void    ft_read_flags_players(t_war *war)
 		{
 			war->need_to_draw = 1;
 			count++;
+		}
+		else if (i == 1 && ft_strequ(war->argv[1], "-dump"))
+		{
+			if (i + 1 < war->argc)
+			{
+				ft_take_dump(war, i + 1);
+				war->dump = 1;
+				i += 1;
+			}
+			else
+			{
+				ft_free_exit(war, 6);
+			}
+			
 		}
 		else
 		{

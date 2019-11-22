@@ -106,6 +106,8 @@ typedef struct			s_war
 	// char				field[MEM_SIZE];
 	int					all_cycle;
 	int					need_to_draw;
+	int					dump;
+	int					dump_cycle;
 
 	//test params
 	int					zjmp_count;
@@ -114,6 +116,7 @@ typedef struct			s_war
 	int					st_count;
 	int					ld_count;
 	int					live_count;
+
 
 }						t_war;
 

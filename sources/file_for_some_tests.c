@@ -129,12 +129,11 @@ void	ft_print_arena(t_war *war)
 	while (a < MEM_SIZE)
 	{
 		if (a % 64 == 0)
-			write(1, "\n", 1);
-		ft_putnbr(war->arena[a].code);	
-		write(1, " ", 1);
+			printf("\n");
+		printw("%02x", 255 & war->arena[a].code);	
+		printf(" ");
 		a++;
 	}
-	write(1, "\n", 1);
 }
 
 void	ft_print_code_for_each_player(t_war *war)

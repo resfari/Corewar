@@ -6,7 +6,7 @@
 /*   By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/05 19:18:36 by lgeorgia          #+#    #+#             */
-/*   Updated: 2019/11/22 16:28:38 by lgeorgia         ###   ########.fr       */
+/*   Updated: 2019/11/22 17:52:37 by lgeorgia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,6 +107,10 @@ void	ft_play_game(t_war *war)
 			war->live = 0;
 		}
 		ft_check_status_of_crg(war, help);
+		if (war->dump == 1 && war->dump_cycle == war->all_cycle)
+		{
+			ft_print_arena(war);
+		}
 		if (war->need_to_draw == 1 && war->all_cycle > 2880)
 		{
 			ft_print_1(war);

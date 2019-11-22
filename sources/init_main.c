@@ -6,7 +6,7 @@
 /*   By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/02 22:09:29 by lgeorgia          #+#    #+#             */
-/*   Updated: 2019/11/22 15:05:51 by lgeorgia         ###   ########.fr       */
+/*   Updated: 2019/11/22 17:49:29 by lgeorgia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,8 @@ void	ft_init_main(t_war *war, char **argv, int argc)
 	war->live = 0;
 	war->uniq = 0;
 	war->need_to_draw = 0;
+	war->dump = 0;
+	war->dump_cycle = 0;
 	war->all_cycle = 0;
 	war->to_die = CYCLE_TO_DIE;
 	war->numb_players = 0;
