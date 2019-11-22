@@ -113,6 +113,7 @@ typedef struct			s_war
 	int					sti_count;
 	int					st_count;
 	int					ld_count;
+	int					live_count;
 
 }						t_war;
 

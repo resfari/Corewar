@@ -6,7 +6,7 @@
 /*   By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/14 18:17:38 by pnita             #+#    #+#             */
-/*   Updated: 2019/11/21 19:50:17 by lgeorgia         ###   ########.fr       */
+/*   Updated: 2019/11/22 16:36:28 by lgeorgia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void    ft_zjmp(t_war *war, t_crg *crg)
     if (crg->carry == 1)
 	{
 		pos = crg->pos + 1;
-		arg = ((war->arena[GG(pos)].code) << 8 | (war->arena[GG(pos + 1)].code));
+		arg = get_arg_dir(war, pos, 2);
 		ft_move_crg(war, crg, arg % IDX_MOD);
 		// if (war->zjmp_count < 100)
 		// {
