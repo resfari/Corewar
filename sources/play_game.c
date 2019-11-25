@@ -6,7 +6,7 @@
 /*   By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/05 19:18:36 by lgeorgia          #+#    #+#             */
-/*   Updated: 2019/11/25 19:07:26 by lgeorgia         ###   ########.fr       */
+/*   Updated: 2019/11/25 19:51:45 by lgeorgia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ void	ft_play_game(t_war *war)
 				war->all_cycle, war->to_die, war->numb_crg + war->numb_players, war->fork_count);
 				exit(1);
 			}
-			if (war->check_num == 9 || war->live >= NBR_LIVE)
+			if (war->check_num == 10 || war->live >= NBR_LIVE)
 			{
 
 				war->to_die -= CYCLE_DELTA;
