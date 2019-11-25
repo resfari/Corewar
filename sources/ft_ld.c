@@ -6,7 +6,7 @@
 /*   By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/14 16:36:34 by lgeorgia          #+#    #+#             */
-/*   Updated: 2019/11/22 20:23:25 by lgeorgia         ###   ########.fr       */
+/*   Updated: 2019/11/22 20:28:47 by lgeorgia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ void	ft_ld_ind(t_war *war, t_crg *crg, int cases)
 
 void	ft_ld(t_war *war, t_crg *crg, int cases)
 {
-	printf("\nLD HERE\n");
+	// printf("\nLD HERE\n");
 	if (crg->args[0] == 5) // first arg == T_DIR
 	{
 		ft_ld_dir(war, crg);
