@@ -6,7 +6,7 @@
 /*   By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/05 19:18:36 by lgeorgia          #+#    #+#             */
-/*   Updated: 2019/11/25 16:31:55 by lgeorgia         ###   ########.fr       */
+/*   Updated: 2019/11/25 19:07:26 by lgeorgia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ void	ft_play_game(t_war *war)
 		// printf("\ncycles = %d\n", war->cycle);
 		if (war->to_die <= 0)
 		{
-				ft_printf("\nContestant %d, \"%s\", has won !\n", war->winner, war->player[war->winner].name);
+				ft_printf("Contestant %d, \"%s\", has won !\n", war->winner, war->player[war->winner].name);
 				printf("To_die < 0: CYCLE MAX = %d war_to_die = %d numb crg = %d fork = %d\n",
 				war->all_cycle, war->to_die, war->numb_crg + war->numb_players, war->fork_count);
 				exit(1);
@@ -88,7 +88,7 @@ void	ft_play_game(t_war *war)
 			// printf("\nnumb of crg = %d\n", war->numb_crg);
 			if (ft_check_live_crg(war) == 0) // someone alive and kill no life crg
 			{
-				ft_printf("\nContestant %d, \"%s\", has won !\n", war->winner, war->player[war->winner].name);
+				ft_printf("Contestant %d, \"%s\", has won !\n", war->winner, war->player[war->winner].name);
 				printf("CYCLE MAX = %d war_to_die = %d numb crg = %d fork = %d\n",
 				war->all_cycle, war->to_die, war->numb_crg + war->numb_players, war->fork_count);
 				exit(1);

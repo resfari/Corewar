@@ -6,22 +6,37 @@
 /*   By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/18 15:18:15 by lgeorgia          #+#    #+#             */
-/*   Updated: 2019/11/18 15:18:22 by lgeorgia         ###   ########.fr       */
+/*   Updated: 2019/11/25 19:05:40 by lgeorgia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/corewar.h"
 
-int		ft_check_chars(int is_valid)
+int		ft_check_chars(int is_valid, int cases) //check this later like b.r.a
 {
-	if ((is_valid >= 65 && is_valid <= 90) ||
-	(is_valid >= 97 && is_valid <= 122) ||
-	(is_valid >= 42 && is_valid <= 57) ||
-	is_valid == 32 || is_valid == 39 || is_valid == 61 || is_valid == 33 || is_valid == 0)
+	if (cases == 0)
 	{
-		return (1);
+		if ((is_valid >= 65 && is_valid <= 90) ||
+		(is_valid >= 97 && is_valid <= 122) ||
+		(is_valid >= 42 && is_valid <= 57) ||
+		is_valid == 32 || is_valid == 39 || is_valid == 61 || is_valid == 33 || is_valid == 0)
+		{
+			return (1);
+		}
+		return (0);
 	}
-	printf("ERROR");
+	if (cases == 1)
+	{
+		if ((is_valid >= 65 && is_valid <= 90) ||
+		(is_valid >= 97 && is_valid <= 122) ||
+		(is_valid >= 41 && is_valid <= 57) ||
+		is_valid == 32 || is_valid == 39 || is_valid == 61 ||
+		is_valid == 33 || is_valid == 0 || is_valid == 33 || is_valid == 58)
+		{
+			return (1);
+		}
+		return (0);
+	}
 	return (0);
 }
 
@@ -34,7 +49,7 @@ void	ft_check_name(t_war *war, int num)
 	j = 4;
 	while (i < PROG_NAME_LENGTH)
 	{
-		if (ft_check_chars(war->player[num].text[j]) == 0)
+		if (ft_check_chars(war->player[num].text[j], 0) == 0)
 		{
 			ft_free_exit(war, 8);
 		}
@@ -53,7 +68,7 @@ void	ft_check_comment(t_war *war, int num)
 	j = 12 + PROG_NAME_LENGTH;
 	while (i < COMMENT_LENGTH)
 	{
-		if (ft_check_chars(war->player[num].text[j]) == 0)
+		if (ft_check_chars(war->player[num].text[j], 1) == 0)
 		{
 			ft_free_exit(war, 8);
 		}

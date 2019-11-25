@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_instructions.c                               :+:      :+:    :+:   */
+/*   check_code.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/04 15:53:39 by lgeorgia          #+#    #+#             */
-/*   Updated: 2019/11/04 16:30:24 by lgeorgia         ###   ########.fr       */
+/*   Updated: 2019/11/25 18:41:11 by lgeorgia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,7 @@ void	ft_check_code(t_war *war, int num)
 	}
 	war->player[num].code_len = j - (16 + PROG_NAME_LENGTH + COMMENT_LENGTH);
 	if (war->player[num].code_len > CHAMP_MAX_SIZE)
+	{
 		ft_free_exit(war, 9);
+	}	
 }

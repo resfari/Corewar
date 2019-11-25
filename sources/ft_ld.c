@@ -6,7 +6,7 @@
 /*   By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/14 16:36:34 by lgeorgia          #+#    #+#             */
-/*   Updated: 2019/11/22 20:28:47 by lgeorgia         ###   ########.fr       */
+/*   Updated: 2019/11/25 18:10:21 by lgeorgia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,9 @@ void	ft_ld_dir(t_war *war, t_crg *crg)
 	// (255 & war->arena[GG(pos + 2)].code) << 8 | (255 & war->arena[GG(pos + 3)].code));
 	reg = war->arena[GG(pos + 4)].code;
 
-	if (war->ld_count < 30)
-		printf("\nLD DIR: value = %d reg = %d crg->pos = %d\n", arg, reg, crg->pos);
-	war->ld_count++;
+	// if (war->ld_count < 30)
+	// 	printf("\nLD DIR: value = %d reg = %d crg->pos = %d\n", arg, reg, crg->pos);
+	// war->ld_count++;
 	if (reg >= 1 && reg <= 16)
 	{
 		if (arg == 0)
