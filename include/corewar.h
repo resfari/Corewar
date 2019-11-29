@@ -70,7 +70,7 @@ typedef struct			s_crg
 	int					pos;
 	int					uniq_num;
 	int					carry;
-	int					cycle_of_live; //last time execute live
+	// int					cycle_of_live; //last time execute live
 	int					to_die;
 	int					to_do; //amount of cycles for execute operation
 	int					bytes_to_go; //amount of bytes need to jump for next operation

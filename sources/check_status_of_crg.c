@@ -6,7 +6,7 @@
 /*   By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/06 15:30:51 by lgeorgia          #+#    #+#             */
-/*   Updated: 2019/11/21 18:19:46 by lgeorgia         ###   ########.fr       */
+/*   Updated: 2019/11/29 22:02:16 by lgeorgia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,8 @@ void	ft_check_one_crg(t_war *war, t_crg *crg)
 			ft_check_argument(war, crg, crg->op) == 1) // assign bytes to skip
 			{
 				// printf("\nno skip\n");
+				if (crg->uniq_num == 0)
+					printf("DNIWE");
 				ft_detect_operation(crg->op, war, crg); // detect and do it
 			}
 			else

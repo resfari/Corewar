@@ -6,7 +6,7 @@
 /*   By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/05 19:18:36 by lgeorgia          #+#    #+#             */
-/*   Updated: 2019/11/29 20:12:54 by lgeorgia         ###   ########.fr       */
+/*   Updated: 2019/11/29 21:36:00 by lgeorgia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ void	ft_play_game(t_war *war)
 	while (1)
 	{
 		help = war->top;
-		if (war->all_cycle == 20745)
+		if (war->cycle > war->to_die)
 		{
 			printf("here");
 		}

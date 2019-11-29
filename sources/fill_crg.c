@@ -6,7 +6,7 @@
 /*   By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/04 17:11:21 by lgeorgia          #+#    #+#             */
-/*   Updated: 2019/11/29 20:55:46 by lgeorgia         ###   ########.fr       */
+/*   Updated: 2019/11/29 21:24:46 by lgeorgia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ t_crg	*ft_create_crg(t_war *war, int num)
 	new->live = 0;
 	new->moved = 0;
 	new->op = -1;
+	new->bytes_to_go = 0;
 	new->to_die = war->to_die;
 	new->pos = war->player[num].start_pos;
 	new = ft_init_reg_in_crg(new, num);
