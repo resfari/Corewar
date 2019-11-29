@@ -6,7 +6,7 @@
 /*   By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/05 19:18:36 by lgeorgia          #+#    #+#             */
-/*   Updated: 2019/11/25 19:51:45 by lgeorgia         ###   ########.fr       */
+/*   Updated: 2019/11/29 17:52:28 by lgeorgia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,6 @@ int	ft_check_live_crg(t_war *war)
 		if (help->die == 0)
 		{
 			help->live = 0;
-			war->test_numb++;
 			war->numb_crg++;
 		}
 		help = help->next;
@@ -68,12 +67,24 @@ void	ft_play_game(t_war *war)
 	t_crg *help;
 
 	//init first round, to_do count operation etc
-	ft_init_first_cycle(war); // add free or busy because of crg
+	ft_init_first_cycle(war);
 	if (war->need_to_draw == 1)
 		ft_init_ncurses();
 	while (1)
 	{
 		help = war->top;
+		if (war->all_cycle == 20745)
+		{
+			ft_init_ncurses();
+			ft_print_1(war);
+			usleep(1410065408);
+			ft_putnbr(war->to_die);
+			write(1, " ", 1);
+			ft_putnbr(war->cycle);
+			write(1, " ", 1);
+			ft_putnbr(war->all_cycle);
+			write(1, " ", 1);
+		}
 		// printf("\ncycles = %d\n", war->cycle);
 		if (war->to_die <= 0)
 		{
@@ -110,12 +121,16 @@ void	ft_play_game(t_war *war)
 		}
 		if (war->need_to_draw == 1)
 		{
-			ft_print_1(war);
-			// usleep(1000000);
+			// ft_print_1(war);
+			// usleep(1000000000);
 		}
 		war->cycle++;
 		war->all_cycle++;
 		// printf("MAX CYCLE = %d CYCLE_TO_DIE = %d\n", war->all_cycle, war->to_die);
 		// printf("pos 1 pl = %d pos 2 pl = %d\n", war->bot->pos, war->top->pos);
 	}
+	ft_printf("Contestant %d, \"%s\", has won !\n", war->winner, war->player[war->winner].name);
+	printf("To_die < 0: CYCLE MAX = %d war_to_die = %d numb crg = %d fork = %d\n",
+	war->all_cycle, war->to_die, war->numb_crg + war->numb_players, war->fork_count);
+	exit(1);
 }

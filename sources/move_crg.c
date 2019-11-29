@@ -6,7 +6,7 @@
 /*   By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/08 20:22:51 by lgeorgia          #+#    #+#             */
-/*   Updated: 2019/11/18 17:54:50 by lgeorgia         ###   ########.fr       */
+/*   Updated: 2019/11/29 17:44:20 by lgeorgia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,6 @@ void	ft_move_crg(t_war *war, t_crg *crg, int move_to)
 		war->arena[prev_pos].crg_clr = 0;
 	}
 	crg->pos = GG(new_pos);
+
 	// printf("crg->pos = %d  ", crg->pos);
 }
