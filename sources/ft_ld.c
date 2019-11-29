@@ -6,7 +6,7 @@
 /*   By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/14 16:36:34 by lgeorgia          #+#    #+#             */
-/*   Updated: 2019/11/25 18:10:21 by lgeorgia         ###   ########.fr       */
+/*   Updated: 2019/11/29 16:49:08 by lgeorgia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,17 +52,17 @@ void	ft_ld_ind(t_war *war, t_crg *crg, int cases)
 	int reg;
 
 	pos = crg->pos + 2;
-	arg1 = ((war->arena[GG(pos)].code) << 8 | (war->arena[GG(pos + 1)].code));
+	arg1 = get_arg_ind(war, pos);
 	reg = war->arena[GG(pos + 2)].code;
 	
 	if (cases == 0) // if its ld
 		pos = crg->pos + arg1 % IDX_MOD;
 	else //if its LLD
 		pos = crg->pos + arg1; 
-	arg2 = get_arg_ind(war, pos);
+	arg2 = get_arg_dir(war, pos, 4);
 
 	// if (war->ld_count < 100)
-	// 	printf("\nLD IND: value = %d reg = %d crg->pos = %d\n", arg2, reg, crg->pos);
+	// 	printf("\nLD IND: value1 = %d value = %d reg = %d crg->pos = %d new-pos = %d\n", arg1, arg2, reg, crg->pos, pos);
 	// war->ld_count++;
 	
 	if (reg >= 1 && reg <= 16)

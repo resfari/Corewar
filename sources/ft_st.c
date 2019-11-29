@@ -6,7 +6,7 @@
 /*   By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/15 20:26:20 by pnita             #+#    #+#             */
-/*   Updated: 2019/11/22 14:41:21 by lgeorgia         ###   ########.fr       */
+/*   Updated: 2019/11/29 16:29:21 by lgeorgia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,10 +55,9 @@ void	ft_st_ind(t_war *war, t_crg *crg)
 	ind = ind % IDX_MOD;
 	pos = crg->pos + ind;
 	
-	//testing
-	// if (war->st_count > 50 && war->st_count < 100)
+	// if (war->st_count < 50)
 	// {
-	// 	printf("\nST IND:   reg = %d,  pos = %d   crg->pos = %d\n", reg,  ind, crg->pos);
+	// 	printf("\nST IND:   reg = %d,  pos = %d   crg->pos = %d reg[reg] = %d\n", reg,  ind, crg->pos, crg->reg[reg]);
 	// }
 	// war->st_count++;
 
