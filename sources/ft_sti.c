@@ -6,7 +6,7 @@
 /*   By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/16 18:38:07 by pnita             #+#    #+#             */
-/*   Updated: 2019/12/02 19:36:32 by lgeorgia         ###   ########.fr       */
+/*   Updated: 2019/12/02 21:31:02 by lgeorgia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ void	ft_sti(t_war *war, t_crg *crg)
 	int arg2;
 	int arg3;
 	int i;
+	int x;
 
 	// printf("\n%d %d %d\n", crg->args[0], crg->args[1], crg->args[2]);
 	pos = crg->pos + 2;
@@ -100,10 +101,11 @@ void	ft_sti(t_war *war, t_crg *crg)
 			// {
 			// 	printf("\npos = %d, code = %d, reg = %d, reg[reg] = %d\n", GG((crg->pos + (arg2 + arg3) % IDX_MOD + i)),
 			// 	(crg->reg[reg] >> (8 * (3 - i))) & 255, reg, crg->reg[reg]);
-			// }
-			war->arena[GG((crg->pos + (arg2 + arg3) % IDX_MOD + i))].code = (crg->reg[reg] >> (8 * (3 - i))) & 255;
+			// 
+			x = crg->pos + (arg2 + arg3) % IDX_MOD + i;
+			war->arena[GG(x)].code = (crg->reg[reg] >> (8 * (3 - i))) & 255;
 			// printf("i = %d  arg = %d      ", i, (crg->reg[reg] >> (8 * (3 - i))) & 255);
-			war->arena[GG((crg->pos + (arg2 + arg3) % IDX_MOD + i))].color = crg->player;
+			war->arena[GG(x)].color = crg->player;
 			i++;
 		}
 
