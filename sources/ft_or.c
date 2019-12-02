@@ -6,7 +6,7 @@
 /*   By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/15 22:09:00 by pnita             #+#    #+#             */
-/*   Updated: 2019/12/02 20:10:00 by lgeorgia         ###   ########.fr       */
+/*   Updated: 2019/12/02 21:44:57 by lgeorgia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,17 +32,15 @@ void	ft_or(t_war *war, t_crg *crg)
     }
     else if (crg->args[0] == 5)
     {
-        tmp_arg = ((war->arena[GG(pos)].code) << 24 | (war->arena[GG(pos + 1)].code) << 16 |
-	        (war->arena[GG(pos + 2)].code) << 8 | (war->arena[GG(pos + 3)].code));
+        tmp_arg = get_arg_dir(war, pos, 4);
         bit_or_arg1_2 = tmp_arg;
         pos += 4;
     }
     else
     {
-        tmp_arg = ((war->arena[GG(pos)].code) << 8 | (war->arena[GG(pos + 1)].code));
+        tmp_arg = get_arg_ind(war, pos);
         new_pos = crg->pos + tmp_arg % IDX_MOD;
-        tmp_arg = ((war->arena[GG(new_pos)].code) << 24 | (war->arena[GG(new_pos + 1)].code) << 16 |
-	        (war->arena[GG(new_pos + 2)].code) << 8 | (war->arena[GG(new_pos + 3)].code));
+        tmp_arg = get_arg_dir(war, new_pos, 4);
         bit_or_arg1_2 = tmp_arg;
         pos += 2;
     }
@@ -58,17 +56,15 @@ void	ft_or(t_war *war, t_crg *crg)
     }
     else if (crg->args[1] == 5)
     {
-        tmp_arg = ((war->arena[GG(pos)].code) << 24 | (war->arena[GG(pos + 1)].code) << 16 |
-	        (war->arena[GG(pos + 2)].code) << 8 | (war->arena[GG(pos + 3)].code));
+        tmp_arg = get_arg_dir(war, pos, 4);
         bit_or_arg1_2 = bit_or_arg1_2 | tmp_arg;
         pos += 4;
     }
     else
     {
-        tmp_arg = ((war->arena[GG(pos)].code) << 8 | (war->arena[GG(pos + 1)].code));
+        tmp_arg = get_arg_ind(war, pos);
         new_pos = crg->pos + tmp_arg % IDX_MOD;
-        tmp_arg = ((war->arena[GG(new_pos)].code) << 24 | (war->arena[GG(new_pos + 1)].code) << 16 |
-	        (war->arena[GG(new_pos + 2)].code) << 8 | (war->arena[GG(new_pos + 3)].code));
+        tmp_arg = get_arg_dir(war, new_pos, 4);
         bit_or_arg1_2 = bit_or_arg1_2 | tmp_arg;
         pos += 2;
     }
