@@ -6,7 +6,7 @@
 /*   By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/18 15:18:15 by lgeorgia          #+#    #+#             */
-/*   Updated: 2019/12/02 18:18:33 by lgeorgia         ###   ########.fr       */
+/*   Updated: 2019/12/02 20:08:09 by lgeorgia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,10 +53,10 @@ void	ft_check_name(t_war *war, int num)
 	j = 4;
 	while (i < PROG_NAME_LENGTH)
 	{
-		if (ft_check_chars(war->player[num].text[j], 0) == 0)
-		{
-			ft_free_exit(war, 8);
-		}
+		// if (ft_check_chars(war->player[num].text[j], 0) == 0)
+		// {
+		// 	ft_free_exit(war, 8);
+		// }
 		war->player[num].name[i] = war->player[num].text[j];
 		i++;
 		j++;
@@ -72,10 +72,10 @@ void	ft_check_comment(t_war *war, int num)
 	j = 12 + PROG_NAME_LENGTH;
 	while (i < COMMENT_LENGTH)
 	{
-		if (ft_check_chars(war->player[num].text[j], 1) == 0)
-		{
-			ft_free_exit(war, 8);
-		}
+		// if (ft_check_chars(war->player[num].text[j], 1) == 0)
+		// {
+		// 	ft_free_exit(war, 8);
+		// }
 		war->player[num].comment[i] = war->player[num].text[j];
 		i++;
 		j++;
