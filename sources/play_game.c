@@ -6,7 +6,7 @@
 /*   By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/05 19:18:36 by lgeorgia          #+#    #+#             */
-/*   Updated: 2019/11/29 21:36:00 by lgeorgia         ###   ########.fr       */
+/*   Updated: 2019/12/02 16:56:11 by lgeorgia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,10 +73,10 @@ void	ft_play_game(t_war *war)
 	while (1)
 	{
 		help = war->top;
-		if (war->cycle > war->to_die)
-		{
-			printf("here");
-		}
+		// if (war->cycle > war->to_die)
+		// {
+		// 	printf("here");
+		// }
 		// {
 		// 	ft_init_ncurses();
 		// 	ft_print_1(war);
@@ -125,7 +125,7 @@ void	ft_play_game(t_war *war)
 		if (war->need_to_draw == 1)
 		{
 			ft_print_1(war);
-			// usleep(1000000000);
+			usleep(100000);
 		}
 		war->cycle++;
 		war->all_cycle++;

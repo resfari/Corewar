@@ -6,7 +6,7 @@
 /*   By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/16 18:38:07 by pnita             #+#    #+#             */
-/*   Updated: 2019/11/29 19:20:06 by lgeorgia         ###   ########.fr       */
+/*   Updated: 2019/12/02 16:34:47 by lgeorgia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,12 +96,16 @@ void	ft_sti(t_war *war, t_crg *crg)
 		// printf("pos = %d\n", GG(crg->pos + (arg2 + arg3) % IDX_MOD + i));
 		while (i < 4)
 		{
-			war->arena[GG(crg->pos + (arg2 + arg3) % IDX_MOD + i)].code = (crg->reg[reg] >> (8 * (3 - i))) & 255;
+			// if (war->all_cycle == 20720)
+			// {
+			// 	printf("\npos = %d, code = %d, reg = %d, reg[reg] = %d\n", GG((crg->pos + (arg2 + arg3) % IDX_MOD + i)),
+			// 	(crg->reg[reg] >> (8 * (3 - i))) & 255, reg, crg->reg[reg]);
+			// }
+			war->arena[GG((crg->pos + (arg2 + arg3) % IDX_MOD + i))].code = (crg->reg[reg] >> (8 * (3 - i))) & 255;
 			// printf("i = %d  arg = %d      ", i, (crg->reg[reg] >> (8 * (3 - i))) & 255);
-			war->arena[GG(crg->pos + (arg2 + arg3) % IDX_MOD + i)].color = crg->player;
+			war->arena[GG((crg->pos + (arg2 + arg3) % IDX_MOD + i))].color = crg->player;
 			i++;
 		}
-
 
 		
 		// if (war->sti_count < 60)
