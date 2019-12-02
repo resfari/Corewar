@@ -6,7 +6,7 @@
 /*   By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/15 22:09:00 by pnita             #+#    #+#             */
-/*   Updated: 2019/11/16 16:07:34 by lgeorgia         ###   ########.fr       */
+/*   Updated: 2019/12/02 20:10:00 by lgeorgia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ void	ft_or(t_war *war, t_crg *crg)
         }
         pos += 1;
     }
-    else if (crg->args[0] == 5)
+    else if (crg->args[1] == 5)
     {
         tmp_arg = ((war->arena[GG(pos)].code) << 24 | (war->arena[GG(pos + 1)].code) << 16 |
 	        (war->arena[GG(pos + 2)].code) << 8 | (war->arena[GG(pos + 3)].code));
