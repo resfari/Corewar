@@ -1,12 +1,11 @@
 
 #include <stdio.h>
 
-# define mod_1(x) x > 4095 ? x % 4096 : x
+# define mod_1(x) (x < 0 ? x % 4096 + 4096: x % 4096)
 
 int main(void)
 {
-	int x = 4096;
-	int x1 = 20;
-	printf("x1 = %d, x2 = %d", mod_1(x), mod_1(x1));
+	int x = -409764789;
+	printf("x1 = %d", mod_1(x));
 	return (0);
 }

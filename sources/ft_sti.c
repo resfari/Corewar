@@ -6,7 +6,7 @@
 /*   By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/16 18:38:07 by pnita             #+#    #+#             */
-/*   Updated: 2019/12/02 21:31:02 by lgeorgia         ###   ########.fr       */
+/*   Updated: 2019/12/03 16:42:57 by lgeorgia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,13 +108,13 @@ void	ft_sti(t_war *war, t_crg *crg)
 			war->arena[GG(x)].color = crg->player;
 			i++;
 		}
-
-		
-		// if (war->sti_count < 60)
+		// if (war->sti_count < 10)
 		// {
-		// 	printf("\n%d\n", pos - crg->pos);
+		// 	printf("\nSTI: addr1 = %d addr2 = %d", arg2, arg3);
+		// 	printf(" reg = %d value = %d addr = %d\n", reg, crg->reg[reg], crg->pos + (arg2 + arg3) % IDX_MOD);
 		// 	war->sti_count++;
 		// }
+		
 		ft_move_crg(war, crg, pos - crg->pos);
 	}
 	else

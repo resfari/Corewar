@@ -6,7 +6,7 @@
 /*   By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/16 16:37:22 by lgeorgia          #+#    #+#             */
-/*   Updated: 2019/11/29 19:26:38 by lgeorgia         ###   ########.fr       */
+/*   Updated: 2019/12/03 16:42:43 by lgeorgia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,39 +17,33 @@ int		ft_ldi_find_bytes(t_war *war, t_crg *crg, int arg1, int arg2, int cases)
 	int new_pos;
 	unsigned int bytes;
 
-	if (cases == 0 || crg->args[0] == 7 || crg->args[1] == 7)
-		new_pos = crg->pos + (arg1 + arg2) % IDX_MOD; // fix with crg->pos
-	else
-	{
-		new_pos = crg->pos + (arg1 + arg2);
-	}
-	bytes = ((war->arena[GG(new_pos)].code) << 24 | (war->arena[GG(new_pos + 1)].code) << 16 |
-	(war->arena[GG(new_pos + 2)].code) << 8 | (war->arena[GG(new_pos + 3)].code));
+	(void)cases;
+	new_pos = crg->pos + (arg1 + arg2) % IDX_MOD;
+	bytes = get_arg_dir(war, new_pos, 4);
 	return ((int)bytes);
 }
 
-int		ft_ldi_take_arg(t_war *war, t_crg *crg, int pos)
+int		ft_ldi_take_arg(t_war *war, t_crg *crg, int pos, int arg)
 {
 	unsigned int dir;
 	int reg;
 	unsigned short i_pos;
 
-	if (crg->args[0] == 3)
+	if (crg->args[arg] == 3)
 	{
-		reg = war->arena[GG(pos)].code;
+		reg = get_arg_reg(war, pos);
 		if (reg >= 1 && reg <= 16)
-			return (reg);
+			return (crg->reg[reg]);
 	}
-	else if (crg->args[1] == 5)
+	else if (crg->args[arg] == 5)
 	{
-		dir = ((war->arena[GG(pos)].code) << 8 | (war->arena[GG(pos + 1)].code));
+		dir = get_arg_dir(war, pos, 2);
 		return ((short)dir);
 	}
 	else
 	{
-		i_pos = ((war->arena[GG(pos)].code) << 8 | (war->arena[GG(pos + 1)].code));
-		dir = ((war->arena[GG((int)i_pos)].code) << 24 | (war->arena[GG((int)i_pos + 1)].code) << 16 |
-	(war->arena[GG((int)i_pos + 2)].code) << 8 | (war->arena[GG((int)i_pos + 3)].code));
+		i_pos = get_arg_ind(war, pos);
+		dir = get_arg_dir(war, i_pos, 4);
 		return ((int)dir);
 	}	
 	return (0);
@@ -63,13 +57,13 @@ void	ft_ldi(t_war *war, t_crg *crg, int cases)
 	int arg3;
 
 	pos = crg->pos + 2;
-	arg1 = ft_ldi_take_arg(war, crg, pos);
+	arg1 = ft_ldi_take_arg(war, crg, pos, 0);
 	// printf("\n arg1 = %d\n", arg1);
 	if (crg->args[0] == 3)
 		pos += 1;
 	else
 		pos += 2;
-	arg2 = ft_ldi_take_arg(war, crg, pos);
+	arg2 = ft_ldi_take_arg(war, crg, pos, 1);
 	// printf("\n arg2 = %d\n", arg2);
 	if (crg->args[1] == 3)
 		pos += 1;
@@ -77,6 +71,7 @@ void	ft_ldi(t_war *war, t_crg *crg, int cases)
 		pos += 2;
 	arg3 = war->arena[GG(pos)].code;
 	// printf("\n arg3 = %d\n", arg3);
+	// ft_printf("\nLDI : arg1 = %d   arg2 = %d\n", arg1, arg2);
 	if (arg3 >= 1 && arg3 <= 16)
 	{
 		if ((crg->args[0] == 3 && arg1 < 1 && arg1 > 16) || (crg->args[1] == 3 && arg2 < 1 && arg2 > 16))

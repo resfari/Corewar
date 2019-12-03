@@ -6,7 +6,7 @@
 /*   By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/15 20:26:20 by pnita             #+#    #+#             */
-/*   Updated: 2019/12/02 21:30:30 by lgeorgia         ###   ########.fr       */
+/*   Updated: 2019/12/03 16:42:34 by lgeorgia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,9 @@ void	ft_st_reg(t_war *war, t_crg *crg)
 		new_reg = war->arena[GG(pos)].code;
 
 		//testing
-		// if (war->st_count > 50 && war->st_count < 100)
+		// if (war->st_count > -1 && war->st_count < 100)
 		// {
-		// 	printf("\nST REG:   reg = %d,  pos = %d   crg->pos = %d\n", reg,  new_reg, crg->pos);
+		// 	printf("\nST REG:   reg = %d,  new_reg = %d   value = %d\n", reg,  new_reg, crg->reg[reg]);
 		// }
 		// war->st_count++;
 
