@@ -16,7 +16,7 @@ int		main(int argc, char **argv)
 {
 	t_war *war;
 
-	if (!(war = (t_war*)malloc(sizeof(t_war) * 1)))
+	if (!(war = (t_war*)ft_memalloc(sizeof(t_war))))
 		return (0);
 	ft_init_main(war, argv, argc); // init main struct WAR.
 	ft_read_flags_players(war); // func arrange order players w/o flags idk what flags we need to realised

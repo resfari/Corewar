@@ -122,10 +122,10 @@ void	ft_play_game(t_war *war)
 			ft_print_arena(war);
 			ft_free_exit(war, 0); // No error
 		}
-		if (war->need_to_draw == 1)
+		if (war->need_to_draw == 1 && war->all_cycle == 1730)
 		{
 			ft_print_1(war);
-			// usleep(1000000);
+			usleep(500000); //speed visual
 		}
 		war->cycle++;
 		war->all_cycle++;

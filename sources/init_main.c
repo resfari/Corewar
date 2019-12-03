@@ -43,29 +43,18 @@ void	ft_init_main(t_war *war, char **argv, int argc)
 {
 	war->argv = argv;
 	war->argc = argc;
-	war->cycle = 0;
-	war->live = 0;
-	war->uniq = 0;
-	war->need_to_draw = 0;
-	war->dump = 0;
-	war->dump_cycle = 0;
-	war->all_cycle = 0;
 	war->to_die = CYCLE_TO_DIE;
-	war->numb_players = 0;
-	war->check_num = 0;
-	war->test_numb = 0;
-	war->numb_crg = 0;
 	
-	ft_reserve_num_for_players(war);
-	ft_init_arena(war);
+	//ft_reserve_num_for_players(war);
+	//ft_init_arena(war);
 	ft_init_opp(war);
 
 
 	//test params
-	war->zjmp_count = 0;
-	war->fork_count = 0;
-	war->sti_count = 0;
-	war->st_count = 0;
-	war->ld_count = 0;
-	war->live_count = 0;
+	// war->zjmp_count = 0;
+	// war->fork_count = 0;
+	// war->sti_count = 0;
+	// war->st_count = 0;
+	// war->ld_count = 0;
+	// war->live_count = 0;
 }

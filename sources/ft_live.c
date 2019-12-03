@@ -21,10 +21,9 @@ int		ft_whos_number(t_war *war, int num)
 
 void	ft_live(t_war *war, t_crg *crg)
 {
-	
 	int arg;
 	int pos;
-	
+
 	pos = crg->pos + 1;
 	arg = get_arg_dir(war, pos, 4);
 	war->live++;
