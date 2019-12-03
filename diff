@@ -1,5 +1,4 @@
-67,70d66
-< 
-< STI: arg1 = -1 STI: arg2 = 751619  pos = 6  pos-crg = 0
-< 
-< STI: addr1 = 751619 addr2 = 1 reg = 3 value = 0 addr = 4
+5c5
+< 0x0080 : 3a 03 70 01 00 3a 03 70 01 00 3a 03 70 01 00 3a 03 70 01 00 3a 02 90 00 00 00 00 10 01 ff ff ff ff 01 ff ff ff ff 01 ff ff ff ff 01 00 01 6f 2f 01 ff ff ff ff 01 ff ff ff ff 01 ff ff ff ff 01 
+---
+> 0x0080 : 3a 03 70 01 00 3a 03 70 01 00 3a 03 70 01 00 3a 03 70 01 00 3a 02 90 00 00 00 00 10 01 ff ff ff ff 01 ff ff ff ff 01 ff ff ff ff 01 ff ff ff ff 01 ff ff ff ff 01 ff ff ff ff 01 ff ff ff ff 01 

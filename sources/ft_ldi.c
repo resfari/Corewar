@@ -6,7 +6,7 @@
 /*   By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/16 16:37:22 by lgeorgia          #+#    #+#             */
-/*   Updated: 2019/12/03 16:42:43 by lgeorgia         ###   ########.fr       */
+/*   Updated: 2019/12/03 19:07:51 by lgeorgia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int		ft_ldi_take_arg(t_war *war, t_crg *crg, int pos, int arg)
 	else
 	{
 		i_pos = get_arg_ind(war, pos);
-		dir = get_arg_dir(war, i_pos, 4);
+		dir = get_arg_dir(war, crg->pos + i_pos % IDX_MOD, 4);
 		return ((int)dir);
 	}	
 	return (0);
