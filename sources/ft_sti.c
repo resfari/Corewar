@@ -6,7 +6,7 @@
 /*   By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/16 18:38:07 by pnita             #+#    #+#             */
-/*   Updated: 2019/12/03 16:42:57 by lgeorgia         ###   ########.fr       */
+/*   Updated: 2019/12/03 17:08:07 by lgeorgia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,9 +99,10 @@ void	ft_sti(t_war *war, t_crg *crg)
 		{
 			// if (war->all_cycle == 20720)
 			// {
-			// 	printf("\npos = %d, code = %d, reg = %d, reg[reg] = %d\n", GG((crg->pos + (arg2 + arg3) % IDX_MOD + i)),
+				// printf("\npos = %d, code = %d, reg = %d, reg[reg] = %d\n", GG((crg->pos + (arg2 + arg3) % IDX_MOD + i)),
 			// 	(crg->reg[reg] >> (8 * (3 - i))) & 255, reg, crg->reg[reg]);
 			// 
+			// ft_printf("\nSTI: = %d\n", GG(x));
 			x = crg->pos + (arg2 + arg3) % IDX_MOD + i;
 			war->arena[GG(x)].code = (crg->reg[reg] >> (8 * (3 - i))) & 255;
 			// printf("i = %d  arg = %d      ", i, (crg->reg[reg] >> (8 * (3 - i))) & 255);
