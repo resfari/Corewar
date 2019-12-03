@@ -6,7 +6,7 @@
 /*   By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/16 16:37:22 by lgeorgia          #+#    #+#             */
-/*   Updated: 2019/12/03 19:07:51 by lgeorgia         ###   ########.fr       */
+/*   Updated: 2019/12/03 19:34:01 by lgeorgia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,13 @@ int		ft_ldi_find_bytes(t_war *war, t_crg *crg, int arg1, int arg2, int cases)
 	int new_pos;
 	unsigned int bytes;
 
-	(void)cases;
-	new_pos = crg->pos + (arg1 + arg2) % IDX_MOD;
+	if (cases == 0)
+		new_pos = crg->pos + (arg1 + arg2) % IDX_MOD;
+	else
+	{
+		new_pos = crg->pos + (arg1 + arg2);
+	}
+	
 	bytes = get_arg_dir(war, new_pos, 4);
 	return ((int)bytes);
 }
@@ -45,7 +50,7 @@ int		ft_ldi_take_arg(t_war *war, t_crg *crg, int pos, int arg)
 		i_pos = get_arg_ind(war, pos);
 		dir = get_arg_dir(war, crg->pos + i_pos % IDX_MOD, 4);
 		return ((int)dir);
-	}	
+	}
 	return (0);
 }
 
