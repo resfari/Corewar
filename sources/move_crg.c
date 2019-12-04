@@ -37,7 +37,7 @@ void	ft_move_crg(t_war *war, t_crg *crg, int move_to)
 		war->arena[prev_pos].busy = 0;
 		war->arena[prev_pos].crg_clr = 0;
 	}
-	crg->pos = GG(new_pos);
+	crg->pos = GG((new_pos));
 	// if (new_pos == 4100 && prev_pos == 4094 && war->all_cycle > 4000)
 	// {
 	// 	ft_printf("\nMOVE:   new_pos = %d prev_pos = %d  my_pos = %d\n", new_pos, prev_pos, crg->pos);

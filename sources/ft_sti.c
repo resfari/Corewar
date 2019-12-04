@@ -38,7 +38,8 @@ void	ft_sti(t_war *war, t_crg *crg)
 	int i;
 	int x;
 
-	// printf("\n%d %d %d\n", crg->args[0], crg->args[1], crg->args[2]);
+	// if (war->all_cycle >= 7193 && war->all_cycle <= 7197)
+	// 	printf("\nIN STI: %d %d %d\n", crg->args[0], crg->args[1], crg->args[2]);
 	pos = crg->pos + 2;
 	reg = get_arg_reg(war, pos);
 	// printf("reg = %d\n", reg);
@@ -106,9 +107,9 @@ void	ft_sti(t_war *war, t_crg *crg)
 			// 
 			// ft_printf("\nSTI: = %d\n", GG(x));
 			x = crg->pos + (arg2 + arg3) % IDX_MOD + i;
-			war->arena[GG(x)].code = (crg->reg[reg] >> (8 * (3 - i))) & 255;
+			war->arena[GG((x))].code = (crg->reg[reg] >> (8 * (3 - i))) & 255;
 			// printf("i = %d  arg = %d      ", i, (crg->reg[reg] >> (8 * (3 - i))) & 255);
-			war->arena[GG(x)].color = crg->player;
+			war->arena[GG((x))].color = crg->player;
 			i++;
 		}
 		if (war->all_cycle == 14800)

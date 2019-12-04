@@ -65,7 +65,7 @@ void	ft_read_one_byte_for_arg(t_war *war, t_crg *crg, int num)
 		i++;
 		byte--;
 	}
-	// if (war->all_cycle > 1700 && war->all_cycle < 1750)
+	// if (war->all_cycle >= 7195 && war->all_cycle <= 7196)
 	// 	printf("pos = %d  arg 1 = %d arg 2 = %d arg 3 = %d\n", crg->pos ,crg->args[0], crg->args[1], crg->args[2]);
 }
 
