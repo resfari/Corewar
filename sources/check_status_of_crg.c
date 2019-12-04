@@ -47,6 +47,11 @@ void	ft_check_one_crg(t_war *war, t_crg *crg)
 			}
 			else
 			{
+				// if (war->all_cycle >= 7195 && war->all_cycle <= 7196)
+				// {
+					
+				// 	printf("here2\n");
+				// }
 				// if (war->all_cycle > 1729 && war->all_cycle < 1731)
 				// 	printf("skip cause bad arg\n");
 				ft_move_crg(war, crg, crg->bytes_to_go);

@@ -74,7 +74,7 @@ void	ft_ldi(t_war *war, t_crg *crg, int cases)
 		pos += 1;
 	else
 		pos += 2;
-	arg3 = war->arena[GG(pos)].code;
+	arg3 = war->arena[GG((pos))].code;
 	// printf("\n arg3 = %d\n", arg3);
 	// ft_printf("\nLDI : arg1 = %d   arg2 = %d\n", arg1, arg2);
 	if (arg3 >= 1 && arg3 <= 16)

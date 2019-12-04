@@ -76,7 +76,7 @@ void	ft_fork(t_war *war, t_crg *crg, int cases)
 	}
 	else // lfork
 	{
-		new_pos = crg->pos + arg;
+		new_pos = arg;
 	}
 	ft_add_new_crg(war, crg, new_pos);
 	ft_move_crg(war, crg, 3);

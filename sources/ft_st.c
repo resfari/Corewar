@@ -19,11 +19,11 @@ void	ft_st_reg(t_war *war, t_crg *crg)
 	int new_reg;
 
 	pos = crg->pos + 2;
-	reg = war->arena[GG(pos)].code;
+	reg = war->arena[GG((pos))].code;
 	if (reg >= 1 && reg <= 16)
 	{
 		pos += 1;
-		new_reg = war->arena[GG(pos)].code;
+		new_reg = war->arena[GG((pos))].code;
 
 		//testing
 		// if (war->st_count < 50)
