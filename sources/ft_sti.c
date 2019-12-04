@@ -107,9 +107,9 @@ void	ft_sti(t_war *war, t_crg *crg)
 			// 
 			// ft_printf("\nSTI: = %d\n", GG(x));
 			x = crg->pos + (arg2 + arg3) % IDX_MOD + i;
-			war->arena[GG((x))].code = (crg->reg[reg] >> (8 * (3 - i))) & 255;
+			war->arena[GG(x)].code = (crg->reg[reg] >> (8 * (3 - i))) & 255;
 			// printf("i = %d  arg = %d      ", i, (crg->reg[reg] >> (8 * (3 - i))) & 255);
-			war->arena[GG((x))].color = crg->player;
+			war->arena[GG(x)].color = crg->player;
 			i++;
 		}
 		// if (war->st_count < 50 && war->all_cycle > 1728 && war->all_cycle < 1735)

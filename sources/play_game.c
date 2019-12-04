@@ -48,8 +48,8 @@ int	ft_check_live_crg(t_war *war)
 	{
 		if (help->live == 0)
 		{
-			war->arena[GG((help->pos))].busy = 0;
-			war->arena[GG((help->pos))].crg_clr = 0;
+			war->arena[GG(help->pos)].busy = 0;
+			war->arena[GG(help->pos)].crg_clr = 0;
 			help->die = 1;
 		}
 		if (help->die == 0)

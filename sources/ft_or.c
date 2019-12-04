@@ -23,7 +23,7 @@ void	ft_or(t_war *war, t_crg *crg)
     // get value from arg1
     if (crg->args[0] == 3)
     {
-        tmp_arg = war->arena[GG((pos))].code;
+        tmp_arg = war->arena[GG(pos)].code;
         if (tmp_arg >= 1 && tmp_arg <= 16)
         {
             bit_or_arg1_2 = crg->reg[tmp_arg];
@@ -47,7 +47,7 @@ void	ft_or(t_war *war, t_crg *crg)
     // get value from arg2
     if (crg->args[1] == 3)
     {
-        tmp_arg = war->arena[GG((pos))].code;
+        tmp_arg = war->arena[GG(pos)].code;
         if (tmp_arg >= 1 && tmp_arg <= 16)
         {
             bit_or_arg1_2 = bit_or_arg1_2 | crg->reg[tmp_arg];
@@ -69,7 +69,7 @@ void	ft_or(t_war *war, t_crg *crg)
         pos += 2;
     }
     // get arg3 and put bit_or in it
-    tmp_arg = war->arena[GG((pos))].code;
+    tmp_arg = war->arena[GG(pos)].code;
     if (tmp_arg >= 1 && tmp_arg <= 16)
     {
         crg->reg[tmp_arg] = bit_or_arg1_2;

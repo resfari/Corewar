@@ -20,11 +20,11 @@ void	ft_add(t_war *war, t_crg *crg)
 	int	reg3;
 
 	pos = crg->pos + 2;
-	reg1 = war->arena[GG((pos))].code;
+	reg1 = war->arena[GG(pos)].code;
 	pos += 1;
-	reg2 = war->arena[GG((pos))].code;
+	reg2 = war->arena[GG(pos)].code;
 	pos += 1;
-	reg3 = war->arena[GG((pos))].code;
+	reg3 = war->arena[GG(pos)].code;
 	if (reg1 >= 1 && reg1 <= 16 && reg2 >= 1 && reg2 <= 16 && reg3 >= 1 && reg3 <= 16)
 	{
 		crg->reg[reg3] = crg->reg[reg1] + crg->reg[reg2];

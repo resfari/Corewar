@@ -46,7 +46,7 @@ void	ft_read_one_byte_for_arg(t_war *war, t_crg *crg, int num)
 	crg->args[2] = 0;
 	
 	d = 0;
-	ptr = (char*)&(war->arena[GG((crg->pos + 1))].code);
+	ptr = (char*)&(war->arena[GG(crg->pos + 1)].code);
 	byte = 7;
 	i = 0;
 	while (byte > 1)

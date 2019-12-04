@@ -26,7 +26,7 @@
 # define IND 7
 
 # define WP(x) (x > 4095 ? x % 4096 : x)
-# define GG(x) (x % MEM_SIZE < 0 ? x % MEM_SIZE + MEM_SIZE : x % MEM_SIZE)
+# define GG(x) ((x) % MEM_SIZE < 0 ? (x) % MEM_SIZE + MEM_SIZE : (x) % MEM_SIZE)
 
 
 

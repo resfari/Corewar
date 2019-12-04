@@ -18,7 +18,7 @@ void	ft_aff(t_war *war, t_crg *crg)
 	int pos;
 	int reg;
 
-	pos = GG((crg->pos + 2));
+	pos = GG(crg->pos + 2);
 	reg = get_arg_reg(war, pos);
 
 	if (reg >= 1 && reg <= 16)
