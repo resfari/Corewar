@@ -6,7 +6,7 @@
 /*   By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/15 20:26:20 by pnita             #+#    #+#             */
-/*   Updated: 2019/12/04 17:31:56 by lgeorgia         ###   ########.fr       */
+/*   Updated: 2019/12/04 20:48:59 by lgeorgia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	ft_st_reg(t_war *war, t_crg *crg)
 		new_reg = war->arena[GG(pos)].code;
 
 		//testing
-		// if (war->st_count < 50)
+		// if (war->all_cycle >= 4607 && war->all_cycle <= 4609)
 		// {
 		// 	printf("\nST REG:   reg = %d,  new_reg = %d   value = %d\n", reg,  new_reg, crg->reg[reg]);
 		// 	war->st_count++;
@@ -53,7 +53,7 @@ void	ft_st_ind(t_war *war, t_crg *crg)
 	
 	ind = ind % IDX_MOD;
 	pos = crg->pos + ind;
-	// if (war->st_count < 50 && war->all_cycle > 1725 && war->all_cycle < 1735)
+	// if (war->all_cycle >= 4607 && war->all_cycle <= 4609)
 	// {
 	// 	printf("\nST IND: reg[reg] = %d   addr = %d\n", crg->reg[reg], pos);
 	// 	war->st_count++;

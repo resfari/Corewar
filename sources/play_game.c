@@ -6,7 +6,7 @@
 /*   By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/05 19:18:36 by lgeorgia          #+#    #+#             */
-/*   Updated: 2019/12/04 18:53:35 by lgeorgia         ###   ########.fr       */
+/*   Updated: 2019/12/04 20:48:12 by lgeorgia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,7 @@ void	ft_play_game(t_war *war)
 		// 	write(1, " ", 1);
 		// }
 		// printf("\ncycles = %d\n", war->cycle);
+		ft_check_status_of_crg(war, help);
 		if (war->to_die <= 0)
 		{
 				ft_printf("Contestant %d, \"%s\", has won !\n", war->winner, war->player[war->winner].name);
@@ -116,16 +117,15 @@ void	ft_play_game(t_war *war)
 			war->cycle = 0;
 			war->live = 0;
 		}
-		ft_check_status_of_crg(war, help);
 		if (war->dump == 1 && war->dump_cycle == war->all_cycle)
 		{
 			ft_print_arena(war);
 			ft_free_exit(war, 0); // No error
 		}
-		if (war->need_to_draw == 1 && war->all_cycle >= 2250)
+		if (war->need_to_draw == 1 && war->all_cycle >= 4607)
 		{
 			ft_print_1(war);
-			usleep(950000);
+			usleep(10000000);
 		}
 		war->cycle++;
 		war->all_cycle++;
