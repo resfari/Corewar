@@ -6,7 +6,7 @@
 /*   By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/06 15:30:51 by lgeorgia          #+#    #+#             */
-/*   Updated: 2019/12/02 15:13:51 by lgeorgia         ###   ########.fr       */
+/*   Updated: 2019/12/04 17:31:17 by lgeorgia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ void	ft_check_one_crg(t_war *war, t_crg *crg)
 	}
 	else
 	{
-		crg->op = war->arena[GG(crg->pos)].code & 255;
 		if (crg->moved == 1)
 		{
+			crg->op = get_arg_reg(war, crg->pos);
 			if (crg->op >= 1 && crg->op <= 16) // valid operation
 			{
 				// printf("\nGOOD OPP = %d\n", crg->op);
@@ -47,7 +47,8 @@ void	ft_check_one_crg(t_war *war, t_crg *crg)
 			}
 			else
 			{
-				// printf("\nskip cause bad arg\n");
+				// if (war->all_cycle > 1729 && war->all_cycle < 1731)
+				// 	printf("skip cause bad arg\n");
 				ft_move_crg(war, crg, crg->bytes_to_go);
 			}
 			crg->moved = 1;
