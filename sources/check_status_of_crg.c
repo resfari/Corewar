@@ -6,7 +6,7 @@
 /*   By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/06 15:30:51 by lgeorgia          #+#    #+#             */
-/*   Updated: 2019/12/04 20:48:44 by lgeorgia         ###   ########.fr       */
+/*   Updated: 2019/12/04 21:53:47 by lgeorgia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,13 +70,13 @@ void	ft_check_status_of_crg(t_war *war, t_crg *crg)
 	// printf("numb = %d\n", war->test_numb);
 	while (help)
 	{
-		// if (war->all_cycle >= 4607 && war->all_cycle <= 4609)
-		// 	printf("\nto-do %d   n_op = %d uniq = %d  CYCLE = %d ALL_CYCLE = %d\n", help->to_do, help->op, i, war->cycle, war->all_cycle);
 		if (help->die == 0)
 		{
+			if (war->all_cycle == 14800)
+				printf("\nto-do %d   n_op = %d uniq = %d  CYCLE = %d ALL_CYCLE = %d  place = %d\n", help->to_do, help->op, i, war->cycle, war->all_cycle, help->pos);
 			ft_check_one_crg(war, help); // upd: NO need to add check of busy status
+			i++;
 		}
-		i++;
 		help = help->next;
 	}
 	// printf("NUMB= %d ", numb_crg);
