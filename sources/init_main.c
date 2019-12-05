@@ -6,7 +6,7 @@
 /*   By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/02 22:09:29 by lgeorgia          #+#    #+#             */
-/*   Updated: 2019/11/22 17:49:29 by lgeorgia         ###   ########.fr       */
+/*   Updated: 2019/12/05 17:50:56 by lgeorgia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	ft_init_main(t_war *war, char **argv, int argc)
 	war->argc = argc;
 	war->to_die = CYCLE_TO_DIE;
 	
-	//ft_reserve_num_for_players(war);
+	// ft_reserve_num_for_players(war);
 	//ft_init_arena(war);
 	ft_init_opp(war);
 

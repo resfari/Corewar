@@ -6,7 +6,7 @@
 /*   By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/02 22:09:13 by lgeorgia          #+#    #+#             */
-/*   Updated: 2019/11/25 18:49:09 by lgeorgia         ###   ########.fr       */
+/*   Updated: 2019/12/05 19:12:36 by lgeorgia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,6 @@ int		ft_len_player_code(t_war *war, int num)
 	}
 	if (war->player[num].text_len > MAX_CODE_SIZE + 16)
 	{
-		printf("MY LEN = %d  MAX_CODE_SIZE =  %d", war->player[num].text_len, MAX_CODE_SIZE);
 		ft_putstr("File error: too much symbols\n");
 		exit(1);
 	}
@@ -66,6 +65,7 @@ void	ft_read_players_code(t_war *war)
 	i = 1;
 	while (i <= war->numb_players)
 	{
+		
 		war->player[i].text_len = ft_len_player_code(war, i);
 		i++;
 	}

@@ -6,7 +6,7 @@
 /*   By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/02 22:09:32 by lgeorgia          #+#    #+#             */
-/*   Updated: 2019/11/22 19:04:08 by lgeorgia         ###   ########.fr       */
+/*   Updated: 2019/12/05 19:21:33 by lgeorgia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,11 +68,6 @@ int     ft_add_player_with_number(t_war *war, int i)
 {
 	int num;
 
-	if (i > war->argc - 1)
-	{
-		ft_putstr("Check players");
-		exit(1);
-	}
 	if ((num = ft_check_valid_num(war, war->argv[i])) == 0)
 	{
 		ft_putstr("Check players");
@@ -96,28 +91,36 @@ void    ft_read_flags_players(t_war *war)
 	i = 1;
 	while (i < war->argc)
 	{
-		if (i == 1 && ft_strequ(war->argv[1], "-v"))
+		if (ft_strequ(war->argv[i], "-v"))
 		{
 			war->need_to_draw = 1;
 		}
-		else if (i == 1 && ft_strequ(war->argv[1], "-dump"))
+		else if (ft_strequ(war->argv[i], "-dump"))
 		{
+			if (war->dump == 1 || i + 1 >= war->argc)
+			{
+				ft_putstr("Dump error\n");
+				ft_free_exit(war, 5);
+			}
 			if (i + 1 < war->argc)
 			{
 				ft_take_dump(war, i + 1);
 				war->dump = 1;
 				i += 1;
 			}
-			else
-			{
-				ft_free_exit(war, 6);
-			}
-			
+		}
+		else if (ft_strequ(war->argv[i], "-live"))
+		{
+			war->vis_live = 1;
 		}
 		else
 		{
 			if (ft_strequ(war->argv[i], "-n"))
 			{
+				if (i + 2 >= war->argc)
+				{
+					ft_free_exit(war, 4);
+				}
 				i = ft_add_player_with_number(war, i + 1);
 			}
 			else

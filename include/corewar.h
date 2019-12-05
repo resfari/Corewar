@@ -50,7 +50,7 @@ typedef struct			s_player
 	int					code_len;
     int                 start_pos;
     int                 text_len;
-    char                text[MAX_CODE_SIZE + 1];
+    char                text[MAX_CODE_SIZE + 16];
 }						t_player;
 
 typedef struct			s_arena
@@ -108,6 +108,7 @@ typedef struct			s_war
 	int					need_to_draw;
 	int					dump;
 	int					dump_cycle;
+	int					vis_live;
 
 	//test params
 	int					zjmp_count;

@@ -6,7 +6,7 @@
 /*   By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/05 19:18:36 by lgeorgia          #+#    #+#             */
-/*   Updated: 2019/12/04 22:35:29 by lgeorgia         ###   ########.fr       */
+/*   Updated: 2019/12/05 19:13:54 by lgeorgia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,22 +73,6 @@ void	ft_play_game(t_war *war)
 	while (1)
 	{
 		help = war->top;
-		// if (war->cycle > war->to_die)
-		// {
-		// 	printf("here");
-		// }
-		// {
-		// 	ft_init_ncurses();
-		// 	ft_print_1(war);
-		// 	usleep(1410065408);
-		// 	ft_putnbr(war->to_die);
-		// 	write(1, " ", 1);
-		// 	ft_putnbr(war->cycle);
-		// 	write(1, " ", 1);
-		// 	ft_putnbr(war->all_cycle);
-		// 	write(1, " ", 1);
-		// }
-		// printf("\ncycles = %d\n", war->cycle);
 		ft_check_status_of_crg(war, help);
 		if (war->to_die <= 0)
 		{
