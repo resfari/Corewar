@@ -6,7 +6,7 @@
 /*   By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/02 22:09:53 by lgeorgia          #+#    #+#             */
-/*   Updated: 2019/11/19 18:59:27 by lgeorgia         ###   ########.fr       */
+/*   Updated: 2019/12/05 19:55:17 by lgeorgia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,10 @@ int		main(int argc, char **argv)
 
 	if (!(war = (t_war*)ft_memalloc(sizeof(t_war))))
 		return (0);
+	if (argc == 1)
+	{
+		ft_free_exit(war, 11);
+	}
 	ft_init_main(war, argv, argc); // init main struct WAR.
 	ft_read_flags_players(war); // func arrange order players w/o flags idk what flags we need to realised
 	ft_read_players_code(war); // copy code for each player in player[].struct in War

@@ -6,7 +6,7 @@
 /*   By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/02 22:09:32 by lgeorgia          #+#    #+#             */
-/*   Updated: 2019/12/05 19:21:33 by lgeorgia         ###   ########.fr       */
+/*   Updated: 2019/12/05 20:09:56 by lgeorgia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,10 @@ void    ft_read_flags_players(t_war *war)
 		if (ft_strequ(war->argv[i], "-v"))
 		{
 			war->need_to_draw = 1;
+		}
+		else if (ft_strequ(war->argv[1], "-help"))
+		{
+			ft_free_exit(war, 11);
 		}
 		else if (ft_strequ(war->argv[i], "-dump"))
 		{
