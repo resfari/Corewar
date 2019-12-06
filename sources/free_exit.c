@@ -6,7 +6,7 @@
 /*   By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/03 18:47:09 by lgeorgia          #+#    #+#             */
-/*   Updated: 2019/12/05 20:11:43 by lgeorgia         ###   ########.fr       */
+/*   Updated: 2019/12/06 17:07:05 by lgeorgia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,18 +24,57 @@ void	ft_print_usage(void)
 	ft_putstr("################################################################################\n");
 }
 
+void	ft_error_print(int num_error)
+{
+	if (num_error == 1)
+		ft_putstr("Error: Malloc\n");
+	else if (num_error == 3)
+		ft_putstr("File error\n");
+	else if (num_error == 4)
+		ft_putstr("Error: Wrong number of players\n");
+	else if (num_error == 5 || num_error == 10)
+	{
+		ft_putstr("Error: Check flag: dump\n");
+		ft_print_usage();
+	}
+	else if (num_error == 6)
+	{
+		ft_putstr("Error: Wrong flags\n");
+		ft_print_usage();
+	}
+	else if (num_error == 7)
+		ft_putstr("Error: Magic header\n");
+	else if (num_error == 8)
+		ft_putstr("Error: Character in file\n");
+	else if (num_error == 9)
+		ft_putstr("Error: File have wrong size\n");
+}
+
+void	free_all(t_war *war)
+{
+	t_crg *help;
+	t_crg *f_help;
+
+	f_help = war->top;
+	while (f_help)
+	{
+		help = f_help;
+		f_help = f_help->next;
+		free(help);
+	}
+	free(war);
+}
+
 void	ft_free_exit(t_war *war, int n_error)
 {
 	if (n_error == 11)
 	{
 		ft_print_usage();
 	}
-	else if (n_error > 0)
+	else if (n_error != 0)
 	{
-		ft_putstr("Error #");
-		ft_putnbr(n_error);
-		write(1, "\n", 1);
+		ft_error_print(n_error);
 	}
-	free(war);
+	free_all(war);
 	exit(1);
 }

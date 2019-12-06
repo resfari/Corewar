@@ -6,7 +6,7 @@
 /*   By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/16 20:39:00 by lgeorgia          #+#    #+#             */
-/*   Updated: 2019/12/06 14:10:42 by lgeorgia         ###   ########.fr       */
+/*   Updated: 2019/12/06 16:58:12 by lgeorgia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ void	ft_aff(t_war *war, t_crg *crg)
 
 	pos = GG((crg->pos + 2));
 	reg = get_arg_reg(war, pos);
-
 	if (reg >= 1 && reg <= 16)
 	{
 		c = crg->reg[reg];

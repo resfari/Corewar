@@ -6,7 +6,7 @@
 /*   By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/06 16:07:01 by lgeorgia          #+#    #+#             */
-/*   Updated: 2019/12/04 21:53:00 by lgeorgia         ###   ########.fr       */
+/*   Updated: 2019/12/06 16:53:05 by lgeorgia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,8 +65,6 @@ void	ft_read_one_byte_for_arg(t_war *war, t_crg *crg, int num)
 		i++;
 		byte--;
 	}
-	// if (war->all_cycle >= 7195 && war->all_cycle <= 7196)
-	// 	printf("pos = %d  arg 1 = %d arg 2 = %d arg 3 = %d\n", crg->pos ,crg->args[0], crg->args[1], crg->args[2]);
 }
 
 int		ft_check_argument(t_war *war, t_crg *crg, int oper)
@@ -74,16 +72,11 @@ int		ft_check_argument(t_war *war, t_crg *crg, int oper)
 	int i;
 
 	i = 0;
-	// if (war->all_cycle > 1700 && war->all_cycle < 1750)
-	// 	printf("\nOpp = %d  Cycle = %d\n", oper, war->all_cycle);
-	ft_read_one_byte_for_arg(war, crg, crg->player); //create massive where 3 args
-
+	ft_read_one_byte_for_arg(war, crg, crg->player);
 	while (i < war->opp[oper].arg_len)
 	{
 		if (crg->args[i] == 0 || war->opp[oper].types[i] % crg->args[i] != 0)
 		{
-			// if (war->all_cycle > 1700 && war->all_cycle < 1750)
-			// 	printf("\nOpp = %d Cycele %d", oper, war->all_cycle);
 			crg->bytes_to_go = ft_calc_bytes_to_skip(crg->args, war->opp[oper].dir_size, war->opp[oper].arg_len);
 			return (0);
 		}

@@ -6,7 +6,7 @@
 /*   By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/02 22:09:32 by lgeorgia          #+#    #+#             */
-/*   Updated: 2019/12/06 14:55:09 by lgeorgia         ###   ########.fr       */
+/*   Updated: 2019/12/06 17:08:41 by lgeorgia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,7 @@ int     ft_add_player_wo_number(t_war *war, int i)
 	j = 1;
 	if (i > war->argc - 1)
 	{
-		ft_putstr("Check players");
-		exit(1);
+		ft_free_exit(war, 4);
 	}
 	while (j < 5)
 	{
@@ -60,8 +59,8 @@ int     ft_add_player_wo_number(t_war *war, int i)
 		}
 		j++;
 	}
-	ft_putstr("Check players");
-	exit(1);
+	ft_free_exit(war, 4);
+	return (0);
 }
 
 int     ft_add_player_with_number(t_war *war, int i)
@@ -70,13 +69,11 @@ int     ft_add_player_with_number(t_war *war, int i)
 
 	if ((num = ft_check_valid_num(war, war->argv[i])) == 0)
 	{
-		ft_putstr("Check players");
-		exit(1);
+		ft_free_exit(war, 4);
 	}
 	if (ft_check_free_num(war, num) == 0)
 	{
-		ft_putstr("Check players");
-		exit(1);
+		ft_free_exit(war, 4);
 	}
 	war->player[num].path = war->argv[i + 1];
 	return (i + 1);
@@ -103,7 +100,6 @@ void    ft_read_flags_players(t_war *war)
 		{
 			if (war->dump == 1 || i + 1 >= war->argc || war->dump2 == 1)
 			{
-				ft_putstr("Dump error\n");
 				ft_free_exit(war, 5);
 			}
 			if (i + 1 < war->argc)
@@ -125,7 +121,6 @@ void    ft_read_flags_players(t_war *war)
 		{
 			if (war->dump == 1 || i + 1 >= war->argc || war->dump2 == 1)
 			{
-				ft_putstr("Dump error\n");
 				ft_free_exit(war, 5);
 			}
 			if (i + 1 < war->argc)
@@ -155,7 +150,6 @@ void    ft_read_flags_players(t_war *war)
 	close(file);
 	if (ft_check_order_amount_players(war) == 0)
 	{
-		ft_putstr("Check players order");
-		exit(1);
+		ft_free_exit(war, 4);
 	}
 }

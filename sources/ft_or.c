@@ -6,7 +6,7 @@
 /*   By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/15 22:09:00 by pnita             #+#    #+#             */
-/*   Updated: 2019/12/02 21:44:57 by lgeorgia         ###   ########.fr       */
+/*   Updated: 2019/12/06 16:59:47 by lgeorgia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ void	ft_or(t_war *war, t_crg *crg)
     int bit_or_arg1_2;
 
     pos = crg->pos + 2;
-    // get value from arg1
     if (crg->args[0] == 3)
     {
         tmp_arg = war->arena[GG((pos))].code;
@@ -44,7 +43,6 @@ void	ft_or(t_war *war, t_crg *crg)
         bit_or_arg1_2 = tmp_arg;
         pos += 2;
     }
-    // get value from arg2
     if (crg->args[1] == 3)
     {
         tmp_arg = war->arena[GG((pos))].code;
@@ -68,7 +66,6 @@ void	ft_or(t_war *war, t_crg *crg)
         bit_or_arg1_2 = bit_or_arg1_2 | tmp_arg;
         pos += 2;
     }
-    // get arg3 and put bit_or in it
     tmp_arg = war->arena[GG((pos))].code;
     if (tmp_arg >= 1 && tmp_arg <= 16)
     {

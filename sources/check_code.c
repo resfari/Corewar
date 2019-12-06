@@ -6,7 +6,7 @@
 /*   By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/04 15:53:39 by lgeorgia          #+#    #+#             */
-/*   Updated: 2019/11/25 18:41:11 by lgeorgia         ###   ########.fr       */
+/*   Updated: 2019/12/06 16:34:14 by lgeorgia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ void	ft_check_code(t_war *war, int num)
 		i++;
 		j++;
 	}
+	war->player[num].code[i] = '\0';
 	war->player[num].code_len = j - (16 + PROG_NAME_LENGTH + COMMENT_LENGTH);
 	if (war->player[num].code_len > CHAMP_MAX_SIZE)
 	{

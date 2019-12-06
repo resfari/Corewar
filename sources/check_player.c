@@ -6,13 +6,12 @@
 /*   By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/02 22:09:36 by lgeorgia          #+#    #+#             */
-/*   Updated: 2019/12/05 19:11:25 by lgeorgia         ###   ########.fr       */
+/*   Updated: 2019/12/06 16:54:01 by lgeorgia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/corewar.h"
 
-// func chech that number not busy yet otherwise ERROR
 int		ft_check_free_num(t_war *war, int num)
 {
 	if (war->reserved_num[num] != 0)
@@ -24,7 +23,6 @@ int		ft_check_free_num(t_war *war, int num)
 	}
 	return (1);
 }
-// check that number is in 1 - 4 range
 
 int		ft_check_valid_num(t_war *war, char *line)
 {
@@ -44,8 +42,6 @@ int		ft_check_valid_num(t_war *war, char *line)
 	}
 }
 
-
-// func full in order players with no priority in [1-4] array 
 void	ft_full_reserved(t_war *war)
 {
 	int i;

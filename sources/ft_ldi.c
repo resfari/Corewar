@@ -6,7 +6,7 @@
 /*   By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/16 16:37:22 by lgeorgia          #+#    #+#             */
-/*   Updated: 2019/12/03 19:34:01 by lgeorgia         ###   ########.fr       */
+/*   Updated: 2019/12/06 16:59:27 by lgeorgia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,30 +63,24 @@ void	ft_ldi(t_war *war, t_crg *crg, int cases)
 
 	pos = crg->pos + 2;
 	arg1 = ft_ldi_take_arg(war, crg, pos, 0);
-	// printf("\n arg1 = %d\n", arg1);
 	if (crg->args[0] == 3)
 		pos += 1;
 	else
 		pos += 2;
 	arg2 = ft_ldi_take_arg(war, crg, pos, 1);
-	// printf("\n arg2 = %d\n", arg2);
 	if (crg->args[1] == 3)
 		pos += 1;
 	else
 		pos += 2;
 	arg3 = war->arena[GG((pos))].code;
-	// printf("\n arg3 = %d\n", arg3);
-	// ft_printf("\nLDI : arg1 = %d   arg2 = %d\n", arg1, arg2);
 	if (arg3 >= 1 && arg3 <= 16)
 	{
 		if ((crg->args[0] == 3 && arg1 < 1 && arg1 > 16) || (crg->args[1] == 3 && arg2 < 1 && arg2 > 16))
 		{
-			ft_move_crg(war, crg, pos - crg->pos + 1); // +1 cause need skip last arg == T_REG
+			ft_move_crg(war, crg, pos - crg->pos + 1);
 			return ;
 		}
 		crg->reg[arg3] = ft_ldi_find_bytes(war, crg, arg1, arg2, cases);
-		// printf("\ncrg reg = %d\n", crg->reg[arg3]);
 	}
-	// printf("\npos = %d\n", pos - crg->pos + 1);
-	ft_move_crg(war, crg, pos - crg->pos + 1); // +1 cause need skip last arg == T_REG
+	ft_move_crg(war, crg, pos - crg->pos + 1);
 }

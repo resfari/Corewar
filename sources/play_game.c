@@ -6,7 +6,7 @@
 /*   By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/05 19:18:36 by lgeorgia          #+#    #+#             */
-/*   Updated: 2019/12/06 15:00:35 by lgeorgia         ###   ########.fr       */
+/*   Updated: 2019/12/06 17:02:39 by lgeorgia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,7 +103,7 @@ void	ft_play_game(t_war *war)
 		if (war->need_to_draw == 0 && war->dump_cycle == war->all_cycle && (war->dump == 1 || war->dump2 == 1))
 		{
 			ft_print_arena(war);
-			ft_free_exit(war, 0); // No error
+			ft_free_exit(war, 0);
 		}
 		if (war->need_to_draw == 1)
 		{
@@ -112,11 +112,7 @@ void	ft_play_game(t_war *war)
 		}
 		war->cycle++;
 		war->all_cycle++;
-		// printf("MAX CYCLE = %d CYCLE_TO_DIE = %d\n", war->all_cycle, war->to_die);
-		// printf("pos 1 pl = %d pos 2 pl = %d\n", war->bot->pos, war->top->pos);
 	}
 	ft_printf("Contestant %d, \"%s\", has won !\n", war->winner, war->player[war->winner].name);
-	// printf("To_die < 0: CYCLE MAX = %d war_to_die = %d numb crg = %d fork = %d cycle = %d\n",
-	// war->all_cycle, war->to_die, war->numb_crg + war->numb_players, war->fork_count, war->cycle);
-	exit(1);
+	ft_free_exit(war, 0);
 }

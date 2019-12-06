@@ -6,12 +6,11 @@
 /*   By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/18 15:18:24 by lgeorgia          #+#    #+#             */
-/*   Updated: 2019/12/06 14:58:00 by lgeorgia         ###   ########.fr       */
+/*   Updated: 2019/12/06 16:59:57 by lgeorgia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/corewar.h"
-
 
 void	ft_init_ncurses(void)
 {

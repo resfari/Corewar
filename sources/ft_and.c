@@ -6,7 +6,7 @@
 /*   By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/15 21:17:12 by pnita             #+#    #+#             */
-/*   Updated: 2019/12/02 20:06:47 by lgeorgia         ###   ########.fr       */
+/*   Updated: 2019/12/06 16:58:24 by lgeorgia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ft_andor_calc_move(t_war *war, t_crg *crg)
 {
 	int res;
 
-	res = 3; // code, types of args, #3 arg T_REG
+	res = 3;
 	if (crg->args[0] == 3)
 		res += 1;
 	else if (crg->args[0] == 5)
@@ -40,7 +40,6 @@ void	ft_and(t_war *war, t_crg *crg)
     int bit_and_arg1_2;
 
     pos = crg->pos + 2;
-    // get value from arg1
     if (crg->args[0] == 3)
     {
         tmp_arg = war->arena[GG((pos))].code;
@@ -64,7 +63,6 @@ void	ft_and(t_war *war, t_crg *crg)
         bit_and_arg1_2 = tmp_arg;
         pos += 2;
     }
-    // get value from arg2
     if (crg->args[1] == 3)
     {
         tmp_arg = war->arena[GG((pos))].code;
@@ -88,7 +86,6 @@ void	ft_and(t_war *war, t_crg *crg)
         bit_and_arg1_2 = bit_and_arg1_2 & tmp_arg;
         pos += 2;
     }
-    // get arg3 and put bit_and in it
     tmp_arg = war->arena[GG((pos))].code;
     if (tmp_arg >= 1 && tmp_arg <= 16)
     {
