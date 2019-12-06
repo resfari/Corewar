@@ -6,7 +6,7 @@
 /*   By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/02 22:09:32 by lgeorgia          #+#    #+#             */
-/*   Updated: 2019/12/05 20:09:56 by lgeorgia         ###   ########.fr       */
+/*   Updated: 2019/12/06 14:09:31 by lgeorgia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,6 +116,10 @@ void    ft_read_flags_players(t_war *war)
 		else if (ft_strequ(war->argv[i], "-live"))
 		{
 			war->vis_live = 1;
+		}
+		else if (ft_strequ(war->argv[i], "-a"))
+		{
+			war->aff = 1;
 		}
 		else
 		{

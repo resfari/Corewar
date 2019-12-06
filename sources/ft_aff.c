@@ -6,7 +6,7 @@
 /*   By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/16 20:39:00 by lgeorgia          #+#    #+#             */
-/*   Updated: 2019/12/02 16:51:22 by lgeorgia         ###   ########.fr       */
+/*   Updated: 2019/12/06 14:10:42 by lgeorgia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ void	ft_aff(t_war *war, t_crg *crg)
 	if (reg >= 1 && reg <= 16)
 	{
 		c = crg->reg[reg];
-		// ft_printf("Aff: %c\n", (char)c);
-		// write(1, &c, 1);
+		if (war->aff == 1)
+			ft_printf("Aff: %c\n", (char)c);
 	}
 	ft_move_crg(war, crg, 3);
 }

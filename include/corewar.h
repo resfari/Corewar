@@ -109,6 +109,7 @@ typedef struct			s_war
 	int					dump;
 	int					dump_cycle;
 	int					vis_live;
+	int					aff;
 
 	//test params
 	int					zjmp_count;
