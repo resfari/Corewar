@@ -6,7 +6,7 @@
 /*   By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/05 19:18:36 by lgeorgia          #+#    #+#             */
-/*   Updated: 2019/12/06 13:55:19 by lgeorgia         ###   ########.fr       */
+/*   Updated: 2019/12/06 15:00:35 by lgeorgia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ void	ft_init_first_cycle(t_war *war)
 	while (help)
 	{
 		opp = (int)(war->arena[help->pos].code & 255);
-		// printf("\ninit opp in start = %d\n", opp);
 		if (opp > 0 && opp < 17)
 		{
 			help->to_do = war->opp[opp].cycle;
@@ -66,7 +65,6 @@ void	ft_play_game(t_war *war)
 {
 	t_crg *help;
 
-	//init first round, to_do count operation etc
 	ft_init_first_cycle(war);
 	if (war->need_to_draw == 1)
 		ft_init_ncurses();
@@ -85,8 +83,7 @@ void	ft_play_game(t_war *war)
 		if (war->cycle == war->to_die)
 		{
 			war->check_num++;
-			// printf("\nnumb of crg = %d\n", war->numb_crg);
-			if (ft_check_live_crg(war) == 0) // someone alive and kill no life crg
+			if (ft_check_live_crg(war) == 0)
 			{
 				if (war->need_to_draw == 1)
 					ft_print_1(war, 1);
@@ -103,7 +100,7 @@ void	ft_play_game(t_war *war)
 			war->cycle = 0;
 			war->live = 0;
 		}
-		if (war->dump == 1 && war->dump_cycle == war->all_cycle)
+		if (war->need_to_draw == 0 && war->dump_cycle == war->all_cycle && (war->dump == 1 || war->dump2 == 1))
 		{
 			ft_print_arena(war);
 			ft_free_exit(war, 0); // No error

@@ -6,7 +6,7 @@
 /*   By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/18 15:18:24 by lgeorgia          #+#    #+#             */
-/*   Updated: 2019/12/06 13:54:16 by lgeorgia         ###   ########.fr       */
+/*   Updated: 2019/12/06 14:58:00 by lgeorgia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,19 +77,22 @@ void	ft_print_arena(t_war *war)
 {
 	int a;
 	int begin;
+	int oct;
 
+	oct = 64;
+	if (war->dump2 == 1)
+		oct = 32;
 	begin = 0;
 	a = 0;
-	// ft_printf("0x%04x : ", begin);
 	while (a < MEM_SIZE)
 	{
-		if (a % 64 == 0)
+		if (a % oct == 0)
 		{
 			if (a != 0)
 				write(1, "\n", 1);
 			if (a < MEM_SIZE - 1)
 				ft_printf("0x%04x : ", begin);
-			begin += 64;
+			begin += oct;
 		}
 		ft_printf("%02x", 255 & war->arena[a].code);	
 		write(1, " ", 1);
@@ -97,25 +100,3 @@ void	ft_print_arena(t_war *war)
 	}
 	write(1, "\n", 1);
 }
-
-// void	ft_print(t_war *war)
-// {
-// 	int i;
-// 	int hex;
-
-// 	hex = 0;
-// 	i = 0;
-// 	while (i < MEM_SIZE)
-// 	{
-// 		// if ((i) % (64) == 0)
-// 		// 	printf("0x%04x :", hex);
-// 		printf("%02x ", 255 & war->arena[i].code);
-// 		if ((i + 1) % (32) == 0)
-// 		{
-// 			printf("\n");
-// 		}
-// 		i++;
-// 	}
-// 	exit(1);
-// }
-

@@ -107,6 +107,7 @@ typedef struct			s_war
 	int					all_cycle;
 	int					need_to_draw;
 	int					dump;
+	int					dump2;
 	int					dump_cycle;
 	int					vis_live;
 	int					aff;

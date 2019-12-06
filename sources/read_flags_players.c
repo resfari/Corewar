@@ -6,7 +6,7 @@
 /*   By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/02 22:09:32 by lgeorgia          #+#    #+#             */
-/*   Updated: 2019/12/06 14:09:31 by lgeorgia         ###   ########.fr       */
+/*   Updated: 2019/12/06 14:55:09 by lgeorgia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,7 +101,7 @@ void    ft_read_flags_players(t_war *war)
 		}
 		else if (ft_strequ(war->argv[i], "-dump"))
 		{
-			if (war->dump == 1 || i + 1 >= war->argc)
+			if (war->dump == 1 || i + 1 >= war->argc || war->dump2 == 1)
 			{
 				ft_putstr("Dump error\n");
 				ft_free_exit(war, 5);
@@ -120,6 +120,20 @@ void    ft_read_flags_players(t_war *war)
 		else if (ft_strequ(war->argv[i], "-a"))
 		{
 			war->aff = 1;
+		}
+		else if (ft_strequ(war->argv[i], "-d32"))
+		{
+			if (war->dump == 1 || i + 1 >= war->argc || war->dump2 == 1)
+			{
+				ft_putstr("Dump error\n");
+				ft_free_exit(war, 5);
+			}
+			if (i + 1 < war->argc)
+			{
+				ft_take_dump(war, i + 1);
+				war->dump2 = 1;
+				i += 1;
+			}
 		}
 		else
 		{
