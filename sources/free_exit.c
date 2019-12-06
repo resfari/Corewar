@@ -6,7 +6,7 @@
 /*   By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/03 18:47:09 by lgeorgia          #+#    #+#             */
-/*   Updated: 2019/12/06 17:07:05 by lgeorgia         ###   ########.fr       */
+/*   Updated: 2019/12/06 17:48:18 by lgeorgia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@ void	ft_print_usage(void)
 {
 	ft_putstr("################################################################################\n");
 	ft_putstr("Usage: ./corewar [-dump N | -v | -live] [-a] [-n N] <champion1.cor> <...>\n");
-	ft_putstr("    -dump N      : Dumps memory after N cycles then exits\n");
+	ft_putstr("    -dump N      : Dumps memory after N cycles then exits(64 octets per line)\n");
+	ft_putstr("    -d32 N      : Dumps memory after N cycles then exits(32 octets per line)\n");
 	ft_putstr("    -live        : Show lives\n");
 	ft_putstr("    -v           : Ncurses output mode\n");
 	ft_putstr("    -a        	 : Prints output from \"aff\" (Default is to hide it)\n");
