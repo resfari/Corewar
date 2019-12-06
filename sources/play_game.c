@@ -6,7 +6,7 @@
 /*   By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/05 19:18:36 by lgeorgia          #+#    #+#             */
-/*   Updated: 2019/12/05 19:13:54 by lgeorgia         ###   ########.fr       */
+/*   Updated: 2019/12/06 13:55:19 by lgeorgia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,10 +76,11 @@ void	ft_play_game(t_war *war)
 		ft_check_status_of_crg(war, help);
 		if (war->to_die <= 0)
 		{
-				ft_printf("Contestant %d, \"%s\", has won !\n", war->winner, war->player[war->winner].name);
-				// printf("To_die < 0: CYCLE MAX = %d war_to_die = %d numb crg = %d fork = %d\n",
-				// war->all_cycle, war->to_die, war->numb_crg + war->numb_players, war->fork_count);
-				exit(1);
+				if (war->need_to_draw == 1)
+					ft_print_1(war, 1);
+				else
+					ft_printf("Contestant %d, \"%s\", has won !\n", war->winner, war->player[war->winner].name);
+				ft_free_exit(war, 0);
 		}
 		if (war->cycle == war->to_die)
 		{
@@ -87,10 +88,11 @@ void	ft_play_game(t_war *war)
 			// printf("\nnumb of crg = %d\n", war->numb_crg);
 			if (ft_check_live_crg(war) == 0) // someone alive and kill no life crg
 			{
-				ft_printf("Contestant %d, \"%s\", has won !\n", war->winner, war->player[war->winner].name);
-				// printf("CYCLE MAX = %d war_to_die = %d numb crg = %d fork = %d  cycle = %d\n",
-				// war->all_cycle, war->to_die, war->numb_crg + war->numb_players, war->fork_count, war->cycle);
-				exit(1);
+				if (war->need_to_draw == 1)
+					ft_print_1(war, 1);
+				else
+					ft_printf("Contestant %d, \"%s\", has won !\n", war->winner, war->player[war->winner].name);
+				ft_free_exit(war, 0);
 			}
 			if (war->check_num == 10 || war->live >= NBR_LIVE)
 			{
@@ -108,7 +110,7 @@ void	ft_play_game(t_war *war)
 		}
 		if (war->need_to_draw == 1)
 		{
-			ft_print_1(war);
+			ft_print_1(war, 0);
 			// usleep(50000000);
 		}
 		war->cycle++;
