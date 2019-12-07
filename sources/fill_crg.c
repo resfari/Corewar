@@ -6,7 +6,7 @@
 /*   By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/04 17:11:21 by lgeorgia          #+#    #+#             */
-/*   Updated: 2019/11/29 21:24:46 by lgeorgia         ###   ########.fr       */
+/*   Updated: 2019/12/06 16:57:46 by lgeorgia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void	ft_fill_crg(t_war *war)
 
 	i = war->numb_players;
 	crg = NULL;
-	war->winner = i; //initialize winner(start from max identification number)
+	war->winner = i;
 	while (i >= 1)
 	{
 		if (crg == NULL)

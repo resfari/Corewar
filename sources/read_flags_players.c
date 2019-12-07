@@ -6,7 +6,7 @@
 /*   By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/02 22:09:32 by lgeorgia          #+#    #+#             */
-/*   Updated: 2019/11/22 19:04:08 by lgeorgia         ###   ########.fr       */
+/*   Updated: 2019/12/06 17:08:41 by lgeorgia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,7 @@ int     ft_add_player_wo_number(t_war *war, int i)
 	j = 1;
 	if (i > war->argc - 1)
 	{
-		ft_putstr("Check players");
-		exit(1);
+		ft_free_exit(war, 4);
 	}
 	while (j < 5)
 	{
@@ -60,28 +59,21 @@ int     ft_add_player_wo_number(t_war *war, int i)
 		}
 		j++;
 	}
-	ft_putstr("Check players");
-	exit(1);
+	ft_free_exit(war, 4);
+	return (0);
 }
 
 int     ft_add_player_with_number(t_war *war, int i)
 {
 	int num;
 
-	if (i > war->argc - 1)
-	{
-		ft_putstr("Check players");
-		exit(1);
-	}
 	if ((num = ft_check_valid_num(war, war->argv[i])) == 0)
 	{
-		ft_putstr("Check players");
-		exit(1);
+		ft_free_exit(war, 4);
 	}
 	if (ft_check_free_num(war, num) == 0)
 	{
-		ft_putstr("Check players");
-		exit(1);
+		ft_free_exit(war, 4);
 	}
 	war->player[num].path = war->argv[i + 1];
 	return (i + 1);
@@ -96,28 +88,56 @@ void    ft_read_flags_players(t_war *war)
 	i = 1;
 	while (i < war->argc)
 	{
-		if (i == 1 && ft_strequ(war->argv[1], "-v"))
+		if (ft_strequ(war->argv[i], "-v"))
 		{
 			war->need_to_draw = 1;
 		}
-		else if (i == 1 && ft_strequ(war->argv[1], "-dump"))
+		else if (ft_strequ(war->argv[1], "-help"))
 		{
+			ft_free_exit(war, 11);
+		}
+		else if (ft_strequ(war->argv[i], "-dump"))
+		{
+			if (war->dump == 1 || i + 1 >= war->argc || war->dump2 == 1)
+			{
+				ft_free_exit(war, 5);
+			}
 			if (i + 1 < war->argc)
 			{
 				ft_take_dump(war, i + 1);
 				war->dump = 1;
 				i += 1;
 			}
-			else
+		}
+		else if (ft_strequ(war->argv[i], "-live"))
+		{
+			war->vis_live = 1;
+		}
+		else if (ft_strequ(war->argv[i], "-a"))
+		{
+			war->aff = 1;
+		}
+		else if (ft_strequ(war->argv[i], "-d32"))
+		{
+			if (war->dump == 1 || i + 1 >= war->argc || war->dump2 == 1)
 			{
-				ft_free_exit(war, 6);
+				ft_free_exit(war, 5);
 			}
-			
+			if (i + 1 < war->argc)
+			{
+				ft_take_dump(war, i + 1);
+				war->dump2 = 1;
+				i += 1;
+			}
 		}
 		else
 		{
 			if (ft_strequ(war->argv[i], "-n"))
 			{
+				if (i + 2 >= war->argc)
+				{
+					ft_free_exit(war, 4);
+				}
 				i = ft_add_player_with_number(war, i + 1);
 			}
 			else
@@ -130,7 +150,6 @@ void    ft_read_flags_players(t_war *war)
 	close(file);
 	if (ft_check_order_amount_players(war) == 0)
 	{
-		ft_putstr("Check players order");
-		exit(1);
+		ft_free_exit(war, 4);
 	}
 }

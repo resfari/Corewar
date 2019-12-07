@@ -6,7 +6,7 @@
 /*   By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/16 18:37:43 by lgeorgia          #+#    #+#             */
-/*   Updated: 2019/11/29 20:55:24 by lgeorgia         ###   ########.fr       */
+/*   Updated: 2019/12/06 16:58:44 by lgeorgia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,15 +35,6 @@ void	ft_add_new_crg(t_war *war, t_crg *crg, int pos)
 	t_crg *new;
 
 	new = ft_create_crg(war, crg->player);
-	// if (war->arena[pos].busy == 0)
-	// {
-	// 	war->arena[pos].busy = 1;
-	// 	war->arena[pos].crg_clr = crg->player;
-	// }
-	// else
-	// {
-	// 	war->arena[pos].busy += 1;
-	// }
 	new->pos = crg->pos;
 	new->live = crg->live;
 	new->carry = crg->carry;
@@ -62,19 +53,11 @@ void	ft_fork(t_war *war, t_crg *crg, int cases)
 
 	pos = crg->pos + 1;
 	arg = get_arg_dir(war, pos, 2);
-	// printf("\nfOrk DIR = %d\n", arg);
-	if (cases == 0) // fork
+	if (cases == 0)
 	{
 		new_pos = arg % IDX_MOD;
-		// if (war->fork_count < 20)
-		// {
-		// 	printf("\n Fork new pos = %d\n", new_pos);
-		// 	war->fork_count++;
-		// }
-		// else
-		// 	exit(1);
 	}
-	else // lfork
+	else
 	{
 		new_pos = arg;
 	}

@@ -6,12 +6,11 @@
 /*   By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/04 16:25:27 by lgeorgia          #+#    #+#             */
-/*   Updated: 2019/11/18 21:16:29 by lgeorgia         ###   ########.fr       */
+/*   Updated: 2019/12/06 16:57:04 by lgeorgia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/corewar.h"
-
 
 void	ft_add_code_to_arena(t_war *war, int num, int pos)
 {
@@ -32,7 +31,7 @@ void	ft_add_code_to_arena(t_war *war, int num, int pos)
 void	ft_fill_arena(t_war *war)
 {
 	int i;
-	int j; // cause i begin from 1 (we need 0 here(pos for 1st player = 0))
+	int j;
 	int pos;
 
 	i = 0;

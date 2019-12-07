@@ -6,12 +6,11 @@
 /*   By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/18 15:18:24 by lgeorgia          #+#    #+#             */
-/*   Updated: 2019/11/22 20:00:07 by lgeorgia         ###   ########.fr       */
+/*   Updated: 2019/12/06 16:59:57 by lgeorgia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/corewar.h"
-
 
 void	ft_init_ncurses(void)
 {
@@ -40,7 +39,7 @@ void	ft_init_ncurses(void)
 	init_pair(14, COLOR_GREEN, COLOR_BLACK);
 }
 
-void	ft_print_1(t_war *war)
+void	ft_print_1(t_war *war, int winner)
 {
 	int i;
 
@@ -67,6 +66,8 @@ void	ft_print_1(t_war *war)
 	}
 	attron(COLOR_PAIR(3));
 	printw("Lives = %d  Cycle = %d  All-Cycles = %d Cycle-to-Dye = %d Numb crg = %d", war->live, war->cycle, war->all_cycle, war->to_die, war->numb_crg);
+	if (winner == 1)
+		printw("\nWinner is %s\n", war->player[war->winner].name);
 	attroff(COLOR_PAIR(3));
 	refresh();
 }
@@ -75,19 +76,22 @@ void	ft_print_arena(t_war *war)
 {
 	int a;
 	int begin;
+	int oct;
 
+	oct = 64;
+	if (war->dump2 == 1)
+		oct = 32;
 	begin = 0;
 	a = 0;
-	// ft_printf("0x%04x : ", begin);
 	while (a < MEM_SIZE)
 	{
-		if (a % 64 == 0)
+		if (a % oct == 0)
 		{
 			if (a != 0)
 				write(1, "\n", 1);
 			if (a < MEM_SIZE - 1)
 				ft_printf("0x%04x : ", begin);
-			begin += 64;
+			begin += oct;
 		}
 		ft_printf("%02x", 255 & war->arena[a].code);	
 		write(1, " ", 1);
@@ -95,25 +99,3 @@ void	ft_print_arena(t_war *war)
 	}
 	write(1, "\n", 1);
 }
-
-// void	ft_print(t_war *war)
-// {
-// 	int i;
-// 	int hex;
-
-// 	hex = 0;
-// 	i = 0;
-// 	while (i < MEM_SIZE)
-// 	{
-// 		// if ((i) % (64) == 0)
-// 		// 	printf("0x%04x :", hex);
-// 		printf("%02x ", 255 & war->arena[i].code);
-// 		if ((i + 1) % (32) == 0)
-// 		{
-// 			printf("\n");
-// 		}
-// 		i++;
-// 	}
-// 	exit(1);
-// }
-

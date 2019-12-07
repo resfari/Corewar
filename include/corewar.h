@@ -50,7 +50,7 @@ typedef struct			s_player
 	int					code_len;
     int                 start_pos;
     int                 text_len;
-    char                text[MAX_CODE_SIZE + 1];
+    char                text[MAX_CODE_SIZE + 16];
 }						t_player;
 
 typedef struct			s_arena
@@ -70,14 +70,12 @@ typedef struct			s_crg
 	int					pos;
 	int					uniq_num;
 	int					carry;
-	// int					cycle_of_live; //last time execute live
 	int					to_die;
 	int					to_do; //amount of cycles for execute operation
 	int					bytes_to_go; //amount of bytes need to jump for next operation
 	int					reg[REG_NUMBER + 1]; //wtf is this?
 	int					die;
 	int					moved;
-	char				*code; // delete?
 	int					op;
 	int					args[3];
 	int					live;
@@ -107,7 +105,10 @@ typedef struct			s_war
 	int					all_cycle;
 	int					need_to_draw;
 	int					dump;
+	int					dump2;
 	int					dump_cycle;
+	int					vis_live;
+	int					aff;
 
 	//test params
 	int					zjmp_count;
@@ -175,7 +176,7 @@ void	ft_sti(t_war *war, t_crg *crg);
 void	ft_aff(t_war *war, t_crg *crg);
 
 //print arena
-void	ft_print_1(t_war *war);
+void	ft_print_1(t_war *war, int winner);
 void	ft_init_ncurses(void);
 
 #endif

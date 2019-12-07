@@ -6,13 +6,12 @@
 /*   By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/03 18:23:24 by lgeorgia          #+#    #+#             */
-/*   Updated: 2019/11/04 16:41:45 by lgeorgia         ###   ########.fr       */
+/*   Updated: 2019/12/06 16:55:25 by lgeorgia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/corewar.h"
 
-//mb need to add check size of code by reading CHAMPION NAME SIZE + 8 --4bytes
 void	ft_decompose(t_war *war, int num)
 {
 	ft_check_magic(war, num);

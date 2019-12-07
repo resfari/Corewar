@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_magic_comm_name.c                            :+:      :+:    :+:   */
+/*   check_magic.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/03 18:27:01 by lgeorgia          #+#    #+#             */
-/*   Updated: 2019/11/04 15:01:25 by lgeorgia         ###   ########.fr       */
+/*   Updated: 2019/12/06 16:53:29 by lgeorgia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,7 @@ void		ft_compare_magic(t_war *war, char *magic)
 		i++;
 	}
 }
-//We read first 4 bytes from file to compare this orig. magic
-// This func can be upgrade by optimize while(compare at once this 11110011100000111110101000000000)
-// no need func ft_compare_magic
+
 void	ft_check_magic(t_war *war, int num)
 {
 	char *str;

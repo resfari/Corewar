@@ -6,7 +6,7 @@
 /*   By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/02 22:09:13 by lgeorgia          #+#    #+#             */
-/*   Updated: 2019/11/25 18:49:09 by lgeorgia         ###   ########.fr       */
+/*   Updated: 2019/12/06 17:06:15 by lgeorgia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,17 +19,15 @@ int		ft_copy_code_in_player(t_war *war, int num)
 
 	if ((file = open(war->player[num].path, O_RDONLY)) == -1)
 	{
-		ft_putstr("File error\n");
-		exit(1);
+		ft_free_exit(war, 3);
 	}
-	if ((size = read(file, war->player[num].text, war->player[num].text_len)) == -1) //after this code_len = 0 idk why??
+	if ((size = read(file, war->player[num].text, war->player[num].text_len)) == -1)
 	{
-		ft_putstr("File error\n");
-		exit(1);
+		ft_free_exit(war, 3);
 	}
 	war->player[num].text[war->player[num].text_len] = '\0';
 	close(file);
-	return (size); // cause code_len = 0 we return (size) it already checked for True size
+	return (size);
 }
 
 int		ft_len_player_code(t_war *war, int num)
@@ -40,7 +38,7 @@ int		ft_len_player_code(t_war *war, int num)
 
 	if ((file = open(war->player[num].path, O_RDONLY)) == -1)
 	{
-		ft_putstr("File error\n");
+		ft_free_exit(war, 3);
 		exit(1);
 	}
 	war->player[num].text_len = 0;
@@ -51,9 +49,7 @@ int		ft_len_player_code(t_war *war, int num)
 	}
 	if (war->player[num].text_len > MAX_CODE_SIZE + 16)
 	{
-		printf("MY LEN = %d  MAX_CODE_SIZE =  %d", war->player[num].text_len, MAX_CODE_SIZE);
-		ft_putstr("File error: too much symbols\n");
-		exit(1);
+		ft_free_exit(war, 9);
 	}
 	close(file);
 	return (ft_copy_code_in_player(war, num));
@@ -66,6 +62,7 @@ void	ft_read_players_code(t_war *war)
 	i = 1;
 	while (i <= war->numb_players)
 	{
+		
 		war->player[i].text_len = ft_len_player_code(war, i);
 		i++;
 	}
