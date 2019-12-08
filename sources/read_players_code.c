@@ -17,7 +17,7 @@ int		ft_copy_code_in_player(t_war *war, int num)
 	int file;
 	int size;
 
-	if ((file = open(war->player[num].path, O_RDONLY)) == -1)
+	if ((file = open(war->player[num].path, O_RDONLY)) == -1) // what for we open and read again?
 	{
 		ft_free_exit(war, 3);
 	}
@@ -42,7 +42,7 @@ int		ft_len_player_code(t_war *war, int num)
 		exit(1);
 	}
 	war->player[num].text_len = 0;
-	while ((size = read(file, buf, BUFF_SIZE)) > 0)
+	while ((size = read(file, buf, BUFF_SIZE)) > 0) // if file of player is empty?
 	{
 		if (size != 0)
 			war->player[num].text_len += size;

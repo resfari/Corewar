@@ -75,7 +75,7 @@ int		ft_check_order_amount_players(t_war *war)
 	i = 1;
 	if (war->numb_players < 1 || war->numb_players > 4)
 		return (0);
-	ft_full_reserved(war);
+	ft_full_reserved(war); // what is it?
 	while (i <= war->numb_players)
 	{
 		if (war->reserved_num[i] == 0 || war->reserved_num[i] > war->numb_players)

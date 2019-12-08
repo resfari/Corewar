@@ -12,16 +12,16 @@
 
 #include "../include/corewar.h"
 
-t_crg	*ft_init_reg_in_crg(t_crg *crg, int num)
-{
-	int i;
+// t_crg	*ft_init_reg_in_crg(t_crg *crg, int num)
+// {
+// 	int i;
 
-	i = 2;
-	crg->reg[1] = num * -1;
-	while (i <= REG_NUMBER)
-	{
-		crg->reg[i] = 0;
-		i++;
-	}
-	return (crg);
-}
+// 	i = 2;
+// 	crg->reg[1] = num * -1;
+// 	while (i <= REG_NUMBER)
+// 	{
+// 		crg->reg[i] = 0;
+// 		i++;
+// 	}
+// 	return (crg);
+// }

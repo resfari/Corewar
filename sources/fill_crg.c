@@ -17,37 +17,30 @@ t_crg	*ft_create_crg(t_war *war, int num)
 {
 	t_crg *new;
 
-	if (!(new = (t_crg*)malloc(sizeof(t_crg) * 1)))
+	if (!(new = (t_crg*)ft_memalloc(sizeof(t_crg) * 1)))
 		ft_free_exit(war, 1);
-	new->next = NULL;
-	new->prev = NULL;
 	new->player = num;
-	new->carry = 0;
 	new->uniq_num = war->uniq;
 	war->uniq++;
-	new->die = 0;
-	new->live = 0;
-	new->moved = 0;
 	new->op = -1;
-	new->bytes_to_go = 0;
 	new->to_die = war->to_die;
 	new->pos = war->player[num].start_pos;
-	new = ft_init_reg_in_crg(new, num);
+	new->reg[1] = num * -1;
 	return (new);
 }
 
 t_crg	*ft_add_crg(t_war *war, t_crg *crg, int num)
 {
-	t_crg *help;
+	t_crg *tmp;
 
-	help = crg;
-	while (help && help->next)
+	tmp = crg;
+	while (tmp && tmp->next)
 	{
-		help = help->next;
+		tmp = tmp->next;
 	}
-	help->next = ft_create_crg(war, num);
-	help->next->prev = help;
-	return (help->next);
+	tmp->next = ft_create_crg(war, num);
+	tmp->next->prev = tmp;
+	return (tmp->next);
 }
 
 void	ft_fill_crg(t_war *war)
@@ -57,7 +50,7 @@ void	ft_fill_crg(t_war *war)
 
 	i = war->numb_players;
 	crg = NULL;
-	war->winner = i;
+	war->winner = i; // what for
 	while (i >= 1)
 	{
 		if (crg == NULL)

@@ -14,64 +14,64 @@
 
 void	ft_init_first_cycle(t_war *war)
 {
-	t_crg *help;
+	t_crg *tmp;
 	int opp;
 
-	help = war->top;
-	while (help)
+	tmp = war->top;
+	while (tmp)
 	{
-		opp = (int)(war->arena[help->pos].code & 255);
+		opp = (int)(war->arena[tmp->pos].code & 255);
 		if (opp > 0 && opp < 17)
 		{
-			help->to_do = war->opp[opp].cycle;
-			help->op = opp;
+			tmp->to_do = war->opp[opp].cycle;
+			tmp->op = opp;
 		}
 		else
 		{
-			help->to_do = 0;
-			help->op = -1;
+			tmp->to_do = 0;
+			tmp->op = -1;
 		}
-		war->arena[help->pos].crg_clr = help->player;
-		war->arena[help->pos].busy = 1;
-		help = help->next;
+		war->arena[tmp->pos].crg_clr = tmp->player;
+		war->arena[tmp->pos].busy = 1;
+		tmp = tmp->next;
 	}
 }
 
 int	ft_check_live_crg(t_war *war)
 {
-	t_crg *help;
+	t_crg *tmp;
 
-	help = war->top;
+	tmp = war->top;
 	war->numb_crg = 0;
-	while (help)
+	while (tmp)
 	{
-		if (help->live == 0)
+		if (tmp->live == 0)
 		{
-			war->arena[GG(help->pos)].busy = 0;
-			war->arena[GG(help->pos)].crg_clr = 0;
-			help->die = 1;
+			war->arena[GG(tmp->pos)].busy = 0;
+			war->arena[GG(tmp->pos)].crg_clr = 0;
+			tmp->die = 1;
 		}
-		if (help->die == 0)
+		if (tmp->die == 0)
 		{
-			help->live = 0;
+			tmp->live = 0;
 			war->numb_crg++;
 		}
-		help = help->next;
+		tmp = tmp->next;
 	}
 	return (war->numb_crg);
 }
 
 void	ft_play_game(t_war *war)
 {
-	t_crg *help;
+	t_crg *tmp;
 
 	ft_init_first_cycle(war);
 	if (war->need_to_draw == 1)
 		ft_init_ncurses();
 	while (1)
 	{
-		help = war->top;
-		ft_check_status_of_crg(war, help);
+		tmp = war->top;
+		ft_check_status_of_crg(war, tmp);
 		if (war->to_die <= 0)
 		{
 				if (war->need_to_draw == 1)

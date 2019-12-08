@@ -82,17 +82,15 @@ int     ft_add_player_with_number(t_war *war, int i)
 void    ft_read_flags_players(t_war *war)
 {
 	int i;
-	int file;
 
-	file = 0;
 	i = 1;
 	while (i < war->argc)
 	{
-		if (ft_strequ(war->argv[i], "-v"))
+		if (ft_strequ(war->argv[i], "-v")) // if several times -v?
 		{
 			war->need_to_draw = 1;
 		}
-		else if (ft_strequ(war->argv[1], "-help"))
+		else if (ft_strequ(war->argv[1], "-help")) // if -help and smth else (-v -help) or several times -help?
 		{
 			ft_free_exit(war, 11);
 		}
@@ -109,11 +107,11 @@ void    ft_read_flags_players(t_war *war)
 				i += 1;
 			}
 		}
-		else if (ft_strequ(war->argv[i], "-live"))
+		else if (ft_strequ(war->argv[i], "-live")) // if several times -live?
 		{
 			war->vis_live = 1;
 		}
-		else if (ft_strequ(war->argv[i], "-a"))
+		else if (ft_strequ(war->argv[i], "-a")) // if several times -a?
 		{
 			war->aff = 1;
 		}
@@ -147,7 +145,6 @@ void    ft_read_flags_players(t_war *war)
 		}
 		i++;
 	}
-	close(file);
 	if (ft_check_order_amount_players(war) == 0)
 	{
 		ft_free_exit(war, 4);
