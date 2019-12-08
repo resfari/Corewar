@@ -108,7 +108,6 @@ void	ft_play_game(t_war *war)
 		if (war->need_to_draw == 1)
 		{
 			ft_print_1(war, 0);
-			// usleep(50000000);
 		}
 		war->cycle++;
 		war->all_cycle++;

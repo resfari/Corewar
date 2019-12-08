@@ -123,6 +123,7 @@ typedef struct			s_war
 }						t_war;
 
 void    ft_read_file(char *name_file);
+void	ft_take_dump(t_war *war, int index);
 void    ft_read_flags_players(t_war *war); // no support flags now, only order of players realised
 void    ft_init_main(t_war *war, char **argv, int argc); // init main struct called WAR
 int     ft_give_free_num(t_war *war); 

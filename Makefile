@@ -25,6 +25,7 @@ DIR_O = temporary
 HEADER = include
 
 SOURCES = main.c \
+		  reading_take_dump.c \
 		  read_flags_players.c \
 		  init_main.c \
 		  check_player.c \
@@ -37,7 +38,6 @@ SOURCES = main.c \
 		  check_code.c \
 		  fill_crg.c \
 		  file_for_some_tests.c \
-		  init_reg_in_crg.c \
 		  greatings.c \
 		  init_opp.c \
 		  play_game.c \
