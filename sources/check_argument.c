@@ -6,7 +6,7 @@
 /*   By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/06 16:07:01 by lgeorgia          #+#    #+#             */
-/*   Updated: 2019/12/06 16:53:05 by lgeorgia         ###   ########.fr       */
+/*   Updated: 2019/12/08 17:03:25 by lgeorgia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,23 +32,26 @@ int		ft_calc_bytes_to_skip(int *mass, int dir_size, int len)
 	return (bytes + 2);
 }
 
-void	ft_read_one_byte_for_arg(t_war *war, t_crg *crg, int num)
+void	ft_init_args_in_crg(t_crg *crg)
 {
-	char *ptr;
-	int d;
-	int byte;
-	int correct;
-	int i;
-	
-	(void)num;
 	crg->args[0] = 0;
 	crg->args[1] = 0;
 	crg->args[2] = 0;
-	
+}
+
+void	ft_read_one_byte_for_arg(t_war *war, t_crg *crg)
+{
+	char	*ptr;
+	int		d;
+	int		byte;
+	int		correct;
+	int		i;
+
 	d = 0;
-	ptr = (char*)&(war->arena[GG(crg->pos + 1)].code);
-	byte = 7;
 	i = 0;
+	byte = 7;
+	ft_init_args_in_crg(crg);
+	ptr = (char*)&(war->arena[GG((crg->pos + 1))].code);
 	while (byte > 1)
 	{
 		correct = 1;
@@ -59,9 +62,7 @@ void	ft_read_one_byte_for_arg(t_war *war, t_crg *crg, int num)
 		}
 		byte--;
 		if (ptr[d] & 1 << byte)
-		{
 			crg->args[i] += 2 + correct;
-		}
 		i++;
 		byte--;
 	}
@@ -72,16 +73,18 @@ int		ft_check_argument(t_war *war, t_crg *crg, int oper)
 	int i;
 
 	i = 0;
-	ft_read_one_byte_for_arg(war, crg, crg->player);
+	ft_read_one_byte_for_arg(war, crg);
 	while (i < war->opp[oper].arg_len)
 	{
 		if (crg->args[i] == 0 || war->opp[oper].types[i] % crg->args[i] != 0)
 		{
-			crg->bytes_to_go = ft_calc_bytes_to_skip(crg->args, war->opp[oper].dir_size, war->opp[oper].arg_len);
+			crg->bytes_to_go = ft_calc_bytes_to_skip(crg->args,
+			war->opp[oper].dir_size, war->opp[oper].arg_len);
 			return (0);
 		}
 		i++;
 	}
-	crg->bytes_to_go = ft_calc_bytes_to_skip(crg->args, war->opp[oper].dir_size, war->opp[oper].arg_len);
+	crg->bytes_to_go = ft_calc_bytes_to_skip(crg->args,
+	war->opp[oper].dir_size, war->opp[oper].arg_len);
 	return (1);
 }

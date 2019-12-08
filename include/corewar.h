@@ -47,6 +47,7 @@ typedef struct			s_player
     char                comment[COMMENT_LENGTH + 1];
     char                name[PROG_NAME_LENGTH + 1];
     char                code[CHAMP_MAX_SIZE + 1];
+	int					byte_len_code;
 	int					code_len;
     int                 start_pos;
     int                 text_len;
@@ -174,6 +175,9 @@ void	ft_ldi(t_war *war, t_crg *crg, int cases);
 void	ft_fork(t_war *war, t_crg *crg, int cases);
 void	ft_sti(t_war *war, t_crg *crg);
 void	ft_aff(t_war *war, t_crg *crg);
+
+
+void	ft_check_len_code(t_war *war, int num);
 
 //print arena
 void	ft_print_1(t_war *war, int winner);

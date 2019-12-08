@@ -6,7 +6,7 @@
 /*   By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/02 22:09:13 by lgeorgia          #+#    #+#             */
-/*   Updated: 2019/12/06 17:06:15 by lgeorgia         ###   ########.fr       */
+/*   Updated: 2019/12/08 17:56:12 by lgeorgia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int		ft_len_player_code(t_war *war, int num)
 		if (size != 0)
 			war->player[num].text_len += size;
 	}
-	if (war->player[num].text_len > MAX_CODE_SIZE + 16)
+	if (war->player[num].text_len > MAX_CODE_SIZE + 16 || war->player[num].text_len < COMMENT_LENGTH + PROG_NAME_LENGTH + 16) //need check this
 	{
 		ft_free_exit(war, 9);
 	}
