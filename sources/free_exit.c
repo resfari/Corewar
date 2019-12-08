@@ -6,7 +6,7 @@
 /*   By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/03 18:47:09 by lgeorgia          #+#    #+#             */
-/*   Updated: 2019/12/06 17:48:18 by lgeorgia         ###   ########.fr       */
+/*   Updated: 2019/12/08 17:52:32 by lgeorgia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ void	ft_error_print(int num_error)
 {
 	if (num_error == 1)
 		ft_putstr("Error: Malloc\n");
+	else if (num_error == 2)
+		ft_putstr("File has a code size that differ from what its header says\n");
 	else if (num_error == 3)
 		ft_putstr("File error\n");
 	else if (num_error == 4)
