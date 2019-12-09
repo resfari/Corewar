@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   play_game.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: gbellege <gbellege@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/05 19:18:36 by lgeorgia          #+#    #+#             */
-/*   Updated: 2019/12/04 16:15:30 by lgeorgia         ###   ########.fr       */
+/*   Updated: 2019/12/09 15:23:53 by gbellege         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,8 +65,10 @@ int	ft_check_live_crg(t_war *war)
 void	ft_play_game(t_war *war)
 {
 	t_crg *help;
+	int speed;
 
 	//init first round, to_do count operation etc
+	speed = 10000;
 	ft_init_first_cycle(war);
 	if (war->need_to_draw == 1)
 		ft_init_ncurses();
@@ -122,10 +124,24 @@ void	ft_play_game(t_war *war)
 			ft_print_arena(war);
 			ft_free_exit(war, 0); // No error
 		}
-		if (war->need_to_draw == 1 && war->all_cycle == 7195) // 7196 kosyak
+		if (war->need_to_draw == 1)
 		{
-			ft_print_1(war);
-			usleep(10000000);
+					int key;
+					key = getch();
+					// if (key == 'w')
+					// 	usleep(100000);
+
+			while(key != 'w')
+			{
+				// usleep(100000);
+				
+				printf("Нажми уже эту кнопку!");
+				usleep(100000);
+
+			}			
+
+			ft_print_1(war, &speed); //добавление скорости не через структуру
+			usleep(1000);
 		}
 		war->cycle++;
 		war->all_cycle++;

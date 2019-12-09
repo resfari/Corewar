@@ -175,7 +175,7 @@ void	ft_sti(t_war *war, t_crg *crg);
 void	ft_aff(t_war *war, t_crg *crg);
 
 //print arena
-void	ft_print_1(t_war *war);
+void	ft_print_1(t_war *war, int *speed);
 void	ft_init_ncurses(void);
 
 #endif

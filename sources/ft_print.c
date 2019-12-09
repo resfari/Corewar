@@ -6,18 +6,18 @@
 /*   By: gbellege <gbellege@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/18 15:18:24 by lgeorgia          #+#    #+#             */
-/*   Updated: 2019/12/09 14:11:08 by gbellege         ###   ########.fr       */
+/*   Updated: 2019/12/09 15:23:51 by gbellege         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/corewar.h"
 
 
-void	ft_init_ncurses(void)
+void	ft_init_ncurses(void) //прочитать документацию
 {
 	initscr();
-	keypad(stdscr, true);
-	nodelay(stdscr, true);
+	keypad(stdscr, true);// doc
+	nodelay(stdscr, true);//doc
 	curs_set(false);
 	cbreak();
 	noecho();
@@ -40,12 +40,16 @@ void	ft_init_ncurses(void)
 	init_pair(14, COLOR_GREEN, COLOR_BLACK);
 }
 
-void	ft_print_1(t_war *war) // SOLO START!
+void	ft_print_1(t_war *war, int *speed) // SOLO START!
 {
 	int i;
+	
 
 	i = 0;
+
+	*speed = 1000; // Скорость движения кареток
 	erase();
+
 	while (i < MEM_SIZE)
 	{
 		if (war->arena[i].busy > 0)
@@ -69,6 +73,10 @@ void	ft_print_1(t_war *war) // SOLO START!
 	printw("Lives = %d  Cycle = %d  All-Cycles = %d Cycle-to-Dye = %d Numb crg = %d", war->live, war->cycle, war->all_cycle, war->to_die, war->numb_crg);
 	attroff(COLOR_PAIR(3));
 	refresh();
+	usleep(1000);
+	
+	usleep(1000);
+
 }
 
 void	ft_print_arena(t_war *war)
