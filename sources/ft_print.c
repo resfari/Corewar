@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_print.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: gbellege <gbellege@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/18 15:18:24 by lgeorgia          #+#    #+#             */
-/*   Updated: 2019/11/22 20:00:07 by lgeorgia         ###   ########.fr       */
+/*   Updated: 2019/12/09 14:11:08 by gbellege         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	ft_init_ncurses(void)
 	init_pair(14, COLOR_GREEN, COLOR_BLACK);
 }
 
-void	ft_print_1(t_war *war)
+void	ft_print_1(t_war *war) // SOLO START!
 {
 	int i;
 
