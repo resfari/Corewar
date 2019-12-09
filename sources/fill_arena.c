@@ -19,7 +19,7 @@ void	ft_add_code_to_arena(t_war *war, int num, int pos)
 	i = 0;
 	while (i < war->player[num].code_len)
 	{
-		war->arena[pos].code = war->player[num].code[i] & 255; // what for & 255
+		war->arena[pos].code = war->player[num].code[i];
 		war->arena[pos].color = num;
 		i++;
 		pos++;

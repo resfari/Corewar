@@ -12,7 +12,6 @@
 
 #include "../include/corewar.h"
 
-
 t_crg	*ft_create_crg(t_war *war, int num)
 {
 	t_crg *new;
@@ -50,7 +49,7 @@ void	ft_fill_crg(t_war *war)
 
 	i = war->numb_players;
 	crg = NULL;
-	war->winner = i; // what for
+	war->winner = i;
 	while (i >= 1)
 	{
 		if (crg == NULL)

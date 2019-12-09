@@ -37,7 +37,6 @@ SOURCES = main.c \
 		  fill_arena.c \
 		  check_code.c \
 		  fill_crg.c \
-		  file_for_some_tests.c \
 		  greatings.c \
 		  init_opp.c \
 		  play_game.c \

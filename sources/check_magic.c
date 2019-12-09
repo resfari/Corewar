@@ -14,8 +14,8 @@
 
 void		ft_compare_magic(t_war *war, char *magic)
 {
-	int		i;
-	const char orig[32] = "11110011100000111110101000000000";
+	int			i;
+	const char	orig[32] = "11110011100000111110101000000000";
 
 	i = 0;
 	while (i < 32)
@@ -30,7 +30,6 @@ void		ft_compare_magic(t_war *war, char *magic)
 
 void		ft_check_magic(t_war *war, int num)
 {
-	char			*str;
 	unsigned char	*ptr;
 	char			fin[33];
 	int				j;
@@ -40,8 +39,7 @@ void		ft_check_magic(t_war *war, int num)
 	fin[32] = '\0';
 	j = 31;
 	d = 0;
-	str = war->player[num].text;
-	ptr = (unsigned char*)&(str[0]);
+	ptr = (unsigned char*)&(war->player[num].text[0]);
 	while (d < 4)
 	{
 		i = -1;

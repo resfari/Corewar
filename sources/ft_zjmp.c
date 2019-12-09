@@ -12,12 +12,12 @@
 
 #include "../include/corewar.h"
 
-void    ft_zjmp(t_war *war, t_crg *crg)
+void	ft_zjmp(t_war *war, t_crg *crg)
 {
 	int arg;
 	int pos;
 
-    if (crg->carry == 1)
+	if (crg->carry == 1)
 	{
 		pos = crg->pos + 1;
 		arg = get_arg_dir(war, pos, 2);

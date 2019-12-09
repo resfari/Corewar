@@ -30,10 +30,11 @@ void	ft_live(t_war *war, t_crg *crg)
 	crg->live = 1;
 	if (ft_whos_number(war, arg) == 1)
 	{
-		war->winner = arg * - 1;
+		war->winner = arg * -1;
 		if (war->vis_live == 1 && war->need_to_draw == 0)
 		{
-			ft_printf("Player %d (%s) is said to be alive\n", war->winner, war->player[war->winner].name);
+			ft_printf("Player %d (%s) is said to be alive\n", war->winner,
+					war->player[war->winner].name);
 		}
 		ft_move_crg(war, crg, 5);
 	}

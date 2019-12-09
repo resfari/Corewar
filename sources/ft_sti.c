@@ -12,7 +12,6 @@
 
 #include "../include/corewar.h"
 
-
 void	ft_move_sti_reg_error(t_war *war, t_crg *crg)
 {
 	int res;
@@ -29,12 +28,37 @@ void	ft_move_sti_reg_error(t_war *war, t_crg *crg)
 	ft_move_crg(war, crg, res);
 }
 
+// void	ft_sti_do_with_arg1(t_war *war, t_crg *crg, int *pos)
+// {
+// 	if (crg->args[1] == 3)
+// 	{
+// 		war->arg2 = get_arg_reg(war, *pos);
+// 		if (war->arg2 >= 1 && war->arg2 <= 16)
+// 			war->arg2 = crg->reg[war->arg2];
+// 		else
+// 		{
+// 			ft_move_sti_reg_error(war, crg);
+// 			return ;
+// 		}
+// 		*pos += 1;
+// 	}
+// 	else if (crg->args[1] == 5)
+// 	{
+// 		war->arg2 = get_arg_dir(war, *pos, 2);
+// 		*pos += 2;
+// 	}
+// 	else
+// 	{
+// 		war->arg2 = get_arg_ind(war, *pos);
+// 		war->arg2 = get_arg_dir(war, crg->pos + war->arg2 % IDX_MOD, 4);
+// 		*pos += 2;
+// 	}
+// }
+
 void	ft_sti(t_war *war, t_crg *crg)
 {
 	int pos;
 	int reg;
-	int arg2;
-	int arg3;
 	int i;
 	int x;
 
@@ -45,11 +69,9 @@ void	ft_sti(t_war *war, t_crg *crg)
 		pos += 1;
 		if (crg->args[1] == 3)
 		{
-			arg2 = get_arg_reg(war, pos);
-			if (arg2 >= 1 && arg2 <= 16)
-			{
-				arg2 = crg->reg[arg2];
-			}
+			war->arg2 = get_arg_reg(war, pos);
+			if (war->arg2 >= 1 && war->arg2 <= 16)
+				war->arg2 = crg->reg[war->arg2];
 			else
 			{
 				ft_move_sti_reg_error(war, crg);
@@ -59,21 +81,22 @@ void	ft_sti(t_war *war, t_crg *crg)
 		}
 		else if (crg->args[1] == 5)
 		{
-			arg2 = get_arg_dir(war, pos, 2);
+			war->arg2 = get_arg_dir(war, pos, 2);
 			pos += 2;
 		}
 		else
 		{
-			arg2 = get_arg_ind(war, pos);
-			arg2 = get_arg_dir(war, crg->pos + arg2 % IDX_MOD, 4);
+			war->arg2 = get_arg_ind(war, pos);
+			war->arg2 = get_arg_dir(war, crg->pos + war->arg2 % IDX_MOD, 4);
 			pos += 2;
 		}
+		// ft_sti_do_with_arg1(war, crg, &pos);
 		if (crg->args[2] == 3)
 		{
-			arg3 = get_arg_reg(war, pos);
-			if (arg3 >= 1 && arg3 <= 16)
+			war->arg3 = get_arg_reg(war, pos);
+			if (war->arg3 >= 1 && war->arg3 <= 16)
 			{
-				arg3 = crg->reg[arg3];
+				war->arg3 = crg->reg[war->arg3];
 			}
 			else
 			{
@@ -84,15 +107,14 @@ void	ft_sti(t_war *war, t_crg *crg)
 		}
 		else
 		{
-			arg3 = get_arg_dir(war, pos, 2);
+			war->arg3 = get_arg_dir(war, pos, 2);
 			pos += 2;
 		}
 		i = 0;
 		while (i < 4)
 		{
-			x = crg->pos + (arg2 + arg3) % IDX_MOD + i;
+			x = crg->pos + (war->arg2 + war->arg3) % IDX_MOD + i;
 			war->arena[GG(x)].code = (crg->reg[reg] >> (8 * (3 - i))) & 255;
-			// printf("i = %d  arg = %d      ", i, (crg->reg[reg] >> (8 * (3 - i))) & 255);
 			war->arena[GG(x)].color = crg->player;
 			i++;
 		}

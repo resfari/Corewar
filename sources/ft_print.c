@@ -93,7 +93,7 @@ void	ft_print_arena(t_war *war)
 				ft_printf("0x%04x : ", begin);
 			begin += oct;
 		}
-		ft_printf("%02x", 255 & war->arena[a].code);	
+		ft_printf("%02x", 255 & war->arena[a].code);
 		write(1, " ", 1);
 		a++;
 	}

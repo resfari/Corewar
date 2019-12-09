@@ -33,13 +33,9 @@ int		ft_check_valid_num(t_war *war, char *line)
 	if (len != 1)
 		return (0);
 	if (line[0] < '1' || line[0] > '4')
-	{
-		return (0); 
-	}
+		return (0);
 	else
-	{
-		return(line[0] - 48);
-	}
+		return (line[0] - 48);
 }
 
 void	ft_full_reserved(t_war *war)
@@ -78,7 +74,8 @@ int		ft_check_order_amount_players(t_war *war)
 	ft_full_reserved(war);
 	while (i <= war->numb_players)
 	{
-		if (war->reserved_num[i] == 0 || war->reserved_num[i] > war->numb_players)
+		if (war->reserved_num[i] == 0
+				|| war->reserved_num[i] > war->numb_players)
 			return (0);
 		i++;
 	}

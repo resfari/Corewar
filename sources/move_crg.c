@@ -14,7 +14,6 @@
 
 void	ft_move_crg(t_war *war, t_crg *crg, int move_to)
 {
-	(void)war;
 	int new_pos;
 	int prev_pos;
 

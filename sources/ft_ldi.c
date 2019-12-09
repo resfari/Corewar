@@ -12,27 +12,24 @@
 
 #include "../include/corewar.h"
 
-int		ft_ldi_find_bytes(t_war *war, t_crg *crg, int arg1, int arg2, int cases)
+int		ft_ldi_find_bytes(t_war *war, t_crg *crg, int cases)
 {
-	int new_pos;
-	unsigned int bytes;
+	int				new_pos;
+	unsigned int	bytes;
 
 	if (cases == 0)
-		new_pos = crg->pos + (arg1 + arg2) % IDX_MOD;
+		new_pos = crg->pos + (war->arg1 + war->arg2) % IDX_MOD;
 	else
-	{
-		new_pos = crg->pos + (arg1 + arg2);
-	}
-	
+		new_pos = crg->pos + (war->arg1 + war->arg2);
 	bytes = get_arg_dir(war, new_pos, 4);
 	return ((int)bytes);
 }
 
 int		ft_ldi_take_arg(t_war *war, t_crg *crg, int pos, int arg)
 {
-	unsigned int dir;
-	int reg;
-	unsigned short i_pos;
+	unsigned int	dir;
+	int				reg;
+	unsigned short	i_pos;
 
 	if (crg->args[arg] == 3)
 	{
@@ -56,33 +53,29 @@ int		ft_ldi_take_arg(t_war *war, t_crg *crg, int pos, int arg)
 
 void	ft_ldi(t_war *war, t_crg *crg, int cases)
 {
-	int arg1;
-	int arg2;
 	int pos;
-	int arg3;
 
 	pos = crg->pos + 2;
-	arg1 = ft_ldi_take_arg(war, crg, pos, 0);
+	war->arg1 = ft_ldi_take_arg(war, crg, pos, 0);
 	if (crg->args[0] == 3)
 		pos += 1;
 	else
 		pos += 2;
-	arg2 = ft_ldi_take_arg(war, crg, pos, 1);
+	war->arg2 = ft_ldi_take_arg(war, crg, pos, 1);
 	if (crg->args[1] == 3)
 		pos += 1;
 	else
 		pos += 2;
-	arg3 = war->arena[GG(pos)].code;
-	// printf("\n arg3 = %d\n", arg3);
-	// ft_printf("\nLDI : arg1 = %d   arg2 = %d\n", arg1, arg2);
-	if (arg3 >= 1 && arg3 <= 16)
+	war->arg3 = war->arena[GG(pos)].code;
+	if (war->arg3 >= 1 && war->arg3 <= 16)
 	{
-		if ((crg->args[0] == 3 && arg1 < 1 && arg1 > 16) || (crg->args[1] == 3 && arg2 < 1 && arg2 > 16))
+		if ((crg->args[0] == 3 && war->arg1 < 1 && war->arg1 > 16)
+				|| (crg->args[1] == 3 && war->arg2 < 1 && war->arg2 > 16))
 		{
 			ft_move_crg(war, crg, pos - crg->pos + 1);
 			return ;
 		}
-		crg->reg[arg3] = ft_ldi_find_bytes(war, crg, arg1, arg2, cases);
+		crg->reg[war->arg3] = ft_ldi_find_bytes(war, crg, cases);
 	}
 	ft_move_crg(war, crg, pos - crg->pos + 1);
 }

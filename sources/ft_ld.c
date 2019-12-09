@@ -21,11 +21,6 @@ void	ft_ld_dir(t_war *war, t_crg *crg)
 	pos = crg->pos + 2;
 	arg = get_arg_dir(war, pos, 4);
 	reg = war->arena[GG(pos + 4)].code;
-
-	// if (war->ld_count < 30)
-	// 	printf("\nLD: value = %d reg = %d\n", arg, reg);
-	// war->ld_count++;
-
 	if (reg >= 1 && reg <= 16)
 	{
 		if (arg == 0)
@@ -50,25 +45,19 @@ void	ft_ld_ind(t_war *war, t_crg *crg, int cases)
 	pos = crg->pos + 2;
 	arg1 = get_arg_ind(war, pos);
 	reg = war->arena[GG(pos + 2)].code;
-	
 	if (cases == 0)
 		pos = crg->pos + arg1 % IDX_MOD;
 	else
-		pos = crg->pos + arg1; 
+		pos = crg->pos + arg1;
 	arg2 = get_arg_dir(war, pos, 4);
 	if (reg >= 1 && reg <= 16)
 	{
 		crg->reg[reg] = arg2;
 		if (arg2 == 0)
-		{
 			crg->carry = 1;
-		}
 		else
-		{
 			crg->carry = 0;
-		}
 	}
-
 }
 
 void	ft_ld(t_war *war, t_crg *crg, int cases)

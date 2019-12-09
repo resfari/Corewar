@@ -24,13 +24,6 @@ void	ft_st_reg(t_war *war, t_crg *crg)
 	{
 		pos += 1;
 		new_reg = war->arena[GG(pos)].code;
-
-		//testing
-		// if (war->st_count < 50)
-		// {
-		// 	printf("\nST REG:   reg = %d,  new_reg = %d   value = %d\n", reg,  new_reg, crg->reg[reg]);
-		// 	war->st_count++;
-		// }
 		if (new_reg >= 1 && new_reg <= 16)
 		{
 			crg->reg[new_reg] = crg->reg[reg];
@@ -48,7 +41,7 @@ void	ft_st_ind(t_war *war, t_crg *crg)
 	pos = crg->pos + 2;
 	ind = 0;
 	reg = get_arg_reg(war, pos);
-	ind = get_arg_ind(war, crg->pos + 3);	
+	ind = get_arg_ind(war, crg->pos + 3);
 	ind = ind % IDX_MOD;
 	pos = crg->pos + ind;
 	if (reg >= 1 && reg <= 16)
@@ -56,7 +49,8 @@ void	ft_st_ind(t_war *war, t_crg *crg)
 		i = 0;
 		while (i < 4)
 		{
-			war->arena[GG(pos + i)].code = (crg->reg[reg] >> (8 * (3 - i))) & 255;
+			war->arena[GG(pos + i)].code =
+					(crg->reg[reg] >> (8 * (3 - i))) & 255;
 			war->arena[GG(pos + i)].color = crg->player;
 			i++;
 		}

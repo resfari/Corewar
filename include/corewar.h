@@ -118,8 +118,9 @@ typedef struct			s_war
 	int					st_count;
 	int					ld_count;
 	int					live_count;
-
-
+	int					arg1;
+	int					arg2;
+	int					arg3;
 }						t_war;
 
 void    ft_read_file(char *name_file);
@@ -167,6 +168,8 @@ void	ft_ld(t_war *war, t_crg *crg, int cases);
 void	ft_st(t_war *war, t_crg *crg);
 void	ft_add(t_war *war, t_crg *crg);
 void	ft_sub(t_war *war, t_crg *crg);
+void	ft_and_or_xor_do_with_arg0(t_war *war, t_crg *crg,
+		int *pos, int *bit_val);
 void	ft_and(t_war *war, t_crg *crg);
 void	ft_or(t_war *war, t_crg *crg);
 void	ft_xor(t_war *war, t_crg *crg);
