@@ -18,10 +18,10 @@ void	ft_check_len_code(t_war *war, int num)
 	int pos;
 
 	pos = PROG_NAME_LENGTH + 8;
-	res = ((255 & war->player[num].text[pos]) << 24)
-			| ((255 & war->player[num].text[pos + 1]) << 16)
-			| ((255 & war->player[num].text[pos + 2]) << 8)
-			| (255 & war->player[num].text[pos + 3]);
+	res = (war->player[num].text[pos] << 24)
+			| (war->player[num].text[pos + 1] << 16)
+			| (war->player[num].text[pos + 2] << 8)
+			| (war->player[num].text[pos + 3]);
 	war->player[num].byte_len_code = res;
 }
 

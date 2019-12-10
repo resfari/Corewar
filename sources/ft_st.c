@@ -50,7 +50,7 @@ void	ft_st_ind(t_war *war, t_crg *crg)
 		while (i < 4)
 		{
 			war->arena[GG(pos + i)].code =
-					(crg->reg[reg] >> (8 * (3 - i))) & 255;
+					(crg->reg[reg] >> (8 * (3 - i)));
 			war->arena[GG(pos + i)].color = crg->player;
 			i++;
 		}

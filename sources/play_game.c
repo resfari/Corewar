@@ -12,32 +12,7 @@
 
 #include "../include/corewar.h"
 
-void	ft_init_first_cycle(t_war *war)
-{
-	t_crg *tmp;
-	int opp;
-
-	tmp = war->top;
-	while (tmp)
-	{
-		opp = (int)(war->arena[tmp->pos].code & 255);
-		if (opp > 0 && opp < 17)
-		{
-			tmp->to_do = war->opp[opp].cycle;
-			tmp->op = opp;
-		}
-		else
-		{
-			tmp->to_do = 0;
-			tmp->op = -1;
-		}
-		war->arena[tmp->pos].crg_clr = tmp->player;
-		war->arena[tmp->pos].busy = 1;
-		tmp = tmp->next;
-	}
-}
-
-int	ft_check_live_crg(t_war *war)
+int		ft_check_live_crg(t_war *war)
 {
 	t_crg *tmp;
 
@@ -61,6 +36,57 @@ int	ft_check_live_crg(t_war *war)
 	return (war->numb_crg);
 }
 
+void	ft_play_game_part1(t_war *war)
+{
+	if (war->to_die <= 0)
+	{
+		if (war->need_to_draw == 1)
+			ft_print_1(war, 1);
+		else
+			ft_printf("Contestant %d, \"%s\", has won !\n",
+					war->winner, war->player[war->winner].name);
+		ft_free_exit(war, 0);
+	}
+}
+
+void	ft_play_game_part2(t_war *war)
+{
+	if (war->cycle == war->to_die)
+	{
+		war->check_num++;
+		if (ft_check_live_crg(war) == 0)
+		{
+			if (war->need_to_draw == 1)
+				ft_print_1(war, 1);
+			else
+				ft_printf("Contestant %d, \"%s\", has won !\n",
+						war->winner, war->player[war->winner].name);
+			ft_free_exit(war, 0);
+		}
+		if (war->check_num == 10 || war->live >= NBR_LIVE)
+		{
+			war->to_die -= CYCLE_DELTA;
+			war->check_num = 0;
+		}
+		war->cycle = 0;
+		war->live = 0;
+	}
+}
+
+void	ft_play_game_part3(t_war *war)
+{
+	if (war->need_to_draw == 0 && war->dump_cycle == war->all_cycle
+			&& (war->dump == 1 || war->dump2 == 1))
+	{
+		ft_print_arena(war);
+		ft_free_exit(war, 0);
+	}
+	if (war->need_to_draw == 1)
+	{
+		ft_print_1(war, 0);
+	}
+}
+
 void	ft_play_game(t_war *war)
 {
 	t_crg *tmp;
@@ -72,46 +98,13 @@ void	ft_play_game(t_war *war)
 	{
 		tmp = war->top;
 		ft_check_status_of_crg(war, tmp);
-		if (war->to_die <= 0)
-		{
-				if (war->need_to_draw == 1)
-					ft_print_1(war, 1);
-				else
-					ft_printf("Contestant %d, \"%s\", has won !\n", war->winner, war->player[war->winner].name);
-				ft_free_exit(war, 0);
-		}
-		if (war->cycle == war->to_die)
-		{
-			war->check_num++;
-			if (ft_check_live_crg(war) == 0)
-			{
-				if (war->need_to_draw == 1)
-					ft_print_1(war, 1);
-				else
-					ft_printf("Contestant %d, \"%s\", has won !\n", war->winner, war->player[war->winner].name);
-				ft_free_exit(war, 0);
-			}
-			if (war->check_num == 10 || war->live >= NBR_LIVE)
-			{
-
-				war->to_die -= CYCLE_DELTA;
-				war->check_num = 0;
-			}
-			war->cycle = 0;
-			war->live = 0;
-		}
-		if (war->need_to_draw == 0 && war->dump_cycle == war->all_cycle && (war->dump == 1 || war->dump2 == 1))
-		{
-			ft_print_arena(war);
-			ft_free_exit(war, 0);
-		}
-		if (war->need_to_draw == 1)
-		{
-			ft_print_1(war, 0);
-		}
+		ft_play_game_part1(war);
+		ft_play_game_part2(war);
+		ft_play_game_part3(war);
 		war->cycle++;
 		war->all_cycle++;
 	}
-	ft_printf("Contestant %d, \"%s\", has won !\n", war->winner, war->player[war->winner].name);
+	ft_printf("Contestant %d, \"%s\", has won !\n",
+			war->winner, war->player[war->winner].name);
 	ft_free_exit(war, 0);
 }

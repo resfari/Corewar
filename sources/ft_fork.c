@@ -63,5 +63,4 @@ void	ft_fork(t_war *war, t_crg *crg, int cases)
 	}
 	ft_add_new_crg(war, crg, new_pos);
 	ft_move_crg(war, crg, 3);
-	war->fork_count++;
 }

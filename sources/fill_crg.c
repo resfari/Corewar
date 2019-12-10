@@ -19,10 +19,7 @@ t_crg	*ft_create_crg(t_war *war, int num)
 	if (!(new = (t_crg*)ft_memalloc(sizeof(t_crg) * 1)))
 		ft_free_exit(war, 1);
 	new->player = num;
-	new->uniq_num = war->uniq;
-	war->uniq++;
 	new->op = -1;
-	new->to_die = war->to_die;
 	new->pos = war->player[num].start_pos;
 	new->reg[1] = num * -1;
 	return (new);

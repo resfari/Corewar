@@ -14,7 +14,7 @@
 
 int	get_arg_reg(t_war *war, int pos)
 {
-	return ((int)(255 & war->arena[GG(pos)].code));
+	return ((int)(war->arena[GG(pos)].code));
 }
 
 int	get_arg_dir(t_war *war, int pos, int size)
@@ -24,14 +24,14 @@ int	get_arg_dir(t_war *war, int pos, int size)
 
 	if (size == 2)
 	{
-		dir1 = ((255 & war->arena[GG(pos)].code) << 8)
-				| (255 & war->arena[GG(pos + 1)].code);
+		dir1 = (war->arena[GG(pos)].code << 8)
+				| (war->arena[GG(pos + 1)].code);
 		return ((short)dir1);
 	}
-	dir2 = ((255 & war->arena[GG(pos)].code) << 24)
-			| ((255 & war->arena[GG(pos + 1)].code) << 16)
-			| ((255 & war->arena[GG(pos + 2)].code) << 8)
-			| (255 & war->arena[GG(pos + 3)].code);
+	dir2 = (war->arena[GG(pos)].code << 24)
+			| (war->arena[GG(pos + 1)].code << 16)
+			| (war->arena[GG(pos + 2)].code << 8)
+			| war->arena[GG(pos + 3)].code;
 	return ((int)dir2);
 }
 
@@ -39,7 +39,7 @@ int	get_arg_ind(t_war *war, int pos)
 {
 	unsigned short ind;
 
-	ind = ((255 & war->arena[GG(pos)].code) << 8)
-			| (255 & war->arena[GG(pos + 1)].code);
+	ind = (war->arena[GG(pos)].code << 8)
+			| (war->arena[GG(pos + 1)].code);
 	return ((short)ind);
 }

@@ -39,6 +39,7 @@ SOURCES = main.c \
 		  fill_crg.c \
 		  greatings.c \
 		  init_opp.c \
+		  init_first_cycle.c \
 		  play_game.c \
 		  check_status_of_crg.c \
 		  check_argument.c \
