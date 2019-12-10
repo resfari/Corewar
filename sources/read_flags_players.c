@@ -112,7 +112,7 @@ void	ft_read_flags_players(t_war *war)
 			}
 			else
 			{
-				if (!ft_strstr(war->argv[i], ".cor"))
+				if (!ft_check_s1_end_with_s2(war->argv[i], ".cor"))
 					ft_free_exit(war, 12);
 				i = ft_add_player_wo_number(war, i);
 			}

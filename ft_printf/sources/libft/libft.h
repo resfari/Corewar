@@ -105,5 +105,6 @@ char				*ft_strcapitalize(char *str);
 void				ft_reverse(char *s);
 int					ft_is_equal(char *s1, char *s2);
 int					ft_len_before_delim(const char *s, char c);
+int     			ft_check_s1_end_with_s2(char *s1, char *s2);
 
 #endif

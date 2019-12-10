@@ -10,13 +10,11 @@
 #                                                                              #
 # **************************************************************************** #
 
-C = clang
-
 NAME = corewar
 
 FLAG = -Wall -Wextra -Werror
 
-LIBFT = ft_printf
+FT_PRINTF = ft_printf
 
 DIR_S = sources
 
@@ -69,8 +67,8 @@ OBJS = $(addprefix $(DIR_O)/,$(SOURCES:.c=.o))
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	@make -C ft_printf
-	gcc -o $(NAME) $(FLAG) $(SRCS) ft_printf/libftprintf.a -lcurses -g
+	@make -C $(FT_PRINTF)
+	gcc -o $(NAME) $(FLAG) $(SRCS) $(FT_PRINTF)/libftprintf.a -lcurses -g
 
 $(DIR_O)/%.o: $(DIR_S)/%.c
 	@mkdir -p temporary
@@ -79,10 +77,10 @@ $(DIR_O)/%.o: $(DIR_S)/%.c
 clean:
 	@rm -rf $(DIR_O)
 	@rm -f $(OBJS)
-	@make clean -C $(LIBFT)
+	@make clean -C $(FT_PRINTF)
 
 fclean: clean
 	@rm -f $(NAME)
-	@make fclean -C $(LIBFT)
+	@make fclean -C $(FT_PRINTF)
 
 re: fclean all
