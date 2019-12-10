@@ -1,0 +1,4 @@
+1. Open file  && no errors opening file
+2. Parse name and comment from .s file
+3.suicide
+n.corewar
