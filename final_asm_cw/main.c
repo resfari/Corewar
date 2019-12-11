@@ -6,12 +6,12 @@
 /*   By: ctestabu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/08 18:58:34 by ctestabu          #+#    #+#             */
-/*   Updated: 2019/12/10 18:44:43 by ctestabu         ###   ########.fr       */
+/*   Updated: 2019/12/10 20:49:42 by ctestabu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 //#include "libft.h"
-#include "libft/includes/libft.h"
+#include "ft_printf/include/ft_printf.h"
 #include <fcntl.h>
 #include "includes/op.h"
 #include "includes/cw.h"
