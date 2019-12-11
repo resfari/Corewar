@@ -23,7 +23,9 @@ DIR_O = temporary
 HEADER = include
 
 SOURCES = assembler.c \
-		  dop_functions.c
+		  dop_functions.c \
+		  error_exit.c \
+		  get_name_and_comment.c \
 
 SRCS = $(addprefix $(DIR_S)/,$(SOURCES))
 

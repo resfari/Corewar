@@ -13,10 +13,13 @@
 #ifndef LIBFT_H
 # define LIBFT_H
 
+# define BUFF 2
+# define MAX_FD 10240
 # include <unistd.h>
-# include <string.h>
 # include <stdlib.h>
 # include <fcntl.h>
+# include <string.h>
+# include <stdio.h>
 
 typedef struct		s_list
 {
@@ -105,6 +108,9 @@ char				*ft_strcapitalize(char *str);
 void				ft_reverse(char *s);
 int					ft_is_equal(char *s1, char *s2);
 int					ft_len_before_delim(const char *s, char c);
+int					pos_of_n(char *s);
+int					get_next_line(const int fd, char **line);
+int					ft_strn_only_digit(char *str, int n);
 int     			ft_check_s1_end_with_s2(char *s1, char *s2);
 
 #endif

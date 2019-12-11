@@ -47,6 +47,7 @@ int		ft_len_player_code(t_war *war, int num)
 		if (size != 0)
 			war->player[num].text_len += size;
 	}
+	// if file is empty?
 	if (war->player[num].text_len > MAX_CODE_SIZE + 16
 			|| war->player[num].text_len < COMMENT_LENGTH
 			+ PROG_NAME_LENGTH + 16)

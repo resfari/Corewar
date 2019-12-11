@@ -1,27 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_len_before_delim.c                              :+:      :+:    :+:   */
+/*   ft_strdigit.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pnita <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/26 21:08:50 by pnita             #+#    #+#             */
-/*   Updated: 2019/04/26 21:09:14 by pnita            ###   ########.fr       */
+/*   Created: 2019/11/26 18:37:09 by pnita             #+#    #+#             */
+/*   Updated: 2019/11/26 18:37:10 by pnita            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_len_before_delim(const char *s, char c)
+int		ft_strn_only_digit(char *str, int n)
 {
-	char *s2;
+	char	*ptr;
 
-	if (!s)
-		return (-1);
-	s2 = (char*)s;
-	while (*s2 && *s2 != c)
-		s2++;
-	if (*s2 != c)
-		return (-1);
-	return (s2 - s);
+	ptr = str;
+	while (*ptr)
+	{
+		if (!ft_isdigit(*ptr))
+			return (0);
+		++ptr;
+		if (n != -1 && ptr == str + n)
+			break ;
+	}
+	return (1);
 }

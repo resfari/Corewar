@@ -1,30 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   dop_functions.c                                    :+:      :+:    :+:   */
+/*   test.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pnita <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/10 22:22:44 by pnita             #+#    #+#             */
-/*   Updated: 2019/12/10 22:22:45 by pnita            ###   ########.fr       */
+/*   Created: 2019/12/11 14:40:05 by pnita             #+#    #+#             */
+/*   Updated: 2019/12/11 14:40:06 by pnita            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/assembler.h"
+#include "../include/operations.h"
 
-char	*ft_str_sub_n(char *s1, int n)
+int main()
 {
-	char	*s2;
-	int		i;
+    unsigned char reg = 1;
+    unsigned char dir = 2;
+    unsigned char ind = 3;
+    unsigned char arg_types_code;
 
-	if (!s1 || ft_strlen(s1) < n)
-		return (NULL);
-	s2 = ft_strnew(n);
-	i = 0;
-	while (i < n)
-	{
-		s2[i] = s1[i];
-		++i;
-	}
-	return (s2);
+    // arg_types_code = reg << 6 | dir << 4 | dir << 2;
+    // printf("%x\n", arg_types_code);
+
+    // unsigned short code;
+    // code = -5;
+    // printf("%x\n", code);
+
+    printf("%.3i\n", 1);
+    return (0);
 }
