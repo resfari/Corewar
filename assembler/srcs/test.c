@@ -27,6 +27,17 @@ int main()
     // code = -5;
     // printf("%x\n", code);
 
-    printf("%.3i\n", 1);
+    // printf("%.3i\n", 1);
+
+    char    bytes[4];
+    bytes[0] = '1';
+    bytes[1] = '2';
+    // printf("%s\n", bytes);
+    int i = 0;
+    while (bytes[i])
+    {
+        printf("%c", bytes[i]);
+        ++i;
+    }
     return (0);
 }

@@ -1,8 +1,6 @@
+.comment"aff, just kidding"
+.name"laugh"                   
 
+     live 34   , 3
 
-
-                           .comment	"aff, just kidding"
-
-                      
-.name 		"laugh"                   
 

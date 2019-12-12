@@ -26,6 +26,10 @@ SOURCES = assembler.c \
 		  dop_functions.c \
 		  error_exit.c \
 		  get_name_and_comment.c \
+		  detect_op.c \
+		  lbls.c \
+		  oper.c \
+		  arg.c \
 
 SRCS = $(addprefix $(DIR_S)/,$(SOURCES))
 
