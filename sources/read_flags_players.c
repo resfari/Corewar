@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   read_flags_players.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: gbellege <gbellege@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/02 22:09:32 by lgeorgia          #+#    #+#             */
-/*   Updated: 2019/11/22 19:04:08 by lgeorgia         ###   ########.fr       */
+/*   Updated: 2019/12/12 20:27:15 by gbellege         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,7 +127,8 @@ void    ft_read_flags_players(t_war *war)
 		}
 		i++;
 	}
-	close(file);
+	if (file > 2)
+		close(file);
 	if (ft_check_order_amount_players(war) == 0)
 	{
 		ft_putstr("Check players order");

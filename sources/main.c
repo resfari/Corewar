@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: gbellege <gbellege@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/02 22:09:53 by lgeorgia          #+#    #+#             */
-/*   Updated: 2019/11/19 18:59:27 by lgeorgia         ###   ########.fr       */
+/*   Updated: 2019/12/12 20:28:08 by gbellege         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ int		main(int argc, char **argv)
 {
 	t_war *war;
 
+	(void)argc;
+	(void)argv;
 	if (!(war = (t_war*)ft_memalloc(sizeof(t_war))))
 		return (0);
 	ft_init_main(war, argv, argc); // init main struct WAR.
@@ -27,6 +29,7 @@ int		main(int argc, char **argv)
 	ft_greatings(war);
 
 	// ft_print_arena(war);
+
 
 	ft_play_game(war);
 	

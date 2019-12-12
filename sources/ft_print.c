@@ -6,7 +6,7 @@
 /*   By: gbellege <gbellege@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/18 15:18:24 by lgeorgia          #+#    #+#             */
-/*   Updated: 2019/12/09 15:23:51 by gbellege         ###   ########.fr       */
+/*   Updated: 2019/12/12 19:50:35 by gbellege         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@
 void	ft_init_ncurses(void) //прочитать документацию
 {
 	initscr();
-	keypad(stdscr, true);// doc
-	nodelay(stdscr, true);//doc
-	curs_set(false);
+	keypad(stdscr, false);// doc
+	nodelay(stdscr, TRUE);//doc
+	curs_set(0);
 	cbreak();
 	noecho();
 	start_color();
@@ -40,14 +40,14 @@ void	ft_init_ncurses(void) //прочитать документацию
 	init_pair(14, COLOR_GREEN, COLOR_BLACK);
 }
 
-void	ft_print_1(t_war *war, int *speed) // SOLO START!
+void	ft_print_1(t_war *war) // SOLO START!
 {
 	int i;
 	
 
 	i = 0;
 
-	*speed = 1000; // Скорость движения кареток
+	// *speed = 1000; // Скорость движения кареток
 	erase();
 
 	while (i < MEM_SIZE)
@@ -74,9 +74,6 @@ void	ft_print_1(t_war *war, int *speed) // SOLO START!
 	attroff(COLOR_PAIR(3));
 	refresh();
 	usleep(1000);
-	
-	usleep(1000);
-
 }
 
 void	ft_print_arena(t_war *war)
