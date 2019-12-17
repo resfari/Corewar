@@ -6,7 +6,7 @@
 #    By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/04/10 14:44:36 by lgeorgia          #+#    #+#              #
-#    Updated: 2019/11/29 19:48:57 by lgeorgia         ###   ########.fr        #
+#    Updated: 2019/12/17 16:27:46 by lgeorgia         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -58,8 +58,8 @@ SOURCES = main.c \
 		  ft_fork.c \
 		  ft_aff.c \
 		  ft_print.c \
-
-
+		  ft_key_detect.c \
+		  
 SRCS = $(addprefix $(DIR_S)/,$(SOURCES))
 
 OBJS = $(addprefix $(DIR_O)/,$(SOURCES:.c=.o))

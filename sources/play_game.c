@@ -6,7 +6,7 @@
 /*   By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/05 19:18:36 by lgeorgia          #+#    #+#             */
-/*   Updated: 2019/12/17 15:34:12 by lgeorgia         ###   ########.fr       */
+/*   Updated: 2019/12/17 16:47:44 by lgeorgia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,19 +84,23 @@ void	ft_play_game_part3(t_war *war)
 	if (war->need_to_draw == 1)
 	{
 		ft_print_1(war, 0);
+		usleep(war->speed);
 	}
 }
 
 void	ft_play_game(t_war *war)
 {
 	t_crg *tmp;
-	int key;
 
 	ft_init_first_cycle(war);
 	if (war->need_to_draw == 1)
 		ft_init_ncurses();
-	while ((key = getch()) != 27)
+	while ((war->key = getch()) != 27)
 	{
+		if (war->key == 32 || war->key == 113 || war->key == 119)
+		{
+			ft_key_detect(war);
+		}
 		tmp = war->top;
 		ft_check_status_of_crg(war, tmp);
 		ft_play_game_part1(war);
@@ -105,7 +109,7 @@ void	ft_play_game(t_war *war)
 		war->cycle++;
 		war->all_cycle++;
 	}
-	if (key == 27)
+	if (war->key == 27)
 	{
 		endwin();
 		ft_free_exit(war, 0);

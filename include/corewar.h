@@ -6,7 +6,7 @@
 /*   By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/19 17:02:21 by lgeorgia          #+#    #+#             */
-/*   Updated: 2019/11/12 18:49:10 by lgeorgia         ###   ########.fr       */
+/*   Updated: 2019/12/17 16:27:29 by lgeorgia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,6 +105,8 @@ typedef struct			s_war
 	int					arg1;
 	int					arg2;
 	int					arg3;
+	int					key;
+	unsigned int		speed;
 }						t_war;
 
 void					ft_read_file(char *name_file);
@@ -163,5 +165,6 @@ void					ft_aff(t_war *war, t_crg *crg);
 void					ft_check_len_code(t_war *war, int num);
 void					ft_print_1(t_war *war, int winner);
 void					ft_init_ncurses(void);
+void					ft_key_detect(t_war *war);
 
 #endif
