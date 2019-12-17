@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pnita <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/17 21:41:52 by pnita             #+#    #+#             */
-/*   Updated: 2019/07/17 21:41:53 by pnita            ###   ########.fr       */
+/*   Updated: 2019/12/17 15:18:02 by lgeorgia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,6 +116,7 @@ void					set_width_pre(char **s, char *s_end,
 							va_list arg, t_par *par);
 void					set_flags(char **s, char *s_end, t_par *par);
 void					get_par(char **str, va_list arg);
+int						ft_check_s1_end_with_s2(char *s1, char *s2);
 int						ft_printf(char *format, ...);
 
 #endif

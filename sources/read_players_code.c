@@ -6,7 +6,7 @@
 /*   By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/02 22:09:13 by lgeorgia          #+#    #+#             */
-/*   Updated: 2019/12/08 17:56:12 by lgeorgia         ###   ########.fr       */
+/*   Updated: 2019/12/17 15:10:33 by lgeorgia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,10 +44,11 @@ int		ft_len_player_code(t_war *war, int num)
 	war->player[num].text_len = 0;
 	while ((size = read(file, buf, BUFF_SIZE)) > 0)
 	{
+		if (size == -1)
+			ft_free_exit(war, 3);
 		if (size != 0)
 			war->player[num].text_len += size;
 	}
-	// if file is empty?
 	if (war->player[num].text_len > MAX_CODE_SIZE + 16
 			|| war->player[num].text_len < COMMENT_LENGTH
 			+ PROG_NAME_LENGTH + 16)
