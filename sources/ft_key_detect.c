@@ -25,7 +25,8 @@ void	ft_pause(t_war *war)
 	war->key = 0;
 	while (i == 21)
 	{
-		if (((war->key = getch()) == 32) || ((war->key = getch()) == 27))
+		if (((war->key = getch()) == 32)
+				|| ((war->key = getch()) == 27))
 		{
 			i = 0;
 		}

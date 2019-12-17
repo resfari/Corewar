@@ -98,9 +98,7 @@ void	ft_play_game(t_war *war)
 	while ((war->key = getch()) != 27)
 	{
 		if (war->key == 32 || war->key == 113 || war->key == 119)
-		{
 			ft_key_detect(war);
-		}
 		tmp = war->top;
 		ft_check_status_of_crg(war, tmp);
 		ft_play_game_part1(war);
