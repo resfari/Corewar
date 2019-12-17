@@ -3,14 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   ft_key_detect.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: gbellege <gbellege@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/17 16:19:58 by lgeorgia          #+#    #+#             */
-/*   Updated: 2019/12/17 16:46:31 by lgeorgia         ###   ########.fr       */
+/*   Updated: 2019/12/17 19:53:09 by gbellege         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/corewar.h"
+
+int		okrugl(int i)
+{
+	return ((1500000 - i) / 1000);
+}
 
 void	ft_pause(t_war *war)
 {
@@ -44,12 +49,12 @@ void	ft_key_detect(t_war *war)
 	}
 	else if (war->key == 113 && war->speed > 1000)
 	{
-		write(1, "STRELKA VNIZ", 12);
+		write(1, "SPEED DOWN", 10);
 		war->speed -= 1000;
 	}
 	else if (war->key == 119 && war->speed < 1500000)
 	{
-		write(1, "STRELKA VVERH", 12);
+		write(1, "SPEED UP", 8);
 		war->speed += 1000;
 	}
 	war->key = 0;
