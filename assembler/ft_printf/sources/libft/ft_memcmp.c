@@ -1,35 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   arg.c                                              :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pnita <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/12 19:00:30 by pnita             #+#    #+#             */
-/*   Updated: 2019/12/12 19:00:32 by pnita            ###   ########.fr       */
+/*   Created: 2019/04/07 22:21:46 by pnita             #+#    #+#             */
+/*   Updated: 2019/04/07 22:21:48 by pnita            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/assembler.h"
+#include "libft.h"
 
-void	fill_arg(t_arg *arg, int val, int size, int code)
+int		ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	arg->size = size;
-	arg->code = code;
-	if (size == 1)
+	unsigned char	*str1;
+	unsigned char	*str2;
+	size_t			i;
+
+	str1 = (unsigned char*)s1;
+	str2 = (unsigned char*)s2;
+	i = 0;
+	while (i < n)
 	{
-		arg->bytes[0] = val;
+		if (str1[i] != str2[i])
+			return (str1[i] - str2[i]);
+		i++;
 	}
-	else if (size == 2)
-	{
-		arg->bytes[1] = val;
-		arg->bytes[0] = val >> 8;
-	}
-	else if (size == 4)
-	{
-		arg->bytes[3] = val;
-		arg->bytes[2] = val >> 8;
-		arg->bytes[1] = val >> 16;
-		arg->bytes[0] = val >> 24;
-	}
+	return (0);
 }

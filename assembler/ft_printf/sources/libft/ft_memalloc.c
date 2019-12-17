@@ -1,35 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   arg.c                                              :+:      :+:    :+:   */
+/*   ft_memalloc.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pnita <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/12 19:00:30 by pnita             #+#    #+#             */
-/*   Updated: 2019/12/12 19:00:32 by pnita            ###   ########.fr       */
+/*   Created: 2019/04/11 21:11:56 by pnita             #+#    #+#             */
+/*   Updated: 2019/04/11 21:11:57 by pnita            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/assembler.h"
+#include "libft.h"
 
-void	fill_arg(t_arg *arg, int val, int size, int code)
+void	*ft_memalloc(size_t size)
 {
-	arg->size = size;
-	arg->code = code;
-	if (size == 1)
+	void			*s;
+	unsigned char	*ps;
+	size_t			i;
+
+	s = (void*)malloc(size);
+	if (!s)
+		return (0);
+	ps = (unsigned char*)s;
+	i = 0;
+	while (i < size)
 	{
-		arg->bytes[0] = val;
+		ps[i] = 0;
+		i++;
 	}
-	else if (size == 2)
-	{
-		arg->bytes[1] = val;
-		arg->bytes[0] = val >> 8;
-	}
-	else if (size == 4)
-	{
-		arg->bytes[3] = val;
-		arg->bytes[2] = val >> 8;
-		arg->bytes[1] = val >> 16;
-		arg->bytes[0] = val >> 24;
-	}
+	return (s);
 }

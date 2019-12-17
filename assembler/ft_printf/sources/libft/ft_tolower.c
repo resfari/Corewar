@@ -1,35 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   arg.c                                              :+:      :+:    :+:   */
+/*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pnita <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/12 19:00:30 by pnita             #+#    #+#             */
-/*   Updated: 2019/12/12 19:00:32 by pnita            ###   ########.fr       */
+/*   Created: 2019/04/07 21:03:01 by pnita             #+#    #+#             */
+/*   Updated: 2019/04/07 21:03:02 by pnita            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/assembler.h"
+#include "libft.h"
 
-void	fill_arg(t_arg *arg, int val, int size, int code)
+int		ft_tolower(int c)
 {
-	arg->size = size;
-	arg->code = code;
-	if (size == 1)
-	{
-		arg->bytes[0] = val;
-	}
-	else if (size == 2)
-	{
-		arg->bytes[1] = val;
-		arg->bytes[0] = val >> 8;
-	}
-	else if (size == 4)
-	{
-		arg->bytes[3] = val;
-		arg->bytes[2] = val >> 8;
-		arg->bytes[1] = val >> 16;
-		arg->bytes[0] = val >> 24;
-	}
+	if (c >= 65 && c <= 90)
+		return (c + 32);
+	return (c);
 }

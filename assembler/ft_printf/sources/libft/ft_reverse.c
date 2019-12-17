@@ -1,35 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   arg.c                                              :+:      :+:    :+:   */
+/*   ft_reverse.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pnita <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/12 19:00:30 by pnita             #+#    #+#             */
-/*   Updated: 2019/12/12 19:00:32 by pnita            ###   ########.fr       */
+/*   Created: 2019/04/26 20:55:09 by pnita             #+#    #+#             */
+/*   Updated: 2019/04/26 20:56:01 by pnita            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/assembler.h"
+#include "libft.h"
 
-void	fill_arg(t_arg *arg, int val, int size, int code)
+void	ft_reverse(char *s)
 {
-	arg->size = size;
-	arg->code = code;
-	if (size == 1)
+	int		i;
+	int		j;
+	int		len;
+	char	c;
+
+	i = 0;
+	len = ft_strlen(s);
+	j = len - 1;
+	while (i < (len + 1) / 2)
 	{
-		arg->bytes[0] = val;
-	}
-	else if (size == 2)
-	{
-		arg->bytes[1] = val;
-		arg->bytes[0] = val >> 8;
-	}
-	else if (size == 4)
-	{
-		arg->bytes[3] = val;
-		arg->bytes[2] = val >> 8;
-		arg->bytes[1] = val >> 16;
-		arg->bytes[0] = val >> 24;
+		c = s[i];
+		s[i] = s[j];
+		s[j] = c;
+		i++;
+		j--;
 	}
 }

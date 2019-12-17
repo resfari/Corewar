@@ -1,35 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   arg.c                                              :+:      :+:    :+:   */
+/*   ft_strupcase.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pnita <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/12 19:00:30 by pnita             #+#    #+#             */
-/*   Updated: 2019/12/12 19:00:32 by pnita            ###   ########.fr       */
+/*   Created: 2019/04/26 20:42:21 by pnita             #+#    #+#             */
+/*   Updated: 2019/04/26 20:43:04 by pnita            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/assembler.h"
+#include "libft.h"
 
-void	fill_arg(t_arg *arg, int val, int size, int code)
+char	*ft_strupcase(char *str)
 {
-	arg->size = size;
-	arg->code = code;
-	if (size == 1)
+	char *str2;
+
+	str2 = str;
+	while (*str2 != 0)
 	{
-		arg->bytes[0] = val;
+		if (*str2 >= 97 && *str2 <= 122)
+			*str2 -= ' ';
+		str2++;
 	}
-	else if (size == 2)
-	{
-		arg->bytes[1] = val;
-		arg->bytes[0] = val >> 8;
-	}
-	else if (size == 4)
-	{
-		arg->bytes[3] = val;
-		arg->bytes[2] = val >> 8;
-		arg->bytes[1] = val >> 16;
-		arg->bytes[0] = val >> 24;
-	}
+	return (str);
 }

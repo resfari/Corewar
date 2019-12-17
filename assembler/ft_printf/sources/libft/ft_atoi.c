@@ -1,35 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   dop_functions.c                                    :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pnita <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/10 22:22:44 by pnita             #+#    #+#             */
-/*   Updated: 2019/12/10 22:22:45 by pnita            ###   ########.fr       */
+/*   Created: 2019/04/07 19:06:31 by pnita             #+#    #+#             */
+/*   Updated: 2019/04/26 22:23:03 by pnita            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/assembler.h"
+#include "libft.h"
 
-char	*ft_str_sub_n(char *s1, size_t n)
-{
-	char	*s2;
-	size_t	i;
-
-	if (!s1 || ft_strlen(s1) < n)
-		return (NULL);
-	s2 = ft_strnew(n);
-	i = 0;
-	while (i < n)
-	{
-		s2[i] = s1[i];
-		++i;
-	}
-	return (s2);
-}
-
-int		ft_atoi_asm(t_asm *ass, const char *str)
+int		ft_atoi(const char *str)
 {
 	char					*s;
 	unsigned long long int	i;
@@ -38,7 +21,10 @@ int		ft_atoi_asm(t_asm *ass, const char *str)
 
 	s = (char*)str;
 	sign = 1;
-	if (*s == '-')
+	while (*s == '\t' || *s == '\n'
+			|| *s == '\v' || *s == '\f' || *s == '\r' || *s == ' ')
+		s++;
+	if (*s == '-' || *s == '+')
 		if (*(s++) == '-')
 			sign = -1;
 	i = 0;
@@ -52,6 +38,5 @@ int		ft_atoi_asm(t_asm *ass, const char *str)
 		else if ((i > 9223372036854775807 || sz > 19) && sign == 1)
 			return (-1);
 	}
-	ass->x += s - str;
 	return ((int)i * sign);
 }

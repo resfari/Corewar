@@ -15,57 +15,90 @@
 int		create_ass(t_asm **ass)
 {
 	t_asm	*new;
-	
+
 	if (!(new = (t_asm*)ft_memalloc(sizeof(t_asm))))
 		return (0);
 	new->cmd_name_len = ft_strlen(NAME_CMD_STRING);
 	new->cmd_comment_len = ft_strlen(COMMENT_CMD_STRING);
+	new->name = ft_strnew(PROG_NAME_LENGTH);
+	new->comment = ft_strnew(COMMENT_LENGTH);
 	new->lbl = (t_lbl**)ft_memalloc(sizeof(t_lbl*) * LBLS_SIZE);
 	*ass = new;
 	return (1);
 }
 
+void	reading_part2(t_asm *ass)
+{
+	int	len;
+
+	len = ass->x;
+	while (ass->line[len] && ft_strchr(LABEL_CHARS, ass->line[len]))
+		++len;
+	if (ass->line[len] == LABEL_CHAR)
+		do_with_lbl(ass, len);
+	else if (ass->line[ass->x] && !detect_op(ass))
+		error_exit(ass, 7);
+}
+
 void	reading(t_asm *ass)
 {
-	char	*str;
-
-	// now i don't spot comments => add later
 	get_name_and_comment(ass);
 	while (get_next_line(ass->fd, &ass->line) > 0)
 	{
-		// printf("y = %d\n", ass->y);
 		ass->x = 0;
 		while (ass->line[ass->x])
 		{
-			// printf("x = %d\n", ass->x);
+			if (ass->line[ass->x] == COMMENT_CHAR
+					|| ass->line[ass->x] == ALT_COMMENT_CHAR)
+				break ;
 			if (ass->line[ass->x] == ' ' || ass->line[ass->x] == '\t')
 				++ass->x;
-			else if (!detect_op(ass))
-			{
-				// detect_lbl
-				// error
-				// ass->err_token = s1_before_spaces_in_input_s2(line + ass->x);
-				// error_exit(ass, 4);
-				++ass->x;
-			}
+			else
+				reading_part2(ass);
 		}
 		++ass->y;
+		ft_strdel(&ass->line);
 	}
 }
 
-int     main(int argc, char **argv)
+void	fill_lbl_arg(t_asm *ass)
+{
+	t_lbl_arg	*lbl_arg;
+	t_lbl		*lbl;
+
+	lbl_arg = ass->lbl_arg_top;
+	while (lbl_arg)
+	{
+		if (!(lbl = find_lbl(ass, lbl_arg->lbl)))
+		{
+			ass->error_str = lbl_arg->lbl;
+			error_exit(ass, 8);
+		}
+		else
+			fill_arg(lbl_arg->arg, lbl->pos_num - lbl_arg->oper_pos,
+					lbl_arg->arg->size, lbl_arg->arg->code);
+		lbl_arg = lbl_arg->next;
+	}
+}
+
+int		main(int argc, char **argv)
 {
 	t_asm		*ass;
 
-	// if (argc != 2 || !ft_check_s1_end_with_s2(argv[1], ".s"))
-	// 	error_exit(NULL, 0);
+	if (argc == 1)
+	{
+		ft_printf("Usage: ./asm (champion.s)\n");
+		return (0);
+	}
+	if (argc > 2 || !ft_check_s1_end_with_s2(argv[1], ".s"))
+		error_exit(NULL, 0);
 	if (!create_ass(&ass))
 		return (0);
 	ass->file_name = argv[1];
-	// if ((ass->fd = open(ass->file_name, O_RDONLY)) == -1)
-	// 	error_exit(ass, 1);
-	if ((ass->fd = open("/Users/pnita/my_work/corewar/assembler/my_champ.s", O_RDONLY)) == -1)
+	if ((ass->fd = open(ass->file_name, O_RDONLY)) == -1)
 		error_exit(ass, 1);
 	reading(ass);
+	fill_lbl_arg(ass);
+	write_to_file(ass);
 	return (0);
 }

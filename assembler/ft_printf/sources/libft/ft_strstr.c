@@ -1,35 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   arg.c                                              :+:      :+:    :+:   */
+/*   ft_strstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pnita <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/12 19:00:30 by pnita             #+#    #+#             */
-/*   Updated: 2019/12/12 19:00:32 by pnita            ###   ########.fr       */
+/*   Created: 2019/04/11 20:26:27 by pnita             #+#    #+#             */
+/*   Updated: 2019/04/11 20:26:29 by pnita            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/assembler.h"
+#include "libft.h"
 
-void	fill_arg(t_arg *arg, int val, int size, int code)
+char	*ft_strstr(const char *haystack, const char *needle)
 {
-	arg->size = size;
-	arg->code = code;
-	if (size == 1)
+	size_t	i;
+	size_t	j;
+	size_t	len;
+	char	*h;
+
+	h = (char*)haystack;
+	len = ft_strlen(needle);
+	if (!len)
+		return (h);
+	i = 0;
+	while (h[i])
 	{
-		arg->bytes[0] = val;
+		j = 0;
+		while (needle[j] && needle[j] == h[i + j])
+			++j;
+		if (j == len)
+			return (&h[i]);
+		++i;
 	}
-	else if (size == 2)
-	{
-		arg->bytes[1] = val;
-		arg->bytes[0] = val >> 8;
-	}
-	else if (size == 4)
-	{
-		arg->bytes[3] = val;
-		arg->bytes[2] = val >> 8;
-		arg->bytes[1] = val >> 16;
-		arg->bytes[0] = val >> 24;
-	}
+	return (0);
 }

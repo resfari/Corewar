@@ -1,35 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   arg.c                                              :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pnita <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/12 19:00:30 by pnita             #+#    #+#             */
-/*   Updated: 2019/12/12 19:00:32 by pnita            ###   ########.fr       */
+/*   Created: 2019/04/11 17:59:54 by pnita             #+#    #+#             */
+/*   Updated: 2019/04/11 17:59:56 by pnita            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/assembler.h"
+#include "libft.h"
 
-void	fill_arg(t_arg *arg, int val, int size, int code)
+size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
-	arg->size = size;
-	arg->code = code;
-	if (size == 1)
+	size_t	i;
+	size_t	len_d;
+	size_t	len_s;
+
+	len_d = ft_strlen(dst);
+	len_s = ft_strlen(src);
+	if (size <= len_d)
+		return (size + len_s);
+	else
 	{
-		arg->bytes[0] = val;
-	}
-	else if (size == 2)
-	{
-		arg->bytes[1] = val;
-		arg->bytes[0] = val >> 8;
-	}
-	else if (size == 4)
-	{
-		arg->bytes[3] = val;
-		arg->bytes[2] = val >> 8;
-		arg->bytes[1] = val >> 16;
-		arg->bytes[0] = val >> 24;
+		i = 0;
+		while (src[i] && i < size - len_d - 1)
+		{
+			dst[len_d + i] = src[i];
+			i++;
+		}
+		dst[len_d + i] = '\0';
+		return (len_d + len_s);
 	}
 }

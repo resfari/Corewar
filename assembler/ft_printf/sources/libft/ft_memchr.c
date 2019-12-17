@@ -1,35 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   arg.c                                              :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pnita <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/12 19:00:30 by pnita             #+#    #+#             */
-/*   Updated: 2019/12/12 19:00:32 by pnita            ###   ########.fr       */
+/*   Created: 2019/04/07 21:06:27 by pnita             #+#    #+#             */
+/*   Updated: 2019/04/07 21:06:29 by pnita            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/assembler.h"
+#include "libft.h"
 
-void	fill_arg(t_arg *arg, int val, int size, int code)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	arg->size = size;
-	arg->code = code;
-	if (size == 1)
+	unsigned char	mem;
+	unsigned char	*str;
+	size_t			i;
+
+	str = (unsigned char*)s;
+	mem = (unsigned char)c;
+	i = 0;
+	while (i < n)
 	{
-		arg->bytes[0] = val;
+		if (str[i] == mem)
+			return ((void*)(str + i));
+		i++;
 	}
-	else if (size == 2)
-	{
-		arg->bytes[1] = val;
-		arg->bytes[0] = val >> 8;
-	}
-	else if (size == 4)
-	{
-		arg->bytes[3] = val;
-		arg->bytes[2] = val >> 8;
-		arg->bytes[1] = val >> 16;
-		arg->bytes[0] = val >> 24;
-	}
+	return (0);
 }

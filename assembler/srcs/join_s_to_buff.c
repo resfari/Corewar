@@ -1,35 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   arg.c                                              :+:      :+:    :+:   */
+/*   do_with_buff2.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pnita <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/12 19:00:30 by pnita             #+#    #+#             */
-/*   Updated: 2019/12/12 19:00:32 by pnita            ###   ########.fr       */
+/*   Created: 2019/12/16 16:52:31 by pnita             #+#    #+#             */
+/*   Updated: 2019/12/16 16:52:33 by pnita            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/assembler.h"
 
-void	fill_arg(t_arg *arg, int val, int size, int code)
+void	join_uns_s_to_buff(t_asm *ass, unsigned char *s, int size)
 {
-	arg->size = size;
-	arg->code = code;
-	if (size == 1)
+	int i;
+
+	if (!s)
+		return ;
+	i = 0;
+	while (i < size)
 	{
-		arg->bytes[0] = val;
+		ass->buff[ass->buff_i++] = s[i++];
 	}
-	else if (size == 2)
+}
+
+void	join_s_to_buff(t_asm *ass, char *s)
+{
+	int i;
+
+	if (!s)
+		return ;
+	i = 0;
+	while (s[i])
 	{
-		arg->bytes[1] = val;
-		arg->bytes[0] = val >> 8;
-	}
-	else if (size == 4)
-	{
-		arg->bytes[3] = val;
-		arg->bytes[2] = val >> 8;
-		arg->bytes[1] = val >> 16;
-		arg->bytes[0] = val >> 24;
+		ass->buff[ass->buff_i++] = s[i++];
 	}
 }

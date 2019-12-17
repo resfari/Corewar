@@ -1,35 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   arg.c                                              :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pnita <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/12 19:00:30 by pnita             #+#    #+#             */
-/*   Updated: 2019/12/12 19:00:32 by pnita            ###   ########.fr       */
+/*   Created: 2019/04/16 21:32:29 by pnita             #+#    #+#             */
+/*   Updated: 2019/04/16 21:32:31 by pnita            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/assembler.h"
+#include "libft.h"
 
-void	fill_arg(t_arg *arg, int val, int size, int code)
+void	ft_putnbr(int n)
 {
-	arg->size = size;
-	arg->code = code;
-	if (size == 1)
+	unsigned int i;
+	unsigned int n2;
+
+	i = 1;
+	n2 = 0;
+	if (n < 0)
 	{
-		arg->bytes[0] = val;
+		ft_putchar('-');
+		n2 = n * -1;
 	}
-	else if (size == 2)
+	else
+		n2 = n;
+	while (n2 / i / 10 > 0)
+		i *= 10;
+	while (i > 0)
 	{
-		arg->bytes[1] = val;
-		arg->bytes[0] = val >> 8;
-	}
-	else if (size == 4)
-	{
-		arg->bytes[3] = val;
-		arg->bytes[2] = val >> 8;
-		arg->bytes[1] = val >> 16;
-		arg->bytes[0] = val >> 24;
+		ft_putchar(n2 / i + '0');
+		n2 = n2 % i;
+		i = i / 10;
 	}
 }

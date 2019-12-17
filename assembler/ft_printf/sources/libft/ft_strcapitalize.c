@@ -1,35 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   arg.c                                              :+:      :+:    :+:   */
+/*   ft_strcapitalize.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pnita <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/12 19:00:30 by pnita             #+#    #+#             */
-/*   Updated: 2019/12/12 19:00:32 by pnita            ###   ########.fr       */
+/*   Created: 2019/04/26 20:44:29 by pnita             #+#    #+#             */
+/*   Updated: 2019/04/26 20:45:42 by pnita            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/assembler.h"
+#include "libft.h"
 
-void	fill_arg(t_arg *arg, int val, int size, int code)
+char	*ft_strcapitalize(char *str)
 {
-	arg->size = size;
-	arg->code = code;
-	if (size == 1)
+	char *pstr;
+
+	pstr = str;
+	pstr = ft_strlowcase(pstr);
+	if (*pstr >= 'a' && *pstr <= 'z')
+		*pstr -= ' ';
+	while (*pstr != '\0')
 	{
-		arg->bytes[0] = val;
+		pstr++;
+		if (*pstr >= 'a' && *pstr <= 'z'
+				&& (*(pstr - 1) < 'a' || *(pstr - 1) > 'z')
+				&& (*(pstr - 1) < '0' || *(pstr - 1) > '9')
+				&& (*(pstr - 1) < 'A' || *(pstr - 1) > 'Z'))
+			*pstr -= ' ';
 	}
-	else if (size == 2)
-	{
-		arg->bytes[1] = val;
-		arg->bytes[0] = val >> 8;
-	}
-	else if (size == 4)
-	{
-		arg->bytes[3] = val;
-		arg->bytes[2] = val >> 8;
-		arg->bytes[1] = val >> 16;
-		arg->bytes[0] = val >> 24;
-	}
+	return (str);
 }

@@ -1,35 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   arg.c                                              :+:      :+:    :+:   */
+/*   ft_strcat.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pnita <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/12 19:00:30 by pnita             #+#    #+#             */
-/*   Updated: 2019/12/12 19:00:32 by pnita            ###   ########.fr       */
+/*   Created: 2019/04/11 16:58:45 by pnita             #+#    #+#             */
+/*   Updated: 2019/04/11 16:58:48 by pnita            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/assembler.h"
+#include "libft.h"
 
-void	fill_arg(t_arg *arg, int val, int size, int code)
+char	*ft_strcat(char *s1, const char *s2)
 {
-	arg->size = size;
-	arg->code = code;
-	if (size == 1)
+	char	*z1;
+	char	*z2;
+
+	z1 = s1;
+	while (*z1 != '\0')
+		z1++;
+	z2 = (char*)s2;
+	while (*z2 != '\0')
 	{
-		arg->bytes[0] = val;
+		*z1 = *z2;
+		z1++;
+		z2++;
 	}
-	else if (size == 2)
-	{
-		arg->bytes[1] = val;
-		arg->bytes[0] = val >> 8;
-	}
-	else if (size == 4)
-	{
-		arg->bytes[3] = val;
-		arg->bytes[2] = val >> 8;
-		arg->bytes[1] = val >> 16;
-		arg->bytes[0] = val >> 24;
-	}
+	*z1 = '\0';
+	return (s1);
 }

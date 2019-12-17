@@ -1,35 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   arg.c                                              :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pnita <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/12 19:00:30 by pnita             #+#    #+#             */
-/*   Updated: 2019/12/12 19:00:32 by pnita            ###   ########.fr       */
+/*   Created: 2019/04/06 20:33:03 by pnita             #+#    #+#             */
+/*   Updated: 2019/04/06 20:33:04 by pnita            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/assembler.h"
+#include "libft.h"
 
-void	fill_arg(t_arg *arg, int val, int size, int code)
+void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	arg->size = size;
-	arg->code = code;
-	if (size == 1)
+	unsigned char	*d;
+	unsigned char	*s;
+	size_t			i;
+
+	if (dst == src)
+		return (dst);
+	d = (unsigned char*)dst;
+	s = (unsigned char*)src;
+	if (s < d && d < s + len)
 	{
-		arg->bytes[0] = val;
+		i = len - 1;
+		while (i != 0)
+		{
+			d[i] = s[i];
+			i--;
+		}
+		d[i] = s[i];
 	}
-	else if (size == 2)
-	{
-		arg->bytes[1] = val;
-		arg->bytes[0] = val >> 8;
-	}
-	else if (size == 4)
-	{
-		arg->bytes[3] = val;
-		arg->bytes[2] = val >> 8;
-		arg->bytes[1] = val >> 16;
-		arg->bytes[0] = val >> 24;
-	}
+	else
+		ft_memcpy(d, s, len);
+	return (dst);
 }

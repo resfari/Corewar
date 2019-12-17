@@ -12,156 +12,110 @@
 
 #include "../include/assembler.h"
 
-void	do_with_live(t_asm *ass)
+int		detect_op_part4(t_asm *ass)
 {
-	t_oper	*oper;
-	char	*s;
-
-	// printf("IN do_with_live\n");
-	oper = add_oper(ass);
-	while (ass->line[ass->x])
+	if (!ft_strncmp(ass->line + ass->x, "lldi", 4))
 	{
-		if (ass->line[ass->x] != ' ' && ass->line[ass->x] != '\t')
-		{
-			if (ass->line[ass->x] == DIRECT_CHAR)
-			{
-				++ass->x;
-				if (ass->line[ass->x] == LABEL_CHAR)
-				{
-					// do with labels
-					s = get_s_before_spaces(ass->line + ass->x);
-				}
-				else if (ass->line[ass->x] == '-' || (ass->line[ass->x] >= '0' && ass->line[ass->x] <= '9'))
-					fill_arg(&oper->arg[0], ft_atoi_asm(ass, ass->line + ass->x), 4);
-				else
-					error_exit(ass, 4);
-			}
-			else
-				error_exit(ass, 4);
-		}
-		else
-			++ass->x;
+		ass->x += 4;
+		do_with_oper(ass, 13);
 	}
-	oper->size = 5;
+	else if (!ft_strncmp(ass->line + ass->x, "lld", 3))
+	{
+		ass->x += 3;
+		do_with_oper(ass, 12);
+	}
+	else if (!ft_strncmp(ass->line + ass->x, "lfork", 5))
+	{
+		ass->x += 5;
+		do_with_oper(ass, 14);
+	}
+	else if (!ft_strncmp(ass->line + ass->x, "aff", 3))
+	{
+		ass->x += 3;
+		do_with_oper(ass, 15);
+	}
+	else
+		return (0);
+	return (1);
 }
 
-void	do_with_ld(t_asm *ass)
+int		detect_op_part3(t_asm *ass)
 {
-	t_oper	*oper;
-	char	*s;
-
-	// printf("IN do_with_ld\n");
-	oper = add_oper(ass);
-	while (ass->line[ass->x])
+	if (!ft_strncmp(ass->line + ass->x, "or", 2))
 	{
-		if (ass->line[ass->x] != ' ' && ass->line[ass->x] != '\t')
-		{
-			if (ass->line[ass->x] == SEPARATOR_CHAR)
-			{
-				// smth about separator
-			}
-			else if (ass->line[ass->x] == 'r')
-			{
-				// smth about reg
-			}
-			else if (ass->line[ass->x] == DIRECT_CHAR)
-			{
-				++ass->x;
-				if (ass->line[ass->x] == LABEL_CHAR)
-				{
-					// T_DIR do with labels
-					s = get_s_before_spaces(ass->line + ass->x);
-				}
-				else if (ass->line[ass->x] == '-' || (ass->line[ass->x] >= '0' && ass->line[ass->x] <= '9'))
-					fill_arg(&oper->arg[0], ft_atoi_asm(ass, ass->line + ass->x), 4);
-				else
-					error_exit(ass, 4);
-			}
-			else if (ass->line[ass->x] == LABEL_CHAR)
-			{
-				// T_IND do with labels
-				s = get_s_before_spaces(ass->line + ass->x);
-			}
-			else if (ass->line[ass->x] == '-' || (ass->line[ass->x] >= '0' && ass->line[ass->x] <= '9'))
-				fill_arg(&oper->arg[0], ft_atoi_asm(ass, ass->line + ass->x), 2);
-			else
-				error_exit(ass, 4);
-		}
-		else
-			++ass->x;
+		ass->x += 2;
+		do_with_oper(ass, 6);
 	}
+	else if (!ft_strncmp(ass->line + ass->x, "xor", 3))
+	{
+		ass->x += 3;
+		do_with_oper(ass, 7);
+	}
+	else if (!ft_strncmp(ass->line + ass->x, "zjmp", 4))
+	{
+		ass->x += 4;
+		do_with_oper(ass, 8);
+	}
+	else if (!ft_strncmp(ass->line + ass->x, "fork", 4))
+	{
+		ass->x += 4;
+		do_with_oper(ass, 11);
+	}
+	else if (!detect_op_part4(ass))
+		return (0);
+	return (1);
 }
 
-int 	detect_op(t_asm *ass)
+int		detect_op_part2(t_asm *ass)
 {
-	// printf("IN detect_op line[ass->x] = %c\n", line[ass->x]);
+	if (!ft_strncmp(ass->line + ass->x, "st", 2))
+	{
+		ass->x += 2;
+		do_with_oper(ass, 2);
+	}
+	else if (!ft_strncmp(ass->line + ass->x, "add", 3))
+	{
+		ass->x += 3;
+		do_with_oper(ass, 3);
+	}
+	else if (!ft_strncmp(ass->line + ass->x, "sub", 3))
+	{
+		ass->x += 3;
+		do_with_oper(ass, 4);
+	}
+	else if (!ft_strncmp(ass->line + ass->x, "and", 3))
+	{
+		ass->x += 3;
+		do_with_oper(ass, 5);
+	}
+	else if (!detect_op_part3(ass))
+		return (0);
+	return (1);
+}
+
+int		detect_op(t_asm *ass)
+{
 	if (!ft_strncmp(ass->line + ass->x, "live", 4))
 	{
 		ass->x += 4;
-		do_with_live(ass);
+		do_with_oper(ass, 0);
+	}
+	else if (!ft_strncmp(ass->line + ass->x, "ldi", 3))
+	{
+		ass->x += 3;
+		do_with_oper(ass, 9);
 	}
 	else if (!ft_strncmp(ass->line + ass->x, "ld", 2))
 	{
 		ass->x += 2;
-		do_with_ld(ass);
-	}
-	else if (!ft_strncmp(ass->line + ass->x, "st", 2))
-	{
-		// do_with_live
-	}
-	else if (!ft_strncmp(ass->line + ass->x, "add", 3))
-	{
-		// do_with_live
-	}
-	else if (!ft_strncmp(ass->line + ass->x, "sub", 3))
-	{
-		// do_with_live
-	}
-	else if (!ft_strncmp(ass->line + ass->x, "and", 3))
-	{
-		// do_with_live
-	}
-	else if (!ft_strncmp(ass->line + ass->x, "or", 2))
-	{
-		// do_with_live
-	}
-	else if (!ft_strncmp(ass->line + ass->x, "xor", 3))
-	{
-		// do_with_live
-	}
-	else if (!ft_strncmp(ass->line + ass->x, "zjmp", 4))
-	{
-		// do_with_live
-	}
-	else if (!ft_strncmp(ass->line + ass->x, "ldi", 3))
-	{
-		// do_with_live
+		do_with_oper(ass, 1);
 	}
 	else if (!ft_strncmp(ass->line + ass->x, "sti", 3))
 	{
-		// do_with_live
+		ass->x += 3;
+		do_with_oper(ass, 10);
 	}
-	else if (!ft_strncmp(ass->line + ass->x, "fork", 4))
-	{
-		// do_with_live
-	}
-	else if (!ft_strncmp(ass->line + ass->x, "lld", 3))
-	{
-		// do_with_live
-	}
-	else if (!ft_strncmp(ass->line + ass->x, "lldi", 4))
-	{
-		// do_with_live
-	}
-	else if (!ft_strncmp(ass->line + ass->x, "lfork", 5))
-	{
-		// do_with_live
-	}
-	else if (!ft_strncmp(ass->line + ass->x, "aff", 3))
-	{
-		// do_with_live
-	}
-	else
+	else if (!detect_op_part2(ass))
 		return (0);
 	return (1);
 }
