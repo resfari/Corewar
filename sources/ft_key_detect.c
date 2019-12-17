@@ -49,12 +49,12 @@ void	ft_key_detect(t_war *war)
 	}
 	else if (war->key == 113 && war->speed > 1000)
 	{
-		write(1, "SPEED DOWN", 10);
+		write(1, "SPEED UP", 8);
 		war->speed -= 1000;
 	}
 	else if (war->key == 119 && war->speed < 1500000)
 	{
-		write(1, "SPEED UP", 8);
+		write(1, "SPEED DOWN", 10);
 		war->speed += 1000;
 	}
 	war->key = 0;
