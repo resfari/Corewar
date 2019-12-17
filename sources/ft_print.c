@@ -6,7 +6,7 @@
 /*   By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/18 15:18:24 by lgeorgia          #+#    #+#             */
-/*   Updated: 2019/12/17 15:43:54 by lgeorgia         ###   ########.fr       */
+/*   Updated: 2019/12/17 15:47:56 by lgeorgia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,11 +71,11 @@ void	ft_print_1(t_war *war, int winner)
 	}
 	attron(COLOR_PAIR(3));
 	printw("\n");
-	printw("Lives = %d  Cycle = %d  All-Cycles = %d "
-			"Cycle-to-Dye = %d Numb crg = %d",
+	printw("LIVES = %d  CYCLE = %d  All-CYCLES = %d "
+			"CYCLES-TO-DYE = %d NUMB OF CARRIAGES = %d",
 			war->live, war->cycle, war->all_cycle, war->to_die, war->numb_crg);
 	if (winner == 1)
-		printw("\nWinner is %s\n", war->player[war->winner].name);
+		printw("\nWINNER IS %s\n", war->player[war->winner].name);
 	attroff(COLOR_PAIR(3));
 	refresh();
 }
