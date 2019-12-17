@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_print.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lgeorgia <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: gbellege <gbellege@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/18 15:18:24 by lgeorgia          #+#    #+#             */
-/*   Updated: 2019/12/06 16:59:57 by lgeorgia         ###   ########.fr       */
+/*   Updated: 2019/12/17 19:50:37 by gbellege         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,18 +63,20 @@ void	ft_print_1(t_war *war, int winner)
 	erase();
 	while (i < MEM_SIZE)
 	{
+		if (i != 0 && (i % (64) == 0))
+			printw("\n");
 		ft_print_1_part1(war, i);
 		printw(" ");
-		if (i != 0 && (i % (63) == 0))
-			printw("\n");
 		i++;
 	}
 	attron(COLOR_PAIR(3));
-	printw("Lives = %d  Cycle = %d  All-Cycles = %d"
-			"Cycle-to-Dye = %d Numb crg = %d",
-			war->live, war->cycle, war->all_cycle, war->to_die, war->numb_crg);
+	printw("\n");
+	printw("LIVES = %d  CYCLE = %d  All-CYCLES = %d "
+			"CYCLES-TO-DYE = %d NUMB OF CARRIAGES = %d SPEED = %d",
+			war->live, war->cycle, war->all_cycle,
+			war->to_die, war->numb_crg, okrugl(war->speed));
 	if (winner == 1)
-		printw("\nWinner is %s\n", war->player[war->winner].name);
+		printw("\nWINNER IS %s\n", war->player[war->winner].name);
 	attroff(COLOR_PAIR(3));
 	refresh();
 }
