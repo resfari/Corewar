@@ -28,16 +28,13 @@
 # define CHAMP_MAX_SIZE			(MEM_SIZE / 6)
 
 # define COMMENT_CHAR			'#'
+# define ALT_COMMENT_CHAR    	';'
 # define ALT_COMMENT_CHAR		';'
 # define LABEL_CHAR				':'
 # define DIRECT_CHAR			'%'
 # define SEPARATOR_CHAR			','
 
-# define LABEL_CHARS			"abcdefghijklmnopqrstuvwxyz_0123456\
-								789'+-*/=.,ABCDEFGHIJKLMNOPQRSTUVWXYZ"  // mb only this "abcdefghijklmnopqrstuvwxyz_0123456789"
-
-# define CMD_CHARS				" abcdefghijklmnopqrstuvwxyz_012345\
-								6789'+-*/=.,ABCDEFGHIJKLMNOPQRSTUVWXYZ!"
+# define LABEL_CHARS			"abcdefghijklmnopqrstuvwxyz_0123456789"
 
 # define NAME_CMD_STRING		".name"
 # define COMMENT_CMD_STRING		".comment"
