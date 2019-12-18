@@ -1,45 +1,25 @@
-#******************************************************************************#
+# **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: vbrazhni <vbrazhni@student.unit.ua>        +#+  +:+       +#+         #
+#    By: pnita <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2018/10/24 18:27:10 by vbrazhni          #+#    #+#              #
-#    Updated: 2018/12/23 18:27:06 by vbrazhni         ###   ########.fr        #
+#    Created: 2019/12/18 17:56:38 by pnita             #+#    #+#              #
+#    Updated: 2019/12/18 17:56:40 by pnita            ###   ########.fr        #
 #                                                                              #
-#******************************************************************************#
+# **************************************************************************** #
 
 ASM_NAME = asm
 COREWAR_NAME = corewar
 
-FLAGS = -Wall -Werror -Wextra
+FLAGS = #-Wall -Werror -Wextra
 
-# Libraries and Includes
-
-ASM_LIBRARIES = -lftprintf -L$(FT_PRINTF_DIRECTORY)
-ASM_INCLUDES = \
-	-I$(HEADERS_DIRECTORY)\
-	-I$(LIBFT_HEADERS)\
-	-I$(FT_PRINTF_HEADERS)
-
-COREWAR_LIBRARIES = -lncurses -lftprintf -L$(FT_PRINTF_DIRECTORY)
-COREWAR_INCLUDES = \
-	-I$(HEADERS_DIRECTORY)\
-	-I$(LIBFT_HEADERS)\
-	-I$(FT_PRINTF_HEADERS)
-
-LIBFT_DIRECTORY = ./ft_printf/libft/
-LIBFT = $(LIBFT_DIRECTORY)libft.a
-LIBFT_HEADERS = $(LIBFT_DIRECTORY)includes/
-
-FT_PRINTF_DIRECTORY = ./ft_printf/
-FT_PRINTF = $(FT_PRINTF_DIRECTORY)libftprintf.a
-FT_PRINTF_HEADERS = $(FT_PRINTF_DIRECTORY)includes/
+FT_PRINTF = ft_printf
 
 # Headers
 
-HEADERS_DIRECTORY = ./includes/
+HEADER = ./include/
 
 # asm
 
@@ -60,7 +40,7 @@ COREWAR_HEADERS = $(addprefix $(HEADERS_DIRECTORY), $(COREWAR_HEADERS_LIST))
 
 # asm
 
-ASM_SOURCES_DIRECTORY = ./srcs/asm/
+ASM_SOURCES_DIRECTORY = ./sources/asm/
 ASM_SOURCES_LIST = \
 	assembler.c \
 	dop_functions.c \
@@ -81,7 +61,7 @@ ASM_SOURCES = $(addprefix $(ASM_SOURCES_DIRECTORY), $(ASM_SOURCES_LIST))
 
 # corewar
 
-COREWAR_SOURCES_DIRECTORY = ./srcs/corewar/
+COREWAR_SOURCES_DIRECTORY = ./sources/corewar/
 COREWAR_SOURCES_LIST = \
 	main.c \
 	reading_take_dump.c \
@@ -124,7 +104,7 @@ COREWAR_SOURCES = $(addprefix $(COREWAR_SOURCES_DIRECTORY), $(COREWAR_SOURCES_LI
 
 # Objects
 
-OBJECTS_DIRECTORY = ./objs/
+OBJECTS_DIRECTORY = ./objects/
 
 # asm
 
@@ -140,11 +120,16 @@ COREWAR_OBJECTS	= $(addprefix $(COREWAR_OBJECTS_DIRECTORY), $(COREWAR_OBJECTS_LI
 
 all: $(COREWAR_NAME) $(ASM_NAME)
 
-$(COREWAR_NAME): $(FT_PRINTF) $(COREWAR_OBJECTS_DIRECTORY) $(COREWAR_OBJECTS)
-	gcc $(FLAGS) $(COREWAR_LIBRARIES) $(COREWAR_INCLUDES) $(COREWAR_OBJECTS) -o $(COREWAR_NAME)
+FORCE:		;
 
-$(ASM_NAME): $(FT_PRINTF) $(ASM_OBJECTS_DIRECTORY) $(ASM_OBJECTS)
-	gcc $(FLAGS) $(ASM_LIBRARIES) $(ASM_INCLUDES) $(ASM_OBJECTS) -o $(ASM_NAME)
+$(FT_PRINTF):	FORCE
+	make -C $(FT_PRINTF)
+
+$(COREWAR_NAME): $(FT_PRINTF) $(FT_PRINTF)/libftprintf.a $(COREWAR_OBJECTS_DIRECTORY) $(COREWAR_OBJECTS) $(HEADER)/corewar/*.h
+	gcc $(FLAGS) -I $(HEADER)/corewar $(COREWAR_OBJECTS) -lncurses $(FT_PRINTF)/libftprintf.a -o $(COREWAR_NAME)
+
+$(ASM_NAME): $(FT_PRINTF) $(FT_PRINTF)/libftprintf.a $(ASM_OBJECTS_DIRECTORY) $(ASM_OBJECTS) $(HEADER)/asm/*.h
+	gcc $(FLAGS) -I $(HEADER)/asm $(ASM_OBJECTS) $(FT_PRINTF)/libftprintf.a -g -o $(ASM_NAME)
 
 $(COREWAR_OBJECTS_DIRECTORY):
 	mkdir -p $(COREWAR_OBJECTS_DIRECTORY)
@@ -152,21 +137,18 @@ $(COREWAR_OBJECTS_DIRECTORY):
 $(ASM_OBJECTS_DIRECTORY):
 	mkdir -p $(ASM_OBJECTS_DIRECTORY)
 
-$(COREWAR_OBJECTS_DIRECTORY)%.o : $(COREWAR_SOURCES_DIRECTORY)%.c $(COREWAR_HEADERS)
-	gcc $(FLAGS) -c $(COREWAR_INCLUDES) $< -o $@
+$(COREWAR_OBJECTS_DIRECTORY)%.o : $(COREWAR_SOURCES_DIRECTORY)%.c
+	gcc $(FLAGS) -c -I $(HEADER)/corewar  $< -o $@
 
-$(ASM_OBJECTS_DIRECTORY)%.o : $(ASM_SOURCES_DIRECTORY)%.c $(ASM_HEADERS)
-	gcc $(FLAGS) -c $(ASM_INCLUDES) $< -o $@
-
-$(FT_PRINTF):
-	make -sC $(FT_PRINTF_DIRECTORY)
+$(ASM_OBJECTS_DIRECTORY)%.o : $(ASM_SOURCES_DIRECTORY)%.c
+	gcc $(FLAGS) -c -I $(HEADER)/asm $< -o $@
 
 clean:
-	make -sC $(FT_PRINTF_DIRECTORY) clean
+	make -C $(FT_PRINTF) clean
 	rm -rf $(OBJECTS_DIRECTORY)
 
 fclean: clean
-	make -sC $(FT_PRINTF_DIRECTORY) fclean
+	make -C $(FT_PRINTF) fclean
 	rm -f $(ASM_NAME)
 	rm -f $(COREWAR_NAME)
 
